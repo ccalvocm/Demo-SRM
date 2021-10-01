@@ -17,7 +17,7 @@ def list_folders(directory):
     return folders
 
 def list_hdf(directory):
-    files = [f for f in listdir(directory) if (isfile(join(directory, f))) & (f.endswith('.hdf'))]
+    files = [f for f in listdir(directory) if (isfile(join(directory, f))) & (f.endswith('.hdf') | f.endswith('.tif'))]
     return files
 
 def main(folder):
@@ -46,7 +46,6 @@ def main(folder):
         dir_out = folder+'\\'+str(year)
         if str(year) not in list_folders(folder):
             os.mkdir(dir_out)
-        os.chdir(dir_out)
         
         # chequear los archivos MODIS
         onlyfiles = list_hdf(dir_out)
@@ -77,6 +76,6 @@ def main(folder):
     return list(range(2021, year_f+1))
         
 if __name__ == '__main__':
-    path = os.path.join('01_Maipo','01_RMELA','Nieve')
-    main(path)
+    folder = os.path.join('.','01_Maipo','01_RMELA','Nieve')
+    main(folder)
     
