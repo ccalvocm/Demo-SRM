@@ -76,6 +76,5 @@ def main(folder):
     return list(range(2021, year_f+1))
         
 if __name__ == '__main__':
-    folder = os.path.join('.','01_Maipo','01_RMELA','Nieve')
-    main(folder)
+    main('.')
     
