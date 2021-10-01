@@ -36,5 +36,5 @@ folder = os.path.join('.','01_Maipo','01_RMELA','Nieve')
 yrs = check_download_MODIS.main(folder)
 
 for yr in yrs:
-    nasa_new_win.Prepare_MODIS(folder,yr)
+    nasa_new_win.Prepare_MODIS(os.path.abspath('.'),yr)
 

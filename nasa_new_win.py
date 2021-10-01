@@ -14,9 +14,9 @@ from nasa_aux_functions import List_Files, Exists, Enforce_List, Identify, Grab_
 def Prepare_MODIS(Package,Year):
 
     Year=str(Year) # OK
-    rawmodis = os.path.abspath(os.path.join(Package,Year))  # OK
-    readymodis = os.path.abspath(os.path.join(rawmodis,'prm')) # OK
-    reprojmodis = os.path.abspath(os.path.join(readymodis,'reproj'))
+    rawmodis = os.path.join(Package,Year)  # OK
+    readymodis = os.path.join(rawmodis,'prm') # OK
+    reprojmodis = os.path.join(readymodis,'reproj')
     # reference_file=os.path.join(Package,'Ejecutables','Reference','Elev_Zones.tif') # OK raster de cuenca
 
     if not os.path.exists(readymodis): # OK
@@ -79,11 +79,7 @@ def Extract_MODIS_HDF(filelist,layerlist,layernames,outdir,Quiet=False):
     failed=[] # OK
 
     print('{Extract_MODIS_HDF} Beginning to extract!') # OK
-    
-    # cambiar de directorio
-    folder = os.path.split(filelist[0])[0]
-    os.chdir(folder)
-    
+        
     # iterate through every file in the input filelist
     for infile in filelist: # ok
         # pull the filename and path apart 
@@ -156,7 +152,7 @@ def ExtractSubDataset_management(infile, outname, layer):
     os.system(os_command)
 
 
-def Mosaic_MODIS(filelist, pixel_type, bands, m_method, m_colormap, outdir=False,Quiet=False):
+def Mosaic_MODIS(filelist, pixel_type, bands, m_method, m_colormap, outdir,Quiet=False):
 #--------------------------------------------------------------------------------------
 # This script will find and mosaic all MODIS tiles groups with different time names in a
 # directory. It will automatically identify the date ranges in the MODIS filenames and
@@ -407,7 +403,11 @@ def Project_Filelist(filelist,outdir=False,resampling_type=False,cell_size=False
     
     # return(Spatial_Reference)
 
+def main():
+    return
 
+if __name__ == '__main__':
+    main()
 
     
     
