@@ -31,10 +31,26 @@ Created on Fri Oct  1 16:57:45 2021
 import check_download_MODIS
 import os
 import nasa_new_win
+import process_MODIS
+import snowGlacierCoveredArea
+import datetime
 
-folder = os.path.join('.','01_Maipo','01_RMELA','Nieve')
+# directorio de la cuenca
+folder = os.path.abspath(os.path.join('.','01_Maipo','01_RMELA','Nieve'))
+
+# bajar nieve nueva
 yrs = check_download_MODIS.main(folder)
 
 for yr in yrs:
-    nasa_new_win.Prepare_MODIS(os.path.abspath('.'),yr)
+# reproyectar
+    nasa_new_win.Prepare_MODIS(folder,yr)
 
+# clipear la nieve
+path_cuenca = os.path.join(os.path.split(folder)[0],'shapes','cuenca.shp')
+process_MODIS.main(folder,path_cuenca,folder)
+
+# calcular la scf
+path_bandas = os.path.join(os.path.split(folder)[0],'shapes','bandas.shp')
+path_glaciares = os.path.join(os.path.split(folder)[0],'shapes','glaciares.shp')
+
+snowGlacierCoveredArea.main(path_bandas, path_glaciares, folder, datetime.date.today().year, datetime.date.today().year+1)
