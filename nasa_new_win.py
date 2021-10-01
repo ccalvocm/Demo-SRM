@@ -14,9 +14,9 @@ from nasa_aux_functions import List_Files, Exists, Enforce_List, Identify, Grab_
 def Prepare_MODIS(Package,Year):
 
     Year=str(Year) # OK
-    rawmodis = os.path.join(Package,Year)  # OK
-    readymodis = os.path.join(rawmodis,'prm') # OK
-    reprojmodis = os.path.join(readymodis,'reproj')
+    rawmodis = os.path.abspath(os.path.join(Package,Year))  # OK
+    readymodis = os.path.abspath(os.path.join(rawmodis,'prm')) # OK
+    reprojmodis = os.path.abspath(os.path.join(readymodis,'reproj'))
     # reference_file=os.path.join(Package,'Ejecutables','Reference','Elev_Zones.tif') # OK raster de cuenca
 
     if not os.path.exists(readymodis): # OK
@@ -31,8 +31,6 @@ def Prepare_MODIS(Package,Year):
     hdf_list=List_Files(False,rawmodis,['.hdf'],['.xml','.ovr','.aux'],False) # OK
     Extract_MODIS_HDF(hdf_list,[0],['NDSI_Snow_Cover'],rawmodis,False) # OK
     
-    
-    ###### DE AQUI HACIA ABAJO TODO PENDIENTE
     # Mosaic all possible MODIS tiles together.  
     mosaic_list=List_Files(False,rawmodis,['.tif','NDSI_Snow_Cover'],['.xml','.ovr','.aux'],False) # OK
     Mosaic_MODIS(mosaic_list, '8_BIT_UNSIGNED', '1', 'LAST','FIRST',readymodis,False) # OK
@@ -139,6 +137,8 @@ def ExtractSubDataset_management(infile, outname, layer):
     # print(infile)
     # print(layer)
     os_command = 'gdal_translate -of GTiff '
+    folder = os.path.abspath(os.path.split(infile)[0])
+    os.chdir(folder)
     name = os.path.split(infile)[1]
     file_prefix = 'HDF4_EOS:EOS_GRID:'
     suffix = ':MOD_Grid_Snow_500m:NDSI_Snow_Cover'
@@ -413,26 +413,23 @@ def Project_Filelist(filelist,outdir=False,resampling_type=False,cell_size=False
     
 ####################### INICIAR PREPARE MODIS ################################
 
-# ES NECESARIO TENER EL ARCHIVO .PRJ DE PROYECCION
-# LAS IMAGENES MODIS TIENEN LA PROYECCION SIN, CUYA INFORMACION PUEDE OBTENERSE
-# DE https://spatialreference.org/ref/sr-org/modis-sinusoidal-3/
 
-''' VARIABLES
-Package: Ruta de carpeta principal
-Year: año de analisis
-La idea es que las carpetas queden asi:
-    /MODIS2021
-        /Datos
-            /NASA_Datos
-                /MODIS
-                    /<año> por ejemplo:
-                    /2019
-                    /2020
-                    /2021
-                        /prm (en esta carpeta iran los mosaicos)
-                        /MOD10A1.xxxxxx.xxxxxx.xxxx.hdf (imagen MODIS cruda)
-                        /Mod10A1.xxxxxx.xxxxxx.xxxy.hdf
-'''
+# ''' VARIABLES
+# Package: Ruta de carpeta principal
+# Year: año de analisis
+# La idea es que las carpetas queden asi:
+#     /MODIS2021
+#         /Datos
+#             /NASA_Datos
+#                 /MODIS
+#                     /<año> por ejemplo:
+#                     /2019
+#                     /2020
+#                     /2021
+#                         /prm (en esta carpeta iran los mosaicos)
+#                         /MOD10A1.xxxxxx.xxxxxx.xxxx.hdf (imagen MODIS cruda)
+#                         /Mod10A1.xxxxxx.xxxxxx.xxxy.hdf
+# '''
     
 
 
