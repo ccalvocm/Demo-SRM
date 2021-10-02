@@ -347,6 +347,9 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
 
     # actualizar flujo base inicial
     baseflow_[0] = Qtot[0]       
+    
+    # fechas para plots
+    dates = pd.date_range('2000-01-01',pd.to_datetime('2000-01-01')+datetime.timedelta(days=len(Days)-1), freq = '1d')
 
     #==========================================================================
     #                   Error calculation
@@ -390,10 +393,7 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
         print('  N-SE = ',n_se)
         print('==============================================')
         plt.close('all')        
-        
-        # fechas para plots
-        dates = pd.date_range('2000-01-01',pd.to_datetime('2000-01-01')+datetime.timedelta(days=len(Days)-1), freq = '1d')
-        
+                
         # =========================================================================
         #                              Plots                                                      
         #==========================================================================
@@ -401,18 +401,186 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
         #plot settings 
         plot_ini = '2000-01-01'
         frequency = 270
+        
+        # fechas
+        Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Days)-1), freq = '1d').date]  
+        rot = 15
+        last_year = Days_xticks[-1].year 
+        first_year = Days_xticks[0].year 
+        
+        # find the limits of the plots to properly scale the data
+        # precpitaci�n y temperatura promedio
+        Pmean=1000*np.sum(Pbands*A, axis = 1)/Atot
+        Tmean=np.sum(Tbands*A, axis = 1) / Atot
+                  
+        # plot relative runoffs
+        fig = plt.figure(figsize=(18 , 12))
+        ax = fig.add_subplot(3,1,1)
+        plt.plot(Days,Qactual,'k-', linewidth = 2)
+        plt.plot(Days,Qtot,'r-', linewidth = 2)
+        plt.title('Caudal real vs simulado: ' +str(first_year)+'-'+str(last_year))
+        # plt.xlabel('Days')
+        # plt.ylabel('Caudal ($m^3/s$)')
+        plt.legend(['Q Real','Q Simulado'])
+        plt.legend(['Q Simulado'])
+            
+        plt.axis([Days[0],Days[-1],0,1.5*max(max(Qtot),max(Qactual))])
+        plt.grid()
+        
+        locs, labels = plt.xticks()  # Get the current locations and labels.
+        plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
+             
+        ax1 = plt.subplot(3,1,2)
+        plt.grid()
+        ax1.plot(Days,Tmean,'r-', linewidth = 1)
+        ylim_min = min(Tmean)
+        ylim_max = max(Pmean)
+        ax1.set_ylim(ylim_min, ylim_max)
+        ax2 = ax1.twinx()
+        ax2.bar(Days,Pmean, color = 'b', width = 15, bottom = 0, linewidth = 2)
+        ax2.set_ylim(ylim_min, ylim_max)
+        # plt.title('Precipitación y temperatura: '+str(first_year)+'-'+str(last_year))
+        # plt.xlabel('Days')
+        ax1.set_ylabel('Temperatura (°C)')
+        ax2.set_ylabel('Precipitación (mm/día)')
+        ax1.legend(['Temperatura'], loc = 'upper right')
+        ax2.legend(['Precipitación'], loc = 'upper right', bbox_to_anchor=(1, 0.875))
+            
+        ax1.axis([Days[0],Days[-1],ylim_min, ylim_max])
+        
+        # Get the current locations and labels.
+        start, end = ax1.get_xlim()
+        # set  xticks
+        ax1.xaxis.set_ticks(np.arange(start, end, frequency))
+        ax1.set_xticklabels(Days_xticks[::frequency], rotation=rot)
+        # plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
+        
+        # reformat the way this is expressed t o make code section 508 compliant for
+        # software release on behalf of the US government.
+        
+        wSCAhi= np.sum(SCA*A, axis = 1) / Atot
+            
+        # now actually plot it.
+        plt.subplot(3,1,3)
+        ##        plot(Days,wSCAlow,'k-','LineWidth',2);
+        plt.plot(Days,wSCAhi,'steelblue','LineWidth',2)
+        # plt.title('Cobertura de nieve: '+str(first_year)+'-'+str(last_year))
+        # plt.xlabel('Days')
+        plt.ylabel('Fracción cubierta por nieve')
+        # DEVELOP_SRM_BeoPEST.m:466
+        plt.legend(['Fracción cubierta por nieve'], loc = 'upper right')
+        plt.axis([Days[0],Days[-1],0,1])
+        plt.grid()
+        
+        locs, labels = plt.xticks()  # Get the current locations and labels.
+        plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
      
     else:
-        # graficar los caudales medios mensuales pronosticados 
-        dates = pd.date_range('2000-01-01',pd.to_datetime('2000-01-01')+datetime.timedelta(days=len(Days)-1), freq = '1d')
+        plt.close('all')
+        # =========================================================================
+        #                              Plots                                                      
+        #==========================================================================    
         
-        #plot settings
-        plot_ini = pd.to_datetime(str(dates[-365].year-1)+'-04-01')
         # seleccionar el último año de simulación                
-        Qfor = pd.DataFrame(Qtot[-730:-365], index = pd.to_datetime(dates[-730:-365]))
+        # inicio del primer año hidrológico
+        years = [x.year for x in dates]
+        years = list(dict.fromkeys(years))
+        plot_ini = pd.to_datetime(str(years[-2])+'-04-01')
+
+        # Qactual
+        Qactual = pd.DataFrame(Qactual, index = dates)
+        Qactual = Qactual.loc[Qactual.index >= plot_ini]        
+        
+        # Qforecast
+        Qfor = pd.DataFrame(Qtot, index = dates)
         Qfor = Qfor.loc[Qfor.index >= plot_ini]
+        
+        # fechas
+        Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qfor)-1), freq = '1d').date]  
+        Days = Days[-len(Qfor):]
+        
+        rot = 15
+        last_year = Days_xticks[-1].year 
+        first_year = Days_xticks[0].year 
+        
+        # find the limits of the plots to properly scale the data
+        # precpitaci�n y temperatura promedio
+        Pmean=1000*np.sum(Pbands*A, axis = 1)/Atot
+        Tmean=np.sum(Tbands*A, axis = 1) / Atot
+
+        Pmean = pd.DataFrame(Pmean, index = dates)
+        Pmean = Pmean.loc[Pmean.index >= plot_ini]        
+
+        Tmean = pd.DataFrame(Tmean, index = dates)
+        Tmean = Tmean.loc[Tmean.index >= plot_ini]    
+        
+        # settings para plots
         frequency = 60
         
+        # plot relative runoffs
+        fig = plt.figure(figsize=(18 , 12))
+        ax = fig.add_subplot(3,1,1)
+        plt.plot(Days,Qactual.values,'k-', linewidth = 2)
+        plt.plot(Days,Qfor.values,'r-', linewidth = 2)
+        plt.title('Caudal real vs simulado: ' +str(first_year)+'-'+str(last_year))
+        # plt.xlabel('Days')
+        # plt.ylabel('Caudal ($m^3/s$)')
+        plt.legend(['Q Real','Q Simulado'])
+        plt.legend(['Q Simulado'])
+            
+        plt.axis([Days[0],Days[-1],0,1.5*max(max(Qtot),max(Qactual))])
+        plt.grid()
+        
+        locs, labels = plt.xticks()  # Get the current locations and labels.
+        plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
+             
+        ax1 = plt.subplot(3,1,2)
+        plt.grid()
+        ax1.plot(Days,Tmean.values,'r-', linewidth = 1)
+        ylim_min = Tmean.min().values
+        ylim_max = Pmean.max().values
+        ax1.set_ylim(ylim_min, ylim_max)
+        ax2 = ax1.twinx()
+        ax2.bar(Days,Pmean.values[:,0], color = 'b', width = 15, bottom = 0, linewidth = 2)
+        ax2.set_ylim(ylim_min, ylim_max)
+        # plt.title('Precipitación y temperatura: '+str(first_year)+'-'+str(last_year))
+        # plt.xlabel('Days')
+        ax1.set_ylabel('Temperatura (°C)')
+        ax2.set_ylabel('Precipitación (mm/día)')
+        ax1.legend(['Temperatura'], loc = 'upper right')
+        ax2.legend(['Precipitación'], loc = 'upper right', bbox_to_anchor=(1, 0.875))
+            
+        ax1.axis([Days[0],Days[-1],ylim_min, ylim_max])
+        
+        # Get the current locations and labels.
+        start, end = ax1.get_xlim()
+        # set  xticks
+        ax1.xaxis.set_ticks(np.arange(start, end, frequency))
+        _ = ax1.set_xticklabels(Days_xticks[::frequency], rotation=rot)
+        # plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
+        
+        # reformat the way this is expressed t o make code section 508 compliant for
+        # software release on behalf of the US government.
+        
+        wSCAhi = np.sum(SCA*A, axis = 1) / Atot
+        wSCAhi = pd.DataFrame(wSCAhi, dates)
+        wSCAhi = wSCAhi.loc[wSCAhi.index >= plot_ini]    
+
+        # now actually plot it.
+        plt.subplot(3,1,3)
+        ##        plot(Days,wSCAlow,'k-','LineWidth',2);
+        plt.plot(Days,wSCAhi.values[:,0],'steelblue','LineWidth',2)
+        # plt.title('Cobertura de nieve: '+str(first_year)+'-'+str(last_year))
+        # plt.xlabel('Days')
+        plt.ylabel('Fracción cubierta por nieve')
+        # DEVELOP_SRM_BeoPEST.m:466
+        plt.legend(['Fracción cubierta por nieve'], loc = 'upper right')
+        plt.axis([Days[0],Days[-1],0,1])
+        plt.grid()
+        
+        locs, labels = plt.xticks()  # Get the current locations and labels.
+        plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
+                
         # acortar los días al año de pronóstico
         Days = Days[-len(Qfor):]
                 
@@ -421,7 +589,7 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
         Qfor.reset_index(inplace = True, drop = True)
         
         # graficar la curva de variación estacional histórica
-        plt.close('all') 
+
         cve = pd.read_csv(os.path.join(root,'Inputs',r'CVE.csv'), skiprows = 1)
         fig, axis = plt.subplots(1,figsize=(8.9,4))
      
@@ -440,87 +608,8 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
         axis.grid(linestyle='-.')
         axis.legend(['Q5%','Q10%', 'Q20%','Q50%','Q85%', 'Q95%','Qpronóstico'], prop={'size': 9})
         axis.set_xticks(range(12)) 
-        axis.set_xticklabels(['Abr', 'May', 'Jun ', 'Jul', 'Ago', 'Sep', 'Oct',
+        _ = axis.set_xticklabels(['Abr', 'May', 'Jun ', 'Jul', 'Ago', 'Sep', 'Oct',
                      'Nov', 'Dic', 'Ene', 'Feb', 'Mar'], fontsize = 9)
-        axis.text(0.5, 0.95, 'PRELIMINAR', transform=axis.transAxes, fontsize=14, verticalalignment='top', bbox=props)
-    
-    # =========================================================================
-    #                              Plots                                                      
-    #==========================================================================    
-    
-    # fechas
-    Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Days)-1), freq = '1d').date]  
-    rot = 15
-    last_year = Days_xticks[-1].year 
-    first_year = Days_xticks[0].year 
-    
-    # find the limits of the plots to properly scale the data
-    # precpitaci�n y temperatura promedio
-    Pmean=1000*np.sum(Pbands*A, axis = 1)/Atot
-    Tmean=np.sum(Tbands*A, axis = 1) / Atot
-              
-    # plot relative runoffs
-    fig = plt.figure(figsize=(18 , 12))
-    ax = fig.add_subplot(3,1,1)
-    plt.plot(Days,Qactual,'k-', linewidth = 2)
-    plt.plot(Days,Qtot,'r-', linewidth = 2)
-    plt.title('Caudal real vs simulado: ' +str(first_year)+'-'+str(last_year))
-    # plt.xlabel('Days')
-    # plt.ylabel('Caudal ($m^3/s$)')
-    plt.legend(['Q Real','Q Simulado'])
-    plt.legend(['Q Simulado'])
-        
-    plt.axis([Days[0],Days[-1],0,1.5*max(max(Qtot),max(Qactual))])
-    plt.grid()
-    
-    locs, labels = plt.xticks()  # Get the current locations and labels.
-    plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
-         
-    ax1 = plt.subplot(3,1,2)
-    plt.grid()
-    ax1.plot(Days,Tmean,'r-', linewidth = 1)
-    ylim_min = min(Tmean)
-    ylim_max = max(Pmean)
-    ax1.set_ylim(ylim_min, ylim_max)
-    ax2 = ax1.twinx()
-    ax2.bar(Days,Pmean, color = 'b', width = 15, bottom = 0, linewidth = 2)
-    ax2.set_ylim(ylim_min, ylim_max)
-    # plt.title('Precipitación y temperatura: '+str(first_year)+'-'+str(last_year))
-    # plt.xlabel('Days')
-    ax1.set_ylabel('Temperatura (°C)')
-    ax2.set_ylabel('Precipitación (mm/día)')
-    ax1.legend(['Temperatura'], loc = 'upper right')
-    ax2.legend(['Precipitación'], loc = 'upper right', bbox_to_anchor=(1, 0.875))
-        
-    ax1.axis([Days[0],Days[-1],ylim_min, ylim_max])
-    
-    # Get the current locations and labels.
-    start, end = ax1.get_xlim()
-    # set  xticks
-    ax1.xaxis.set_ticks(np.arange(start, end, frequency))
-    ax1.set_xticklabels(Days_xticks[::frequency], rotation=rot)
-    # plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
-    
-    # reformat the way this is expressed t o make code section 508 compliant for
-    # software release on behalf of the US government.
-    
-    wSCAhi= np.sum(SCA*A, axis = 1) / Atot
-        
-    # now actually plot it.
-    plt.subplot(3,1,3)
-    ##        plot(Days,wSCAlow,'k-','LineWidth',2);
-    plt.plot(Days,wSCAhi,'steelblue','LineWidth',2)
-    # plt.title('Cobertura de nieve: '+str(first_year)+'-'+str(last_year))
-    # plt.xlabel('Days')
-    plt.ylabel('Fracción cubierta por nieve')
-    # DEVELOP_SRM_BeoPEST.m:466
-    plt.legend(['Fracción cubierta por nieve'], loc = 'upper right')
-    plt.axis([Days[0],Days[-1],0,1])
-    plt.grid()
-    # plt.text(0.05, 0.95, 'PRELIMINAR', transform=ax.transAxes, fontsize=14, verticalalignment='top', bbox=props)
-    
-    locs, labels = plt.xticks()  # Get the current locations and labels.
-    plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
     
 #%%    
     #==========================================================================
@@ -542,5 +631,5 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
 if __name__ == '__main__':
     root = '.'
     Basin = 'Rio_Mapocho_en_los_Almendros'
-    DEVELOP_SRM(root, Basin, type_ = 'V', alpha = 0.959, Tcrit = 1)
+    DEVELOP_SRM(root, Basin, type_ = 'P', alpha = 0.959, Tcrit = 1)
     
