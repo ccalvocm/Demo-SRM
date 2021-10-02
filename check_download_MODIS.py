@@ -17,7 +17,8 @@ def list_folders(directory):
     return folders
 
 def list_hdf(directory):
-    files = [f for f in listdir(directory) if (isfile(join(directory, f))) & (f.endswith('.hdf') | f.endswith('.tif'))]
+    # files = [f for f in listdir(directory) if (isfile(join(directory, f))) & (f.endswith('.hdf') | f.endswith('.tif'))]
+    files = [f for f in listdir(directory) if (isfile(join(directory, f))) & (f.endswith('.tif'))]
     return files
 
 def main(folder):
@@ -43,12 +44,12 @@ def main(folder):
     
     for year in range(2021,year_f+1):
         # chequear si existe la carpeta de imágenes MODIS del año
-        dir_out = folder+'\\'+str(year)
+        dir_out = os.path.join(folder,str(year))
         if str(year) not in list_folders(folder):
             os.mkdir(dir_out)
         
         # chequear los archivos MODIS
-        onlyfiles = list_hdf(dir_out)
+        onlyfiles = list_hdf(os.path.join(dir_out,'clip'))
         if len(onlyfiles):
             lastday = onlyfiles[-1].split('.')[1][-3:]
         else:
