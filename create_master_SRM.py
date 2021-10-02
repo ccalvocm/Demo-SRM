@@ -49,13 +49,6 @@ def summerDays(last_day, master):
     
     return master
 
-def readQ(path_q):
-    # leer caudales del usuario
-    q_obs = pd.read_csv(path_q,index_col=1, skiprows = 1) 
-    idx = pd.to_datetime(q_obs.index, dayfirst = True)
-    q_obs.index = idx
-    return q_obs
-
 def readPp(ruta_pp, master, last_day):
     # procesar precipitaciones
     df_pp = pd.read_csv(ruta_pp, index_col = 0, parse_dates = True)
@@ -196,23 +189,20 @@ def SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t):
  # ----------------------------------------------------------------------------
 
     # leer caudales del usuario
-    q_obs = readQ(path_q) 
+    q_obs = pd.read_csv(path_q,index_col = 0, parse_dates = True, dayfirst = True) 
+    q_obs.dropna(inplace = True)
         
     # leer archivo master predictivo
-    if os.path.isfile(root+r'\\Master.csv'):
+    if os.path.isfile(os.path.join(root,'Inputs',r'Master.csv')):
 
         #último archivo predictivo
-        master_val = pd.read_csv(root+r'\\Master.csv', index_col = 0)
-        
-        master_val.index = pd.date_range('2000-01-01',pd.to_datetime('2000-01-01')+datetime.timedelta(days=len(master_val)-1), freq = '1d') 
-        
+        master_val = pd.read_csv(os.path.join(root,'Inputs',r'Master.csv'), index_col = 0)
+                
     else:
         # si es la primera simulacion predictiva, comenzar desde los datos del modelo validado
-        master_val = pd.read_csv(root+r'\\Master20002020.csv', index_col = 0)
-     
-    # indexar el master de validacion
-    master_val.index = pd.date_range('2000-01-01',pd.to_datetime('2000-01-01')+datetime.timedelta(days=len(master_val)-1), freq = '1d') 
-    
+        print('El archivo Master.csv no se encuentre en la carpeta Inputs')
+        return
+       
     # leer cobertura de nieves
     df_n, df_g = readSnow(ruta_n)
     

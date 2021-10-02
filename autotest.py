@@ -56,4 +56,10 @@ path_glaciares = os.path.join(os.path.split(folder)[0],'shapes','glaciares.shp')
 
 snowGlacierCoveredArea.main(path_bandas, path_glaciares, folder, datetime.date.today().year, datetime.date.today().year+1)
 
-create_master_SRM()
+path_q = os.path.join(folder.replace('Nieve','Caudales'), 'Caudales.csv')
+ruta_n = folder
+root = folder.replace('Nieve','SRM')
+ruta_pp =  os.path.join(folder.replace('Nieve','Precipitacion'), r'pp.csv')
+ruta_t = os.path.join(folder.replace('Nieve','Temperatura'), r't.csv')
+
+create_master_SRM(path_q, ruta_n, root, ruta_pp , ruta_t)
