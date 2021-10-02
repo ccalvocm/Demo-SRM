@@ -129,7 +129,7 @@ def completarMaster(master, lday, df_h):
     pp = master[[x for x in master.columns if 'Pp_' in x]]
        
     # completar los parámetros
-    par = [x for x in master.columns if ('Zone' not in x) & ('Pp_' not in x) & ('T_' not in x) & ('Measured Discharge' not in x)  & ('Bf' not in x) ]
+    par = [x for x in master.columns if ('Zone' not in x) & ('Pp_' not in x) & ('T_' not in x) & ('Measured Discharge' not in x)]
     last_par = master['Recess_X']
     last_par.dropna(inplace = True)
     
@@ -244,14 +244,14 @@ def SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t):
     master_val.loc[df_t_preforecast.index, cols_t] = df_t_preforecast.values
     
     # leer curva hipsométrica de la cuenca
-    df_hypso = pd.read_csv(root+r'\\Hypso.csv', index_col = 0)
+    df_hypso = pd.read_csv(os.path.join(root,'Inputs',r'Hypso.csv'), index_col = 0)
     
     # completar los parametros que faltan del periodo de validacion
     master_val = completarMaster(master_val, last_day, df_hypso)
     
     # guardar el master del periodo de validacion
-    master_val.to_csv(root+'\\Master.csv')
-    pd.DataFrame(df_n.index).to_csv(root+'\\LastDateVal.csv', index = None)
+    master_val.to_csv(os.path.join(root,'Inputs',r'Master.csv'))
+    pd.DataFrame(df_n.index).to_csv(os.path.join(root,'Inputs',r'LastDateVal.csv'), index = None)
     
  # ============================================================================
  #                          archivo master predictivo 
@@ -270,6 +270,6 @@ def SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t):
     master_pred.loc[df_t.index, cols_t] = df_t.values
     
     # guardar el archivo master predictivo
-    master_pred.to_csv(root+'\\Master.csv')
+    master_pred.to_csv(os.path.join(root,'Inputs',r'Master.csv'))
 
     

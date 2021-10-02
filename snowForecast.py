@@ -95,40 +95,6 @@ def matchSnow(master_, last_date, df_h, cols):
     # devolver el mejor año
     return best_year
     
-# def pronostico_ARMA(df, orden, lastdate, end_date):
-
-#     # Parameters
-#     # ----------
-#     # df : Pandas DataFrame
-#     #     dataframe de nieve medida.
-#     # dias : int
-#     #     dias del periodo predictivo.
-#     # orden : tuple
-#     #     orden del ARMA.
-
-#     # Returns
-#     # -------
-#     # predictions : Pandas DataFrame
-#     #     cubierta nival pronosticada.
-                
-#     train, test = pm.model_selection.train_test_split(df, train_size=(0.79))
-    
-#     # días a pronosticar
-#     p_length = pd.date_range(lastdate-datetime.timedelta(days = len(test)-1), end_date,freq = '1d')           
-
-#     # it is required to drop the na
-#     train_differentiated = train.diff(365*5).dropna()
-#     # train_differentiated2 = difference(train.values,1)
-#     model = ARIMA(train_differentiated, order=(7,1,0))
-#     model_fit = model.fit(method='innovations_mle', low_memory=True, cov_type='none')
-    
-#     # train_dif_inverse = inverse_diff(train_differentiated, train, interval=365)
-                            
-#     forecast = model_fit.forecast(steps=len(p_length))
-#     forecast = inverse_diff(forecast, df, interval=len(p_length))
-#     forecast = forecast.loc[forecast.index > lastdate]
-    
-#     return forecast
 
 def pronostico_ARMA(df, dias, orden):
 
@@ -175,21 +141,22 @@ def snow_forecast(root):
     
     # leer el arhcivo master del periodo de pronostico
     
-    if os.path.isfile(root+r'\\Master.csv'):
-    
-        #caudal pronosticado en m3/s
-        master = pd.read_csv(root+r'\\Master.csv', index_col = 0, parse_dates = True)
+    # leer archivo master predictivo
+    if os.path.isfile(os.path.join(root,'Inputs',r'Master.csv')):
 
+        #último archivo predictivo
+        master = pd.read_csv(os.path.join(root,'Inputs',r'Master.csv'), index_col = 0, parse_dates = True)
+                
     else:
-        
         # si es la primera simulacion predictiva, comenzar desde los datos del modelo validado
-        master = pd.read_csv(root+r'\\Master20002020.csv', index_col = 0, parse_dates = True)
+        print('El archivo Master.csv no se encuentre en la carpeta Inputs')
+        return
         
     # cargar la curva hipsométrica
-    df_hypso = pd.read_csv(root+r'\\Hypso.csv', index_col = 0)
+    df_hypso = pd.read_csv(os.path.join(root,'Inputs',r'Hypso.csv'), index_col = 0)
     
     # leer última fecha de las imágenes modis
-    last_date = pd.read_csv(root+r'\\LastDateVal.csv', index_col = 0, parse_dates = True).index[-1]
+    last_date = pd.read_csv(os.path.join(root,'Inputs',r'LastDateVal.csv'), index_col = 0, parse_dates = True).index[-1]
         
     # asignar las fechas
     master = master.loc[master.index <= last_date]

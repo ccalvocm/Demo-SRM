@@ -630,5 +630,5 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
 if __name__ == '__main__':
     root = '.'
     Basin = 'Rio_Mapocho_en_los_Almendros'
-    DEVELOP_SRM(root, Basin, type_ = 'V', alpha = 0.959, Tcrit = 1)
+    DEVELOP_SRM(root, Basin, type_ = 'P', alpha = 0.959, Tcrit = 1)
     
