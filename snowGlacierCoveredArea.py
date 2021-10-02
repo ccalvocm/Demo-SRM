@@ -424,7 +424,7 @@ def main(ruta_eb_shp, ruta_gl, root_MODIS, yeari , yearf):
             else:
                             # loop recursivo para reconstruir varios días nublados
                 k = 1
-                while ((len(newarr) <= size_modis) & (k < 1)):
+                while ((len(newarr) <= size_modis) & (k < 8)):
                     print('día'+str(m))
                       # MODIS del día siguiente, parto por siguiente porque cuando se pierde la data es durante 
                       # las tormentas y días nublados              

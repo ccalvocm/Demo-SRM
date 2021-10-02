@@ -53,9 +53,9 @@ process_MODIS.main(folder,path_cuenca,folder)
 # calcular la scf
 path_bandas = os.path.join(os.path.split(folder)[0],'shapes','bandas.shp')
 path_glaciares = os.path.join(os.path.split(folder)[0],'shapes','glaciares.shp')
-
 snowGlacierCoveredArea.main(path_bandas, path_glaciares, folder, datetime.date.today().year, datetime.date.today().year+1)
 
+# crear master predictivo
 path_q = os.path.join(folder.replace('Nieve','Caudales'), 'Caudales.csv')
 ruta_n = folder
 root = folder.replace('Nieve','SRM')

@@ -196,7 +196,7 @@ def SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t):
     if os.path.isfile(os.path.join(root,'Inputs',r'Master.csv')):
 
         #último archivo predictivo
-        master_val = pd.read_csv(os.path.join(root,'Inputs',r'Master.csv'), index_col = 0)
+        master_val = pd.read_csv(os.path.join(root,'Inputs',r'Master.csv'), index_col = 0, parse_dates = True)
                 
     else:
         # si es la primera simulacion predictiva, comenzar desde los datos del modelo validado
@@ -222,7 +222,7 @@ def SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t):
             
     # agregar caudales del usuario
     idx = idx.intersection(q_obs.index)
-    master_val.loc[idx, 'Measured Discharge' ] = q_obs.loc[idx].iloc[:,3].values
+    master_val.loc[idx, 'Measured Discharge' ] = q_obs.loc[idx].values
     # master_val.to_csv(path_master_val)
         
     # último día de la validacion
