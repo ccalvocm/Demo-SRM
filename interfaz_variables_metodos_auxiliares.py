@@ -31,7 +31,7 @@ dic_paths = {'Rio Mapocho en Los Almendros': ['.','01_Maipo','01_RMELA'],
              'Rio Colorado en junta con Palos': \
                  ['.','03_Mataquito','02_RCEJCP'],
              'Rio Palos en junta con Colorado': \
-                 ['.','03_Mataquito','02_RPEJCC'],
+                 ['.','03_Mataquito','03_RPEJCC'],
              'Rio Maule en Armerillo': \
                  ['.','04_Maule','01_RMEA']}
 

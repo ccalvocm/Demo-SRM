@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import interfaz_variables_metodos_auxiliares as var_aux
+import os
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -37,7 +38,9 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         
         self.comboBox_cuencas.activated.connect(self.seleccionar_cuenca)
-
+        self.comboBox_cuencas_cabecera.currentTextChanged.connect(self.seleccionar_subcuenca)
+        
+        
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -49,6 +52,8 @@ class Ui_MainWindow(object):
         self.comboBox_cuencas.setItemText(2, _translate("MainWindow", "Rio Rapel"))
         self.comboBox_cuencas.setItemText(3, _translate("MainWindow", "Rio Mataquito"))
         self.comboBox_cuencas.setItemText(4, _translate("MainWindow", "Rio Maule"))
+        
+    global path_subcuenca
 
     def seleccionar_cuenca(self):
         
@@ -57,6 +62,14 @@ class Ui_MainWindow(object):
             self.comboBox_cuencas_cabecera.clear()
             for item in var_aux.dic_cuencas[opcion]:
                 self.comboBox_cuencas_cabecera.addItem(item)
+                
+    def seleccionar_subcuenca(self):
+        if self.comboBox_cuencas_cabecera.currentText() != '':    
+            current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
+            path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
+            print(path_subcuenca)
+                    
+    
 
 if __name__ == "__main__":
     import sys
