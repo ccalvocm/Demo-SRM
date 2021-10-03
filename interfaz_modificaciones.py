@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\interfaz.ui'
+# Form implementation generated from reading ui file 'interfaz.ui'
 #
-# Created by: PyQt5 UI code generator 5.12.3
+# Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
-
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import interfaz_variables_metodos_auxiliares as var_aux
 import os
+import autotest
+from PyQt5.QtWidgets import QFileDialog, QMessageBox
+import pandas as pd
+from matplotlib import pyplot as plt
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -28,9 +31,15 @@ class Ui_MainWindow(object):
         self.comboBox_cuencas_cabecera = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox_cuencas_cabecera.setGeometry(QtCore.QRect(10, 120, 231, 22))
         self.comboBox_cuencas_cabecera.setObjectName("comboBox_cuencas_cabecera")
+        self.pushButton_simular = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_simular.setGeometry(QtCore.QRect(260, 400, 111, 61))
+        self.pushButton_simular.setObjectName("pushButton_simular")
+        self.pushButton_plotear = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_plotear.setGeometry(QtCore.QRect(420, 400, 111, 61))
+        self.pushButton_plotear.setObjectName("pushButton_plotear")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 20))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -39,8 +48,9 @@ class Ui_MainWindow(object):
         
         self.comboBox_cuencas.activated.connect(self.seleccionar_cuenca)
         self.comboBox_cuencas_cabecera.currentTextChanged.connect(self.seleccionar_subcuenca)
-        
-        
+        self.pushButton_simular.clicked.connect(self.simular)
+        self.pushButton_plotear.clicked.connect(self.plotear_resultados)
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -52,6 +62,12 @@ class Ui_MainWindow(object):
         self.comboBox_cuencas.setItemText(2, _translate("MainWindow", "Rio Rapel"))
         self.comboBox_cuencas.setItemText(3, _translate("MainWindow", "Rio Mataquito"))
         self.comboBox_cuencas.setItemText(4, _translate("MainWindow", "Rio Maule"))
+        self.pushButton_simular.setText(_translate("MainWindow", "SIMULAR\n"
+"PROXIMA\n"
+"TEMPORADA"))
+        self.pushButton_plotear.setText(_translate("MainWindow", "PLOTEAR\n"
+"RESULTADOS"))
+        
         
     global path_subcuenca
 
@@ -68,8 +84,43 @@ class Ui_MainWindow(object):
             current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
             path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
             print(path_subcuenca)
-                    
-    
+            
+    def simular(self):
+        current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
+        path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
+        path_completo = os.path.join(os.getcwd(),path_subcuenca)
+        print(path_completo)
+        try:
+            autotest.run_pySRM(path_completo, tipo = 'P')
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("Simulación exitosa")
+        except:
+            errormsg = QMessageBox()
+            errormsg.setIcon(QMessageBox.Critical)
+            errormsg.setText("Error en la simulación")
+            
+    def plotear_resultados(self):
+        current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
+        path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
+        path_completo = os.path.join(os.getcwd(),path_subcuenca)
+        path_resultados = os.path.join(path_completo,'SRM','Resultados')
+        sufijo = var_aux.dic_paths[current_subcuenca][1]
+        print(sufijo)
+        path_caudal_simulado = os.path.join(path_resultados,
+                                            'Qsim_'+sufijo+'.csv')
+        print(path_caudal_simulado)
+        df_caudal_simulado = pd.read_csv(path_caudal_simulado,
+                                         header = None,
+                                         index_col=0,
+                                         parse_dates=True)
+        fig,ax = plt.subplots()
+        df_caudal_simulado.plot(ax=ax)
+        plt.show()
+        
+        
+        
+
 
 if __name__ == "__main__":
     import sys
@@ -79,3 +130,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+

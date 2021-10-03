@@ -11,6 +11,8 @@ import interfaz_variables_metodos_auxiliares as var_aux
 import os
 import autotest
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
+import pandas as pd
+from matplotlib import pyplot as plt
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -47,6 +49,7 @@ class Ui_MainWindow(object):
         self.comboBox_cuencas.activated.connect(self.seleccionar_cuenca)
         self.comboBox_cuencas_cabecera.currentTextChanged.connect(self.seleccionar_subcuenca)
         self.pushButton_simular.clicked.connect(self.simular)
+        self.pushButton_plotear.clicked.connect(self.plotear_resultados)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -63,8 +66,7 @@ class Ui_MainWindow(object):
 "PROXIMA\n"
 "TEMPORADA"))
         self.pushButton_plotear.setText(_translate("MainWindow", "PLOTEAR\n"
-"DATA\n"
-"ACTUAL"))
+"RESULTADOS"))
         
         
     global path_subcuenca
@@ -97,6 +99,26 @@ class Ui_MainWindow(object):
             errormsg = QMessageBox()
             errormsg.setIcon(QMessageBox.Critical)
             errormsg.setText("Error en la simulación")
+            
+    def plotear_resultados(self):
+        current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
+        path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
+        path_completo = os.path.join(os.getcwd(),path_subcuenca)
+        path_resultados = os.path.join(path_completo,'SRM','Resultados')
+        sufijo = var_aux.dic_paths[current_subcuenca][1]
+        print(sufijo)
+        path_caudal_simulado = os.path.join(path_resultados,
+                                            'Qsim_'+sufijo+'.csv')
+        print(path_caudal_simulado)
+        df_caudal_simulado = pd.read_csv(path_caudal_simulado,
+                                         header = None,
+                                         index_col=0,
+                                         parse_dates=True)
+        fig,ax = plt.subplots()
+        df_caudal_simulado.plot(ax=ax)
+        plt.show()
+        
+        
         
 
 
