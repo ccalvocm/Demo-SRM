@@ -118,28 +118,124 @@ class Ui_MainWindow(object):
                                          index_col=0,
                                          parse_dates=True)
         
-         # graficar predictivo
-          # cargar el master y su información
+        #######################################
+        #   graficar periodo de validación    #
+        #######################################
+
+        #plot settings 
+        plot_ini = '2000-01-01'
+        frequency = 270
+    
+        # cargar el master y su información
         master = pd.read_csv(os.path.join(path_completo,'SRM','Inputs',r'Master.csv'), index_col = 0, parse_dates = True)
+                
+        # # leer precipitaciones
+        # Pbands = master[[x for x in master.columns if 'Pp_z' in x]]
         
-        # leer precipitaciones
-        Pbands = master[[x for x in master.columns if 'Pp_z' in x]]
+        # # leer temperaturas
+        # Tbands = master[[x for x in master.columns if 'T_z' in x]] 
         
-        # leer temperaturas
-        Tbands = master[[x for x in master.columns if 'T_z' in x]] 
+        # # leer curva hipsométrica
+        # ruta_hipso = os.path.join(path_completo,'SRM','Inputs',r'Hypso.csv')
+        # Area = pd.read_csv(ruta_hipso, index_col = 0)['area'].values
         
-        # leer curva hipsométrica
-        ruta_hipso = os.path.join(path_completo,'SRM','Inputs',r'Hypso.csv')
-        Area = pd.read_csv(ruta_hipso, index_col = 0)['area'].values
+        # # Leer Qactual
+        # plot_ini = pd.to_datetime('2000-01-01')
+        # Qactual = master['Measured Discharge'] # Actual flow (m3/s)
+        # Qactual = Qactual.loc[Qactual.index >= plot_ini]/1e3
+        
+        # # leer q simulado
+        # Qsim = pd.read_csv(os.path.join(path_completo,'SRM','Resultados',r'Qsim_01_RMELA.csv'), index_col = 0, parse_dates = True, header = None)
+        # Qsim = Qsim.loc[Qsim.index >= plot_ini]/1e3
+        
+        # # fechas
+        # Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qsim)-1), freq = '1d').date]  
+        # rot = 15
+        # last_year = Days_xticks[-1].year 
+        # first_year = Days_xticks[0].year 
+        
+        # # find the limits of the plots to properly scale the data
+        # # precpitaci�n y temperatura promedio
+        # Pmean=1000*np.sum(Pbands*Area, axis = 1)/np.sum(Area)
+        # Tmean=np.sum(Tbands*Area, axis = 1) / np.sum(Area)
+    
+        # Pmean = pd.DataFrame(Pmean, index = master.index)
+        # Pmean = Pmean.loc[Pmean.index >= plot_ini]        
+    
+        # Tmean = pd.DataFrame(Tmean, index = master.index)
+        # Tmean = Tmean.loc[Tmean.index >= plot_ini]    
+                  
+        # # plot relative runoffs
+        # Days = range(0,len(Qsim.index))
+        # fig = plt.figure(figsize=(18 , 12))
+        # ax = fig.add_subplot(3,1,1)
+        # plt.plot(Days,Qactual,'k-', linewidth = 2)
+        # plt.plot(Days,Qsim.values,'r-', linewidth = 2)
+        # plt.title('Caudal real vs simulado: ' +str(first_year)+'-'+str(last_year))
+        # # plt.xlabel('Days')
+        # # plt.ylabel('Caudal ($m^3/s$)')
+        # plt.legend(['Q Real','Q Simulado'])
+        # plt.legend(['Q Simulado'])
+            
+        # plt.axis([Days[0],Days[-1],0,1.5*max(max(Qsim),max(Qactual))])
+        # plt.grid()
+        
+        # locs, labels = plt.xticks()  # Get the current locations and labels.
+        # plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
+             
+        # ax1 = plt.subplot(3,1,2)
+        # plt.grid()
+        # ax1.plot(Days,Tmean,'r-', linewidth = 1)
+        # ylim_min = min(Tmean)
+        # ylim_max = max(Pmean)
+        # ax1.set_ylim(ylim_min, ylim_max)
+        # ax2 = ax1.twinx()
+        # ax2.bar(Days,Pmean, color = 'b', width = 15, bottom = 0, linewidth = 2)
+        # ax2.set_ylim(ylim_min, ylim_max)
+        # # plt.title('Precipitación y temperatura: '+str(first_year)+'-'+str(last_year))
+        # # plt.xlabel('Days')
+        # ax1.set_ylabel('Temperatura (°C)')
+        # ax2.set_ylabel('Precipitación (mm/día)')
+        # ax1.legend(['Temperatura'], loc = 'upper right')
+        # ax2.legend(['Precipitación'], loc = 'upper right', bbox_to_anchor=(1, 0.875))
+            
+        # ax1.axis([Days[0],Days[-1],ylim_min, ylim_max])
+        
+        # # Get the current locations and labels.
+        # start, end = ax1.get_xlim()
+        # # set  xticks
+        # ax1.xaxis.set_ticks(np.arange(start, end, frequency))
+        # ax1.set_xticklabels(Days_xticks[::frequency], rotation=rot)
+        # # plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
+        
+        # # reformat the way this is expressed t o make code section 508 compliant for
+        # # software release on behalf of the US government.
+        # SCA = master[[x for x in master.columns if ('Zone' in x) & ('.' not in x)]]
+        # wSCAhi= np.sum(SCA*Area, axis = 1) / np.sum(Area)
+            
+        # # now actually plot it.
+        # plt.subplot(3,1,3)
+        # ##        plot(Days,wSCAlow,'k-','LineWidth',2);
+        # plt.plot(Days,wSCAhi,'steelblue','LineWidth',2)
+        # # plt.title('Cobertura de nieve: '+str(first_year)+'-'+str(last_year))
+        # # plt.xlabel('Days')
+        # plt.ylabel('Fracción cubierta por nieve')
+        # # DEVELOP_SRM_BeoPEST.m:466
+        # plt.legend(['Fracción cubierta por nieve'], loc = 'upper right')
+        # plt.axis([Days[0],Days[-1],0,1])
+        # plt.grid()
+        
+        # locs, labels = plt.xticks()  # Get the current locations and labels.
+        # plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot)  # Set text labels and properties.
+        
+        #######################################
+        #         graficar predictivo         #
+        #######################################
         
         years = [x.year for x in master.index]
         years = list(dict.fromkeys(years))
         plot_ini = pd.to_datetime(str(years[-2])+'-04-01')
-    
-        # Qactual
-        Qactual = master['Measured Discharge'] # Actual flow (m3/s)
-        Qactual = Qactual.loc[Qactual.index >= plot_ini]/1e3
-            
+
         # Qforecast
         Qfor = pd.read_csv(os.path.join(path_completo,'SRM','Resultados',r'Qsim_01_RMELA.csv'), index_col = 0, parse_dates = True, header = None)
         Qfor = Qfor.loc[Qfor.index >= plot_ini]/1e3
@@ -150,18 +246,7 @@ class Ui_MainWindow(object):
         rot = 15
         last_year = Days_xticks[-1].year 
         first_year = Days_xticks[0].year 
-        
-        # find the limits of the plots to properly scale the data
-        # precpitaci�n y temperatura promedio
-        Pmean=1000*np.sum(Pbands*Area, axis = 1)/np.sum(Area)
-        Tmean=np.sum(Tbands*Area, axis = 1) / np.sum(Area)
-    
-        Pmean = pd.DataFrame(Pmean, index = master.index)
-        Pmean = Pmean.loc[Pmean.index >= plot_ini]        
-    
-        Tmean = pd.DataFrame(Tmean, index = master.index)
-        Tmean = Tmean.loc[Tmean.index >= plot_ini]    
-        
+                
         # settings para plots
         frequency = 60
         
