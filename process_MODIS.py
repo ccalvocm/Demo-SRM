@@ -84,7 +84,7 @@ def main(dir_in,  yeari = datetime.date.today().year, yearf = datetime.date.toda
     # -------
     # None.
 
-    shp = os.path.abspath(os.path.join(dir_in,'shapes','bandas.shp'))
+    shp = os.path.abspath(os.path.join(dir_in,'Shapes','bandas.shp'))
     dir_in = os.path.abspath(os.path.join(dir_in,'Nieve'))
     dir_out = dir_in
     
