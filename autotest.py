@@ -62,4 +62,4 @@ root = folder.replace('Nieve','SRM')
 ruta_pp =  os.path.join(folder.replace('Nieve','Precipitacion'), r'pp.csv')
 ruta_t = os.path.join(folder.replace('Nieve','Temperatura'), r't.csv')
 
-create_master_SRM(path_q, ruta_n, root, ruta_pp , ruta_t)
+create_master_SRM.SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t)
