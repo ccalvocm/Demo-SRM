@@ -46,19 +46,33 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
         os.makedirs(dir_out)   
     
     # leet las imágenes MODIS
-    for filename in os.listdir(dir_in):
-        # if (filename.endswith(".tif")) & ('h12v12' in filename): 
+    for ind,filename in enumerate(os.listdir(dir_in)):
         if filename.endswith(".tif"): 
-            raster = rasterio.open(os.path.join(dir_in,filename),
-                                     masked=True)
-            
-            # clip
-            out_image, out_transform = rasterio.mask.mask(raster, shapes, crop= True, all_touched = True)
-            out_meta = raster.meta
-            out_meta.update({"driver": "GTiff",
-                             "height": out_image.shape[1],
-                             "width": out_image.shape[2],
-                             "transform": out_transform})
+            if ind == 0:
+                raster = rasterio.open(os.path.join(dir_in,filename),
+                                         masked=True)
+                
+                # clip
+                out_image, out_transform = rasterio.mask.mask(raster, shapes, crop= True, all_touched = True)
+                height = out_image.shape[1]
+                width = out_image.shape[2]
+                
+                out_meta = raster.meta
+                out_meta.update({"driver": "GTiff",
+                                 "height": height,
+                                 "width": width,
+                                 "transform": out_transform})
+            else:
+                raster = rasterio.open(os.path.join(dir_in,filename),
+                                         masked=True)
+                
+                # clip
+                out_image, out_transform = rasterio.mask.mask(raster, shapes, crop= True, all_touched = True)
+                
+                out_meta.update({"driver": "GTiff",
+                                 "height": height,
+                                 "width": width,
+                                 "transform": out_transform})    
             # save
             with rasterio.open(os.path.join(dir_out,filename.replace('.tif','')+'_clp.tif'), "w", **out_meta) as dest:
                 dest.write(out_image)
