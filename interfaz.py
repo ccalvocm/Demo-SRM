@@ -254,17 +254,13 @@ class Ui_MainWindow(object):
         Days = range(0,len(Qfor.index))
         fig = plt.figure(figsize=(18 , 12))
         ax = fig.add_subplot(2,1,1)
-        plt.plot(Days,Qfor.values,'r-', linewidth = 2)
+        Qfor.plot(ax = ax, style='r-', linewidth = 2)
         plt.ylabel('Caudal $(m^3/s)$', fontsize = 12)
         plt.title('Pronóstico de caudales para años: ' +str(first_year)+'-'+str(last_year))
         plt.legend(['Q Simulado'])
-            
-        plt.axis([Days[0],Days[-1],0,1.5*max(Qfor.values)])
+        _ = plt.xlabel('')
         plt.grid()
-        
-        locs, labels = plt.xticks()  # Get the current locations and labels.
-        plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot, fontsize = 10)  # Set text labels and properties.
-             
+                     
         # now actually plot it.
         axis = fig.add_subplot(2,1,2)           
         # calcular los caudales medios mensuales
