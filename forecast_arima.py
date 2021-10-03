@@ -60,7 +60,7 @@ df = pd.read_csv(path_tmed, index_col=0, parse_dates=(True))
 
 ts = df['0']
 
-train, test = model_selection.train_test_split(ts, train_size=0.8)
+train, test = model_selection.train_test_split(ts, train_size=0.95)
 
 ###############################################################################
 # Differentiate series
@@ -99,6 +99,8 @@ new_preds_index = pd.date_range(start=test.index[-1], periods = 366, closed='rig
 new_preds = pd.Series(new_preds, index=new_preds_index)
 new_predsINV = inverse_diff(new_preds,ts,interval=365)
 
+new_predsINV.plot(ax=ax, label='forecast', color='green')
+ax.legend()
 
 
 # new_x_axis = np.arange(data.shape[0] + 10)
