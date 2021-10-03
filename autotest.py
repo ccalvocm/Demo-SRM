@@ -63,3 +63,8 @@ ruta_pp =  os.path.join(folder.replace('Nieve','Precipitacion'), r'precipitacion
 ruta_t = os.path.join(folder.replace('Nieve','Temperatura'), r'temperatura_forecast.csv')
 
 create_master_SRM.SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t)
+
+# SRM
+root = folder.replace('Nieve','SRM')
+Basin = folder.split(os.sep)[-2]
+DEVELOP_SRM(root, Basin, type_ = 'V', alpha = 0.959, Tcrit = 1)

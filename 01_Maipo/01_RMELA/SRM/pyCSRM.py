@@ -628,7 +628,9 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
     return None
     
 if __name__ == '__main__':
-    root = '.'
-    Basin = 'Rio_Mapocho_en_los_Almendros'
-    DEVELOP_SRM(root, Basin, type_ = 'P', alpha = 0.959, Tcrit = 1)
+    # directorio de la cuenca
+    # folder = os.path.abspath(os.path.join('.','01_Maipo','01_RMELA','Nieve'))
+    # root = folder.replace('Nieve','SRM')
+    # Basin = root.split(os.sep)[-2]
+    # DEVELOP_SRM(root, Basin, type_ = 'V', alpha = 0.959, Tcrit = 1)
     
