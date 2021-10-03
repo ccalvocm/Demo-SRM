@@ -13,6 +13,9 @@ import autotest
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 import pandas as pd
 from matplotlib import pyplot as plt
+import datetime
+import numpy as np
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -114,14 +117,97 @@ class Ui_MainWindow(object):
                                          header = None,
                                          index_col=0,
                                          parse_dates=True)
-        fig,ax = plt.subplots()
-        df_caudal_simulado.plot(ax=ax)
+        
+         # graficar predictivo
+          # cargar el master y su información
+        master = pd.read_csv(os.path.join(path_completo,'SRM','Inputs',r'Master.csv'), index_col = 0, parse_dates = True)
+        
+        # leer precipitaciones
+        Pbands = master[[x for x in master.columns if 'Pp_z' in x]]
+        
+        # leer temperaturas
+        Tbands = master[[x for x in master.columns if 'T_z' in x]] 
+        
+        # leer curva hipsométrica
+        ruta_hipso = os.path.join(path_completo,'SRM','Inputs',r'Hypso.csv')
+        Area = pd.read_csv(ruta_hipso, index_col = 0)['area'].values
+        
+        years = [x.year for x in master.index]
+        years = list(dict.fromkeys(years))
+        plot_ini = pd.to_datetime(str(years[-2])+'-04-01')
+    
+        # Qactual
+        Qactual = master['Measured Discharge'] # Actual flow (m3/s)
+        Qactual = Qactual.loc[Qactual.index >= plot_ini]/1e3
+            
+        # Qforecast
+        Qfor = pd.read_csv(os.path.join(path_completo,'SRM','Resultados',r'Qsim_01_RMELA.csv'), index_col = 0, parse_dates = True, header = None)
+        Qfor = Qfor.loc[Qfor.index >= plot_ini]/1e3
+        
+        # fechas
+        Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qfor)-1), freq = '1d').date]  
+        
+        rot = 15
+        last_year = Days_xticks[-1].year 
+        first_year = Days_xticks[0].year 
+        
+        # find the limits of the plots to properly scale the data
+        # precpitaci�n y temperatura promedio
+        Pmean=1000*np.sum(Pbands*Area, axis = 1)/np.sum(Area)
+        Tmean=np.sum(Tbands*Area, axis = 1) / np.sum(Area)
+    
+        Pmean = pd.DataFrame(Pmean, index = master.index)
+        Pmean = Pmean.loc[Pmean.index >= plot_ini]        
+    
+        Tmean = pd.DataFrame(Tmean, index = master.index)
+        Tmean = Tmean.loc[Tmean.index >= plot_ini]    
+        
+        # settings para plots
+        frequency = 60
+        
+        # plot relative runoffs
+        Days = range(0,len(Qfor.index))
+        fig = plt.figure(figsize=(18 , 12))
+        ax = fig.add_subplot(2,1,1)
+        plt.plot(Days,Qfor.values,'r-', linewidth = 2)
+        plt.ylabel('Caudal $(m^3/s)$', fontsize = 12)
+        plt.title('Pronóstico de caudales para años: ' +str(first_year)+'-'+str(last_year))
+        plt.legend(['Q Simulado'])
+            
+        plt.axis([Days[0],Days[-1],0,1.5*max(Qfor.values)])
+        plt.grid()
+        
+        locs, labels = plt.xticks()  # Get the current locations and labels.
+        plt.xticks(Days[::frequency], Days_xticks[::frequency], rotation=rot, fontsize = 10)  # Set text labels and properties.
+             
+        # now actually plot it.
+        axis = fig.add_subplot(2,1,2)           
+        # calcular los caudales medios mensuales
+        Q_mon = Qfor.resample('MS').mean()
+        Q_mon.reset_index(inplace = True, drop = True)
+        
+        # graficar la curva de variación estacional histórica
+    
+        cve = pd.read_csv(os.path.join(path_completo,'SRM','Inputs',r'CVE.csv'), skiprows = 1)
+    
+        colores =  ['blue','magenta',  'yellow',  'cyan', 'purple', 'brown']
+        
+        # curva de variacion estaiconal historica
+        cve.plot(ax = axis, color=colores, style='-', markersize=12, legend=False, linewidth = 3, logy=False)
+                         
+        # caudales medios mensuales pronosticados
+        Q_mon.plot(ax = axis, color='r', style='--', marker = 'D', markersize=10, legend=False, linewidth = 3, logy=False)
+        
+        axis.set_ylabel('Caudal $(m^3/s)$',  fontsize = 12)
+        axis.set_ylim(bottom = 0)
+        axis.grid(linestyle='-.')
+        axis.legend(['Q5%','Q10%', 'Q20%','Q50%','Q85%', 'Q95%','Qpronóstico'], prop={'size': 9})
+        axis.set_xticks(range(12)) 
+        _ = axis.set_xticklabels(['Abr', 'May', 'Jun ', 'Jul', 'Ago', 'Sep', 'Oct',
+                     'Nov', 'Dic', 'Ene', 'Feb', 'Mar'], fontsize = 12)
         plt.show()
         
         
-        
-
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
