@@ -18,7 +18,7 @@ def readSnow(ruta_n):
     df_n = pd.DataFrame([])
     for filename in os.listdir(ruta_n):
         if 'DailySnowCover' in filename:
-            df_n = pd.concat([df_n, pd.read_csv(ruta_n+'\\'+filename, index_col = 0, parse_dates = True)])
+            df_n = pd.concat([df_n, pd.read_csv(os.path.join(ruta_n,filename), index_col = 0, parse_dates = True)])
     df_n = df_n.loc[df_n.index.year >= 2020]
     last_day = df_n.index[-1]
 
@@ -26,7 +26,7 @@ def readSnow(ruta_n):
     df_g = pd.DataFrame([])
     for filename in os.listdir(ruta_n):
         if 'DailyGlacialCover' in filename:
-            df_g = pd.concat([df_g, pd.read_csv(ruta_n+'\\'+filename, index_col = 0, parse_dates = True)])
+            df_g = pd.concat([df_g, pd.read_csv(os.path.join(ruta_n,filename), index_col = 0, parse_dates = True)])
     df_g = df_g.loc[df_g.index.year >= 2020]       
     df_n.dropna(inplace = True)
     
