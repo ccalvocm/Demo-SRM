@@ -19,6 +19,15 @@ from sklearn import model_selection, preprocessing,\
     feature_selection, ensemble, linear_model, metrics,\
         decomposition## for explainer
 # from lime import lime_tabular
+import statsmodels.formula.api as smf
+import statsmodels.api as sm
+
+
+def will_it_rain(x):
+            if x>=0.5:
+                return 1
+            else:
+                return 0
 
 def utils_recognize_type(dtf, col, max_cat=20):
     if (dtf[col].dtype == "O") | (dtf[col].nunique() < max_cat):
@@ -28,9 +37,9 @@ def utils_recognize_type(dtf, col, max_cat=20):
 
 def define_rainfall_event_binary(x):
     if x > 0.1:
-        return 1
+        return 1.0
     else:
-        return 0
+        return 0.0
 
 def remove_duplicated_indices_from_dataframe(df):
     df_new = df[~df.index.duplicated(keep='first')]
@@ -85,7 +94,7 @@ def classify_precipitation_dataframe(path):
         
     
     # This process must be performed for each column (band)
-    for col in df_precip.columns[:1]:
+    for col in df_precip.columns[12:13]:
         ts_precip = df_precip[col].rename('precip').\
             apply(define_rainfall_event_binary)
         ts_temper = df_temper[col].rename('temper')
@@ -113,38 +122,65 @@ def classify_precipitation_dataframe(path):
         # print("\033[1;37;40m Categerocial ", "\033[1;30;41m Numeric ", "\033[1;30;47m NaN ")
         
         ###################################################
-        # split data between train and test
-        dtf_train, dtf_test = model_selection.train_test_split(dtf,
-                                                               train_size=0.7)
-        
-        ## print info
-        print("X_train shape:", dtf_train.drop("precip",axis=1).shape,
-              "| X_test shape:", dtf_test.drop("precip",axis=1).shape)
-        print("y_train mean:", round(np.mean(dtf_train["precip"]),2),
-              "| y_test mean:", round(np.mean(dtf_test["precip"]),2))
-        print(dtf_train.shape[1], "features:",
-              dtf_train.drop("precip",axis=1).columns.to_list())
-        
-        
-        ## create dummy
-        dummy = pd.get_dummies(dtf_train["month"], 
+        dummy = pd.get_dummies(dtf["month"], 
                                prefix="month",drop_first=True)
-        dtf_train= pd.concat([dtf_train, dummy], axis=1)
-        print( dtf_train.filter(like="month", axis=1).head() )
+        dtf_wdummy= pd.concat([dtf, dummy], axis=1)
+        # print( dtf_wdummy.filter(like="month", axis=1).head() )
         
         ## drop the original categorical column
-        dtf_train.drop("month", axis=1, inplace=True)
-        dtf_train.sort_index(axis=0,inplace=True)
-        
+        dtf_wdummy.drop("month", axis=1, inplace=True)
+        dtf_wdummy.sort_index(axis=0,inplace=True)
         
         # # scale the numeric variables
         scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
-        X = scaler.fit_transform(dtf_train.drop("precip", axis=1))
-        dtf_scaled= pd.DataFrame(X, columns=dtf_train.drop("precip", axis=1).\
-                                 columns, index=dtf_train.index)
-        dtf_scaled["precip"] = dtf_train["precip"]
-        print(dtf_scaled.head())
+        X = scaler.fit_transform(dtf_wdummy.drop("precip", axis=1))
+        dtf_scaled_wdummy= pd.DataFrame(X, columns=dtf_wdummy.drop("precip", axis=1).\
+                                 columns, index=dtf_wdummy.index)
+        dtf_scaled_wdummy["precip"] = dtf_wdummy["precip"].copy()
+        dtf_scaled_wdummy.sort_index(axis=0, inplace=True)
+        # print(dtf_scaled_wdummy.head())
         
+        
+        
+        
+        
+        # split data between train and test
+        dtf_train, dtf_test = model_selection.train_test_split(dtf_scaled_wdummy,
+                                                               train_size=0.7)
+        dtf_train.sort_index(axis=0, inplace=True)
+        dtf_test.sort_index(axis=0, inplace=True)
+        
+        
+        
+        
+        ## print info
+        # print("X_train shape:", dtf_train.drop("precip",axis=1).shape,
+        #       "| X_test shape:", dtf_test.drop("precip",axis=1).shape)
+        # print("y_train mean:", round(np.mean(dtf_train["precip"]),2),
+        #       "| y_test mean:", round(np.mean(dtf_test["precip"]),2))
+        # print(dtf_train.shape[1], "features:",
+        #       dtf_train.drop("precip",axis=1).columns.to_list())
+        
+        
+        # ## create dummy
+        # dummy = pd.get_dummies(dtf_train["month"], 
+        #                        prefix="month",drop_first=True)
+        # dtf_train= pd.concat([dtf_train, dummy], axis=1)
+        # print( dtf_train.filter(like="month", axis=1).head() )
+        
+        # ## drop the original categorical column
+        # dtf_train.drop("month", axis=1, inplace=True)
+        # dtf_train.sort_index(axis=0,inplace=True)
+        
+        
+        # # # scale the numeric variables
+        # scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
+        # X = scaler.fit_transform(dtf_train.drop("precip", axis=1))
+        # dtf_scaled= pd.DataFrame(X, columns=dtf_train.drop("precip", axis=1).\
+        #                          columns, index=dtf_train.index)
+        # dtf_scaled["precip"] = dtf_train["precip"]
+        # print(dtf_scaled.head())
+        '''
         # Correlation matrix to know which variables to consider
         fig, ax = plt.subplots()
         corr_matrix = dtf.copy()
@@ -157,19 +193,19 @@ def classify_precipitation_dataframe(path):
                     cmap="YlGnBu", cbar=True, linewidths=0.5)
         plt.title("pearson correlation")
 
-        
+        '''
         
         
         # # LASSO regularization (another way to find out relevant variables)
         #     # rename variables to make it easier
             
-        dtf.rename({'precip': 'Y'}, axis=1, inplace=True)
-        dtf_train.rename({'precip': 'Y'}, axis=1, inplace=True)
+        # dtf.rename({'precip': 'Y'}, axis=1, inplace=True)
+        # dtf_train.rename({'precip': 'Y'}, axis=1, inplace=True)
         # dtf_test.rename({'precip': 'Y'}, axis=1, inplace=True)
-        dtf_scaled.rename({'precip': 'Y'}, axis=1, inplace=True)
+        # dtf_scaled_wdummy.rename({'precip': 'Y'}, axis=1, inplace=True)
         
-        dtf_train = dtf_scaled.copy()
         
+        '''
         # now perform regularization
         X = dtf_train.drop("Y", axis=1).values
         y = dtf_train["Y"].values
@@ -228,18 +264,46 @@ def classify_precipitation_dataframe(path):
         plt.xticks(rotation=70)
         plt.grid(axis='both')
         plt.show()
+        '''
         
         ############################################
         # Fit a model
-        X_names = ['temper', 'month_5', 'month_6', 'month_7', 'month_8',
-                   'evapot', 'humeda', 'viento', 'month_2']
-        X_train = dtf_train[X_names].values
-        y_train = dtf_train["Y"].values
-        X_test = dtf_test[X_names].values
-        y_test = dtf_test["Y"].values
+        X_names = ['presio', 'C(month_7)', 'C(month_8)',
+                    'humeda', 'viento', 'C(month_6)', 'C(month_5)',
+                    'C(month_2)']
+        # X_train = dtf_train[X_names].values
+        # y_train = dtf_train["Y"].values
+        # X_test = dtf_test[X_names].values
+        # y_test = dtf_test["Y"].values
+        
+        ## call model
+        # model = ensemble.GradientBoostingClassifier()## define hyperparameters combinations to try
+        # param_dic = {'learning_rate':[0.15,0.1,0.05,0.01,0.005,0.001],      #weighting factor for the corrections by new trees when added to the model
+        # 'n_estimators':[100,250,500,750,1000,1250,1500,1750],  #number of trees added to the model
+        # 'max_depth':[2,3,4,5,6,7],    #maximum depth of the tree
+        # 'min_samples_split':[2,4,6,8,10,20,40,60,100],    #sets the minimum number of samples to split
+        # 'min_samples_leaf':[1,3,5,7,9],     #the minimum number of samples to form a leaf
+        # 'max_features':[2,3,4,5,6,7],     #square root of features is usually a good starting point
+        # 'subsample':[0.7,0.75,0.8,0.85,0.9,0.95,1]}       #the fraction of samples to be used for fitting the individual base learners. Values lower than 1 generally lead to a reduction of variance and an increase in bias.## random search
+        # random_search = model_selection.RandomizedSearchCV(model, 
+        # param_distributions=param_dic, n_iter=1000, 
+        # scoring="accuracy").fit(X_train, y_train)
+        # print("Best Model parameters:", random_search.best_params_)
+        # print("Best Model mean accuracy:", random_search.best_score_)
+        # model = random_search.best_estimator_
+        
+        # Use statsmodels sm and smf to fit model
+        formula = 'precip ~ ' + '+'.join([*X_names]) + '-1' # con categorica con intercepto
+        print(formula)
+        GLM_logistical = smf.glm(formula = formula,data=dtf_train, family=sm.families.Binomial())
+        GLM_results = GLM_logistical.fit()
+        print(GLM_results.summary())
         
     
-    return (X_train, y_train, X_test, y_test)
+        
+        
+    
+    return GLM_results, dtf_train, dtf_test, dtf
 
 
 
@@ -248,5 +312,12 @@ if __name__ == '__main__':
             'Demo-SRM','01_Maipo','01_RMELA']
     path = os.path.join(*path)
     print(path)
-    X_train, y_train, y_test = classify_precipitation_dataframe(path)
+    GLM_results, dtf_train, dtf_test, dtf = classify_precipitation_dataframe(path)
+    
+    rainfall_train = GLM_results.predict(dtf_train)
+    rainfall_train = rainfall_train.apply(will_it_rain)
+    
+    print(rainfall_train.sum()/dtf_train['precip'].sum())
+    
+    
 
