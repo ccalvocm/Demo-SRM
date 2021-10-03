@@ -123,6 +123,19 @@ def compute_ndiffs(ts):
     n_diffs = max(adf_diffs, kpss_diffs)    
     print(f"Estimated differencing term: {n_diffs}")
     
+    
+def forecast_dataframe_file(path):
+    df = pd.read_csv(path, index_col=0, parse_dates=True)
+    forecasted_series = []
+    for col in df.columns:
+        ts = df[col]
+        ts_forecasted = forecast_method_1(ts)
+        forecasted_series.append(ts_forecasted)
+    df_forecasted = pd.concat(forecasted_series, axis=1)
+    df_forecasted.to_csv(path[:-11] + '_forecast.csv')
+        
+        
+    
 if __name__ == '__main__':
     
     path = ['/home', 'faarrosp','Documents','GitHub',
@@ -131,80 +144,12 @@ if __name__ == '__main__':
     
     path_tmed = os.path.join(*path)
     
-    df = pd.read_csv(path_tmed, index_col=0, parse_dates=(True))
+    forecast_dataframe_file(path_tmed)
     
-    ts = df['0']
+    # df = pd.read_csv(path_tmed, index_col=0, parse_dates=(True))
     
-    train, test = model_selection.train_test_split(ts, train_size=0.95)
+    # ts = df['0']
     
-    compute_ndiffs(train.values)
-    # ts_updated = forecast_method_1(ts)
+    # train, test = model_selection.train_test_split(ts, train_size=0.95)
     
-    
-    
-
-# train, test = model_selection.train_test_split(ts, train_size=0.95)
-
-# ###############################################################################
-# # Differentiate series
-
-# trainD = train.diff(365).dropna()
-# testD = test.diff(365).dropna()
-
-# # #############################################################################
-# # Fit with some validation (cv) samples
-# arima = pm.ARIMA(order=(7, 0, 1))
-# arima.fit(trainD)
-
-# # Now plot the results and the forecast for the test set
-# preds, conf_int = arima.predict(n_periods=test.shape[0],
-#                                 return_conf_int=True)
-
-# # generate predictions as Pandas Series
-# preds = pd.Series(preds, index=test.index)
-# conf_int_lower = pd.Series(conf_int[:,0], index = test.index)
-# conf_int_upper = pd.Series(conf_int[:,1], index = test.index) 
-
-# # apply inverse difference to get real values of prediction
-# predsINV = inverse_diff(preds,ts,interval=365)
-# # conf_int_lower_INV = inverse_diff()
-
-# fig, ax = plt.subplots()
-# predsINV.plot(ax=ax, color='blue', label = 'prediction')
-# test.plot(ax=ax, color='red', label = 'original data')
-# print(compute_NSE_series(predsINV, test))
-# ax.legend()
-
-# arima.update(testD)
-
-# new_preds, new_conf_int = arima.predict(n_periods=365, return_conf_int=True)
-# new_preds_index = pd.date_range(start=test.index[-1], periods = 366, closed='right')
-# new_preds = pd.Series(new_preds, index=new_preds_index)
-# new_predsINV = inverse_diff(new_preds,ts,interval=365)
-
-# new_predsINV.plot(ax=ax, label='forecast', color='green')
-# ax.legend()
-
-
-# # new_x_axis = np.arange(data.shape[0] + 10)
-
-# # axes[1].plot(new_x_axis[:data.shape[0]], data, alpha=0.75)
-# # axes[1].scatter(new_x_axis[data.shape[0]:], new_preds, alpha=0.4, marker='o')
-# # axes[1].fill_between(new_x_axis[-new_preds.shape[0]:],
-# #                      new_conf_int[:, 0],
-# #                      new_conf_int[:, 1],
-# #                      alpha=0.1, color='g')
-# # axes[1].set_title("Added new observed values with new forecasts")
-# # plt.show()
-
-# # fig, axes = plt.subplots(2, 1, figsize=(12, 8))
-# # x_axis = np.arange(train.shape[0] + preds.shape[0])
-# # axes[0].plot(x_axis[:train.shape[0]], train, alpha=0.75)
-# # axes[0].scatter(x_axis[train.shape[0]:], preds, alpha=0.4, marker='o')
-# # axes[0].scatter(x_axis[train.shape[0]:], test, alpha=0.4, marker='x')
-# # axes[0].fill_between(x_axis[-preds.shape[0]:], conf_int[:, 0], conf_int[:, 1],
-# #                      alpha=0.1, color='b')
-
-# # # fill the section where we "held out" samples in our model fit
-
-# # axes[0].set_title("Train samples & forecasted test samples")
+    # compute_ndiffs(train.values)
