@@ -86,7 +86,7 @@ def modis_pre(i,year,ruta_modis,lista_modis):
 
     """
     
-    if i == 0:
+    if i <= 0:
         # cargar la MODIS previa
         modis_prev =  xr.open_rasterio(os.path.join(ruta_modis,lista_modis[0]))
     else:
@@ -115,6 +115,9 @@ def modis_post(i,year,ruta_modis,lista_modis):
 
     """
      # MODIS del día siguiente
+    if i <= 0:
+        # cargar la MODIS previa
+        modis_next =  xr.open_rasterio(os.path.join(ruta_modis,lista_modis[0]))
     if (i == len(lista_modis)-1) & (year == 2021):
         modis_next =  xr.open_rasterio(os.path.join(ruta_modis,lista_modis[-1]))
     elif (i >= len(lista_modis)-1) & (year < 2021):
@@ -238,6 +241,8 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
         lista_modis = os.listdir(ruta_MODIS)
         # filtrar los archivos temporales
         lista_modis = [x for x in lista_modis if x.endswith('.tif')]
+        # ordenar la lista
+        lista_modis = sorted(lista_modis)
         
         # resamplear la cuenca a la misma resolución de las MODIS
         modis_xr = xr.open_rasterio(os.path.join(ruta_MODIS,lista_modis[0]))
@@ -328,7 +333,8 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
         # procesar todos los días
         
         for m, modis in enumerate(lista_modis):
-           
+            print(m, modis)
+
             # dia juliano
             dia = int(modis.split('.')[1][-3:])
                     
@@ -434,7 +440,7 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
                       # MODIS del día siguiente, parto por siguiente porque cuando se pierde la data es durante 
                       # las tormentas y días nublados              
                     
-                      # MODIS dia anterior
+                    # MODIS dia anterior
                     modis_prev = modis_pre(m-1-k,year,ruta_MODIS,lista_modis)
                     
                     # datos que no son nieve

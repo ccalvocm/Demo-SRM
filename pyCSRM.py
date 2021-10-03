@@ -169,7 +169,6 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     Basin = folder.split(os.sep)[-1]
 
     #leer curva hipsometrica de topografia
-    os.chdir(root)
     import loopCython
     import loopQtotalCython
     import baseflow_eckhardt
