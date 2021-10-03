@@ -140,11 +140,11 @@ if __name__ == '__main__':
     
     path = ['/home', 'faarrosp','Documents','GitHub',
             'Demo-SRM','01_Maipo','01_RMELA',
-            'Temperatura', 'temperatura_actual.csv']
+            'Precipitacion', 'precipitacion_actual.csv']
     
-    path_tmed = os.path.join(*path)
+    path_dataset = os.path.join(*path)
     
-    forecast_dataframe_file(path_tmed)
+    forecast_dataframe_file(path_dataset)
     
     # df = pd.read_csv(path_tmed, index_col=0, parse_dates=(True))
     
