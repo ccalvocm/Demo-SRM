@@ -299,7 +299,7 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
             {'properties': {'raster_val': v}, 'geometry': s}
             for i, (s, v) 
             in enumerate(
-                shapes(modis_unique.astype(int).data, mask=None, transform=modis_unique.transform)))
+                shapes(modis_unique.astype(np.int32).data, mask=None, transform=modis_unique.transform)))
             geoms = list(results)
             gpd_polygonized_raster = geopandas.GeoDataFrame.from_features(geoms)
             gpd_polygonized_raster = gpd_polygonized_raster.set_crs(epsg = 32719)
