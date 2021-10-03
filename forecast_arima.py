@@ -12,6 +12,31 @@ import pmdarima as pm
 from pmdarima import model_selection
 import matplotlib.pyplot as plt
 import numpy as np
+from hydroeval import evaluator, nse
+
+def compute_NSE_series(ts_sim,ts_obs):
+    '''
+    
+
+    Parameters
+    ----------
+    ts1 : TYPE
+        DESCRIPTION.
+    ts2 : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    idx_both : TYPE
+        DESCRIPTION.
+
+    '''
+    idx_both = set(ts_sim.index).intersection(set(ts_obs.index))
+    x = ts_sim.loc[sorted(idx_both)].values
+    y = ts_obs.loc[sorted(idx_both)].values
+    my_nse = evaluator(nse, x, y, axis=1)
+    
+    return round(my_nse[0],3)
 
 def inverse_diff(differentiated, original, interval=1, unit = 'D'):
     val = []
@@ -59,18 +84,42 @@ conf_int_upper = pd.Series(conf_int[:,1], index = test.index)
 
 # apply inverse difference to get real values of prediction
 predsINV = inverse_diff(preds,ts,interval=365)
+# conf_int_lower_INV = inverse_diff()
+
+fig, ax = plt.subplots()
+predsINV.plot(ax=ax, color='blue', label = 'prediction')
+test.plot(ax=ax, color='red', label = 'original data')
+print(compute_NSE_series(predsINV, test))
+ax.legend()
+
+arima.update(testD)
+
+new_preds, new_conf_int = arima.predict(n_periods=365, return_conf_int=True)
+new_preds_index = pd.date_range(start=test.index[-1], periods = 366, closed='right')
+new_preds = pd.Series(new_preds, index=new_preds_index)
+new_predsINV = inverse_diff(new_preds,ts,interval=365)
 
 
 
+# new_x_axis = np.arange(data.shape[0] + 10)
 
-fig, axes = plt.subplots(2, 1, figsize=(12, 8))
-x_axis = np.arange(train.shape[0] + preds.shape[0])
-axes[0].plot(x_axis[:train.shape[0]], train, alpha=0.75)
-axes[0].scatter(x_axis[train.shape[0]:], preds, alpha=0.4, marker='o')
-axes[0].scatter(x_axis[train.shape[0]:], test, alpha=0.4, marker='x')
-axes[0].fill_between(x_axis[-preds.shape[0]:], conf_int[:, 0], conf_int[:, 1],
-                     alpha=0.1, color='b')
+# axes[1].plot(new_x_axis[:data.shape[0]], data, alpha=0.75)
+# axes[1].scatter(new_x_axis[data.shape[0]:], new_preds, alpha=0.4, marker='o')
+# axes[1].fill_between(new_x_axis[-new_preds.shape[0]:],
+#                      new_conf_int[:, 0],
+#                      new_conf_int[:, 1],
+#                      alpha=0.1, color='g')
+# axes[1].set_title("Added new observed values with new forecasts")
+# plt.show()
 
-# fill the section where we "held out" samples in our model fit
+# fig, axes = plt.subplots(2, 1, figsize=(12, 8))
+# x_axis = np.arange(train.shape[0] + preds.shape[0])
+# axes[0].plot(x_axis[:train.shape[0]], train, alpha=0.75)
+# axes[0].scatter(x_axis[train.shape[0]:], preds, alpha=0.4, marker='o')
+# axes[0].scatter(x_axis[train.shape[0]:], test, alpha=0.4, marker='x')
+# axes[0].fill_between(x_axis[-preds.shape[0]:], conf_int[:, 0], conf_int[:, 1],
+#                      alpha=0.1, color='b')
 
-axes[0].set_title("Train samples & forecasted test samples")
+# # fill the section where we "held out" samples in our model fit
+
+# axes[0].set_title("Train samples & forecasted test samples")
