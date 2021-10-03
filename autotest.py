@@ -35,6 +35,7 @@ import process_MODIS
 import snowGlacierCoveredArea
 import datetime
 import create_master_SRM
+import pyCSRM
 
 # directorio de la cuenca
 folder = os.path.abspath(os.path.join('.','01_Maipo','01_RMELA','Nieve'))
@@ -67,4 +68,4 @@ create_master_SRM.SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t)
 # SRM
 root = folder.replace('Nieve','SRM')
 Basin = folder.split(os.sep)[-2]
-DEVELOP_SRM(root, Basin, type_ = 'V', alpha = 0.959, Tcrit = 1)
+pyCSRM.DEVELOP_SRM(root, Basin, type_ = 'P', alpha = 0.959, Tcrit = 1)
