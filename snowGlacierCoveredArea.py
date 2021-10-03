@@ -165,7 +165,7 @@ def vtorast(vector_in):
     
     
 # ===================================================================
-def main(ruta_eb_shp, ruta_gl, root_MODIS, yeari , yearf):
+def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.today().year+1):
     """
     
 
@@ -189,6 +189,11 @@ def main(ruta_eb_shp, ruta_gl, root_MODIS, yeari , yearf):
     csvs de coberturas nivales y glaciares por banda de elevación.
 
     """
+    
+    # rutas
+    ruta_eb_shp =  os.path.join(root_MODIS,'shapes','bandas.shp')
+    ruta_gl = os.path.join(root_MODIS,'shapes','glaciares.shp')
+    root_MODIS = os.path.abspath(os.path.join(root_MODIS,'Nieve'))
     
     flag = 1
 

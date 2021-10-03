@@ -13,6 +13,8 @@ from nasa_aux_functions import List_Files, Exists, Enforce_List, Identify, Grab_
 
 def Prepare_MODIS(Package,Year):
 
+    Package = os.path.abspath(os.path.join(Package,'Nieve'))
+
     Year=str(Year) # OK
     rawmodis = os.path.join(Package,Year)  # OK
     readymodis = os.path.join(rawmodis,'prm') # OK

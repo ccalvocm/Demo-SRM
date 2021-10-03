@@ -38,6 +38,8 @@ def main(folder):
 # año inicial 2021
 # año final: cualquiera sea el actual
 
+    folder = os.path.abspath(os.path.join(folder,'Nieve'))
+    
     year_f = date.today().year
         
     # obtener carpetas de años de imágenes MODIS

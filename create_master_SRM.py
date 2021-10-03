@@ -165,7 +165,7 @@ def completarMaster(master, lday, df_h):
         
     return master
 
-def SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t):
+def SRM_master(folder):
     """
     
 
@@ -187,6 +187,12 @@ def SRM_master(path_q, ruta_n, root, ruta_pp , ruta_t):
  # ============================================================================
  #                          archivo master de validacion 
  # ----------------------------------------------------------------------------
+     # rutas
+    path_q = os.path.join(folder,'Caudales',r'Caudales.csv')
+    ruta_n = os.path.join(folder,'Nieve')
+    root = os.path.join(folder,'SRM')
+    ruta_pp = os.path.join(folder,'Precipitacion',r'precipitacion_forecast.csv')
+    ruta_t = os.path.join(folder,'Temperatura',r'temperatura_forecast.csv')
 
     # leer caudales del usuario
     q_obs = pd.read_csv(path_q,index_col = 0, parse_dates = True, dayfirst = True) 

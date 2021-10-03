@@ -130,7 +130,7 @@ def NSE(nse, sim_flow, obs_flow, axis=1):
     my_nse = evaluator(nse, serie_sim, serie_obs, axis=1)
     return my_nse
 
-def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
+def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     #%%
     
     # Parameters
@@ -164,6 +164,9 @@ def DEVELOP_SRM(root, Basin, type_, alpha = 0.959, Tcrit = 1):
     
     # variables de configuracion de la simulacion
     # -------------------------------------------------------------------------
+    # rutas
+    root = os.path.join(folder,'SRM')
+    Basin = folder.split(os.sep)[-2]
 
     #leer curva hipsometrica de topografia
     os.chdir(root)
