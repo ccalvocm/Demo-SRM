@@ -84,8 +84,12 @@ class Ui_MainWindow(object):
             print(path_subcuenca)
             
     def simular(self):
+        current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
+        path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
+        path_completo = os.path.join(os.getcwd(),path_subcuenca)
+        print(path_completo)
         try:
-            autotest.run_pySRM(path_subcuenca, tipo = 'P')
+            autotest.run_pySRM(path_completo, tipo = 'P')
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Information)
             msg.setText("Simulación exitosa")
