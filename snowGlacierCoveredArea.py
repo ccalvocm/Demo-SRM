@@ -191,8 +191,8 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
     """
     
     # rutas
-    ruta_eb_shp =  os.path.join(root_MODIS,'shapes','bandas.shp')
-    ruta_gl = os.path.join(root_MODIS,'shapes','glaciares.shp')
+    ruta_eb_shp =  os.path.join(root_MODIS,'Shapes','bandas.shp')
+    ruta_gl = os.path.join(root_MODIS,'Shapes','glaciares.shp')
     root_MODIS = os.path.abspath(os.path.join(root_MODIS,'Nieve'))
     
     flag = 1
