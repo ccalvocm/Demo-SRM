@@ -166,7 +166,7 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     # -------------------------------------------------------------------------
     # rutas
     root = os.path.join(folder,'SRM')
-    Basin = folder.split(os.sep)[-2]
+    Basin = folder.split(os.sep)[-1]
 
     #leer curva hipsometrica de topografia
     os.chdir(root)
@@ -625,8 +625,8 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     # guardar el SWE y caudales
     SWE_out = pd.DataFrame(snowAcc, index = dates) # SWE en m
     Q_out = pd.DataFrame(Qtot*1000, index = dates) # en l/s
-    SWE_out.to_csv(os.path.join('.','Resultados','SWEsim_'+Basin+'.csv'), header = None) 
-    Q_out.to_csv(os.path.join('.','Resultados','Qsim_'+Basin+'.csv'), header = None)
+    SWE_out.to_csv(os.path.join(root,'Resultados','SWEsim_'+Basin+'.csv'), header = None) 
+    Q_out.to_csv(os.path.join(root,'Resultados','Qsim_'+Basin+'.csv'), header = None)
 
     return None
     
