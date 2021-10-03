@@ -49,7 +49,7 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
     for filename in os.listdir(dir_in):
         # if (filename.endswith(".tif")) & ('h12v12' in filename): 
         if filename.endswith(".tif"): 
-            raster = rasterio.open(dir_in+'\\'+filename,
+            raster = rasterio.open(os.path.join(dir_in,filename),
                                      masked=True)
             
             # clip
@@ -60,7 +60,7 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
                              "width": out_image.shape[2],
                              "transform": out_transform})
             # save
-            with rasterio.open(dir_out+'\\'+filename.replace('.tif','')+'_clp.tif', "w", **out_meta) as dest:
+            with rasterio.open(os.path.join(dir_out,filename.replace('.tif','')+'_clp.tif'), "w", **out_meta) as dest:
                 dest.write(out_image)
                 
     return None
