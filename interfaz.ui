@@ -59,6 +59,36 @@
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_simular">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>400</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SIMULAR
+PROXIMA
+TEMPORADA</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_plotear">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>400</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PLOTEAR
+DATA
+ACTUAL</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -66,7 +96,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
