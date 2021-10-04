@@ -1,1 +1,1 @@
-conda run -n py38 python interfaz.py
+conda run -n pySRM python interfaz.py

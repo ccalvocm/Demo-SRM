@@ -1,2 +1,2 @@
-conda run -n py38 python interfaz_descarga_GEE.py
+conda run -n pySRM python interfaz_descarga_GEE.py
 
