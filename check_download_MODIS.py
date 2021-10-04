@@ -47,11 +47,13 @@ def main(folder):
     for year in range(2021,year_f+1):
         # chequear si existe la carpeta de imágenes MODIS del año
         dir_out = os.path.join(folder,str(year))
-        if str(year) not in list_folders(folder):
+        if str(year) not in sorted(list_folders(folder)):
             os.mkdir(dir_out)
         
         # chequear los archivos MODIS
         onlyfiles = list_hdf(os.path.join(dir_out,'clip'))
+        onlyfiles = sorted(onlyfiles)
+        
         if len(onlyfiles):
             lastday = onlyfiles[-1].split('.')[1][-3:]
         else:

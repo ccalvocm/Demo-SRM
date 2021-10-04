@@ -36,10 +36,15 @@ import snowGlacierCoveredArea
 import datetime
 import create_master_SRM
 import pyCSRM
+from PyQt5.QtWidgets import QFileDialog, QMessageBox
 
 def run_pySRM(path, tipo = 'P'):
     folder = os.path.abspath(path)
     print('Iniciando actualización de imágenes MODIS')
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Information)
+    msg.setText("Inicializando actualizacion de imagenes MODIS")
+    msg.exec_()
     yrs = check_download_MODIS.main(folder)
     for yr in yrs:
         # reproyectar
@@ -57,6 +62,7 @@ def run_pySRM(path, tipo = 'P'):
     pyCSRM.DEVELOP_SRM(folder, type_ = tipo, alpha = 0.959, Tcrit = 1)
     parent_dir = os.path.abspath(os.path.join(path, '..', '..'))
     os.chdir(parent_dir)
+    print('Simulacion finalizada exitosamente')
     
 
 if __name__ == '__main__':
