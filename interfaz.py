@@ -255,6 +255,7 @@ class Ui_MainWindow(object):
         fig = plt.figure(figsize=(18 , 12))
         ax = fig.add_subplot(2,1,1)
         Qfor.plot(ax = ax, style='r-', linewidth = 2)
+        plt.ylim(bottom = 0)
         plt.ylabel('Caudal $(m^3/s)$', fontsize = 12)
         plt.title('Pronóstico de caudales para años: ' +str(first_year)+'-'+str(last_year))
         plt.legend(['Q Simulado'])
