@@ -25,11 +25,11 @@ def baseflow(strflow,alpha,beta,bf):
     baseq = eckhardt.naive_eckhardt(strflow, alpha, beta)
     
     # asignar fechas al flujo base mensual
-    df_baseq = pd.DataFrame(baseq, index = pd.date_range('2000-01-01',date_end, freq = '1d') )
+    df_baseq = pd.DataFrame(baseq, index = pd.date_range('2000-01-01',idx[-1], freq = '1d') )
     # resample del flujo base mensual a diario
     baseq_day = df_baseq.reindex(pd.date_range('2000-01-01',date_end,freq = '1d'), method='nearest')
     # tolerancia como MSE del baseflow actual y anterior 
-    tol = np.sqrt(np.sum(((df_baseq.values-df_BaseFlow.values)/df_baseq.values))**2./len(df_baseq.values))
+    tol = np.sqrt(np.sum(((baseq_day.values-df_BaseFlow.values)/baseq_day.values))**2./len(baseq_day.values))
     
     return baseq_day.values , tol
     
