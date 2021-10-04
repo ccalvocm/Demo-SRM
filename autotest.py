@@ -55,6 +55,8 @@ def run_pySRM(path, tipo = 'P'):
     # tipo = 'V' o 'P'
     print('Iniciando la simulación')
     pyCSRM.DEVELOP_SRM(folder, type_ = tipo, alpha = 0.959, Tcrit = 1)
+    parent_dir = os.path.abspath(os.path.join(path, '..', '..'))
+    os.chdir(parent_dir)
     
 
 if __name__ == '__main__':

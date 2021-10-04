@@ -431,7 +431,6 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
                             # loop recursivo para reconstruir varios días nublados
                 k = 1
                 while ((len(newarr) <= size_modis) & (k < 8)):
-                    print('día'+str(m))
                       # MODIS del día siguiente, parto por siguiente porque cuando se pierde la data es durante 
                       # las tormentas y días nublados              
                     
