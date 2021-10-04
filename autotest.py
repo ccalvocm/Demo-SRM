@@ -39,15 +39,21 @@ import pyCSRM
 
 def run_pySRM(path, tipo = 'P'):
     folder = os.path.abspath(path)
+    print('Iniciando actualización de imágenes MODIS')
     yrs = check_download_MODIS.main(folder)
     for yr in yrs:
         # reproyectar
+        print('Reproyectando nuevas imágenes MODIS')
         nasa_new_win.Prepare_MODIS(folder,yr)
 
+    print('Intersectando MODIS con la subcuenca')
     process_MODIS.main(folder)
+    print('Calculando la fracción cubierta nival')
     snowGlacierCoveredArea.main(folder)
+    print('Realizando proyección de nieve')
     create_master_SRM.SRM_master(folder)
     # tipo = 'V' o 'P'
+    print('Iniciando la simulación')
     pyCSRM.DEVELOP_SRM(folder, type_ = tipo, alpha = 0.959, Tcrit = 1)
     
 

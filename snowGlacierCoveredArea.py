@@ -330,7 +330,6 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
         # procesar todos los días
         
         for m, modis in enumerate(lista_modis):
-            print(m, modis)
 
             # dia juliano
             dia = int(modis.split('.')[1][-3:])
@@ -389,7 +388,6 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
             if (year > 2000) & ((year < 2021) & (m < len(lista_modis)-7)):
                 k = 1
                 while ((len(newarr) <= size_modis) & (k < 6)):
-                    print('día'+str(m))
                       # MODIS del día siguiente, parto por siguiente porque cuando se pierde la data es durante 
                       # las tormentas y días nublados
                     modis_next = modis_post(m+1+k,year,ruta_MODIS,lista_modis)
@@ -532,6 +530,6 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
         snow_cover.iloc[dia-1:,:] = np.nan
     
         #%% guardar el df de coberturas nivales y glaciares
-               
+       
         snow_cover.to_csv(os.path.join(root_MODIS,r'DailySnowCover'+str(year)+'.csv'))
         glacial_cover.to_csv(os.path.join(root_MODIS,r'DailyGlacialCover'+str(year)+'.csv'))
