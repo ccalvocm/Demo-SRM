@@ -115,9 +115,6 @@ def modis_post(i,year,ruta_modis,lista_modis):
 
     """
      # MODIS del día siguiente
-    if i <= 0:
-        # cargar la MODIS previa
-        modis_next =  xr.open_rasterio(os.path.join(ruta_modis,lista_modis[0]))
     if (i == len(lista_modis)-1) & (year >= 2021):
         modis_next =  xr.open_rasterio(os.path.join(ruta_modis,lista_modis[-1]))
     elif (i >= len(lista_modis)-1) & (year < 2021):
