@@ -1,0 +1,23 @@
+name: pySRM
+channels:
+ - conda-forge
+dependencies:
+ - python=3.8
+ - numpy
+ - gdal
+ - xarray
+ - rasterio
+ - rioxarray
+ - geopandas
+ - osgeo
+ - statsmodels
+ - dateutil
+ - pmdarima
+ - hydroeval
+ - earthengine-api
+ - rasterstats
+ - unidecode
+ - xlrd
+ - matplotlib
+ - seaborn
+ - scipy
