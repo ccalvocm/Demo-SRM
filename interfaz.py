@@ -104,6 +104,7 @@ class Ui_MainWindow(object):
             errormsg.setText("Error en la simulación")
             
     def plotear_resultados(self):
+        plt.close('all')
         current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
         path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
         path_completo = os.path.join(os.getcwd(),path_subcuenca)
@@ -237,7 +238,7 @@ class Ui_MainWindow(object):
         plot_ini = pd.to_datetime(str(years[-2])+'-04-01')
 
         # Qforecast
-        Qfor = pd.read_csv(os.path.join(path_resultados,r'Qsim_01_RMELA.csv'), index_col = 0, parse_dates = True, header = None)
+        Qfor = pd.read_csv(os.path.join(path_completo,'SRM','Resultados',r'Qsim_01_RMELA.csv'), index_col = 0, parse_dates = True, header = None)
         Qfor = Qfor.loc[Qfor.index >= plot_ini]/1e3
         
         # fechas
