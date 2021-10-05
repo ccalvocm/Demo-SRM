@@ -39,13 +39,14 @@ import pyCSRM
 from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from PyQt5.QtCore import Qt
-
+import ssl
 
 # class Thread(QThread):
 #     _signal = pyqtSignal(int)
 
 
 def run_pySRM(path, tipo = 'P'):
+    ssl._create_default_https_context = ssl._create_unverified_context
     folder = os.path.abspath(path)
     print('Iniciando actualización de imágenes MODIS')
     progress = "Inicializando actualizacion de imagenes MODIS"
