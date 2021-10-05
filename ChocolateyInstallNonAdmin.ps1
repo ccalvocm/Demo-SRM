@@ -7,7 +7,7 @@ $env:ChocolateyInstall="$InstallDir"
 # If your PowerShell Execution policy is restrictive, you may
 # not be able to get around that. Try setting your session to
 # Bypass.
-powershell.exe -command "Set-ExecutionPolicy Bypass -Scope Process -Force;"
+Set-ExecutionPolicy Bypass -Scope Process -Force;
 
 # All install options - offline, proxy, etc at
 # https://chocolatey.org/install
@@ -18,4 +18,3 @@ choco install git.commandline -y
 
 #intalar miniconda
 choco install miniconda3 --params="'/AddToPath:1 /InstallationType:JustMe'" -y
-
