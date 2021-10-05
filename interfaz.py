@@ -221,9 +221,8 @@ class Ui_MainWindow(object):
         
         try:    
             df_caudal_simulado = pd.read_csv(path_caudal_simulado,
-                                             header = None,
                                              index_col=0,
-                                             parse_dates=True)
+                                             parse_dates=True, header = 0)
             
             #######################################
             #   graficar periodo de validación    #
@@ -344,7 +343,9 @@ class Ui_MainWindow(object):
             plot_ini = pd.to_datetime(str(years[-2])+'-04-01')
     
             # Qforecast
-            Qfor = pd.read_csv(os.path.join(path_completo,'SRM','Resultados',r'Qsim_01_RMELA.csv'), index_col = 0, parse_dates = True, header = None)
+            Qfor = pd.read_csv(path_caudal_simulado,
+                                             index_col=0,
+                                             parse_dates=True, header = 0)
             Qfor = Qfor.loc[Qfor.index >= plot_ini]/1e3
             
             # fechas
