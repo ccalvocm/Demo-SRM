@@ -16,6 +16,9 @@ from matplotlib import pyplot as plt
 import datetime
 import numpy as np
 import matplotlib.ticker as mticker
+# secure socket layers
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
 class Ui_MainWindow(object):
