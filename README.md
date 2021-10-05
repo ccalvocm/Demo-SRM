@@ -10,7 +10,5 @@
  3. Presionar el ejecutable "instalarMiniconda.bat"
 
  Contacto:
- Felipe Arróspide
- farrospide@ciren.cl
- Carlos Calvo
- ccalvo@ciren.cl
+ Felipe Arróspide: farrospide@ciren.cl \n 
+ Carlos Calvo: ccalvo@ciren.cl
