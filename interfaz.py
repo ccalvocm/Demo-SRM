@@ -166,6 +166,8 @@ class Ui_MainWindow(object):
         
     global path_subcuenca
     global path_actual
+    
+    path_actual = os.getcwd()
 
     def seleccionar_cuenca(self):
         path_actual = os.getcwd()
@@ -199,6 +201,7 @@ class Ui_MainWindow(object):
             errormsg.setIcon(QMessageBox.Critical)
             errormsg.setText("Error en la simulación")
             errormsg.exec_()
+            print('Error en la simulacion. Volviendo a menu principal')
             os.chdir(path_actual)
 
     def plotear_resultados(self):
