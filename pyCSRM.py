@@ -617,15 +617,15 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     #                   Save output for the simulated flow.
     #==========================================================================
     
+    # guardar el SWE y caudales
     # SWE sim
     swe_sim = np.sum(snowAcc*A, axis = 1) / Atot
-    swe_sim = pd.DataFrame(swe_sim, index = dates, columns = ['SWE simulado']) # SWE en m
-    
-    # guardar el SWE y caudales
-    SWE_out = pd.DataFrame(snowAcc, index = dates) # SWE en m
-    Q_out = pd.DataFrame(Qtot*1000, index = dates) # en l/s
-    SWE_out.to_csv(os.path.join(root,'Resultados','SWEsim_'+Basin+'.csv'), header = None) 
-    Q_out.to_csv(os.path.join(root,'Resultados','Qsim_'+Basin+'.csv'), header = None)
+    swe_sim = pd.DataFrame(swe_sim, index = dates, columns = ['Equivalente en agua de nieve (m)']) # SWE en m    SWE_out = pd.DataFrame(snowAcc, index = dates, columns = ['Equivalente de agua en nieve (m)']) # SWE en m
+    swe_sim.index.name = 'Fecha'
+    Q_out = pd.DataFrame(Qtot, index = dates, columns = ['Caudal (m3/s)']) # en l/s
+    Q_out.index.name = 'Fecha'
+    swe_sim.to_csv(os.path.join(root,'Resultados','SWEsim_'+Basin+'.csv')) 
+    Q_out.to_csv(os.path.join(root,'Resultados','Qsim_'+Basin+'.csv'))
 
     return None
     

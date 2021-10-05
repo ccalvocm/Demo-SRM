@@ -20,6 +20,9 @@ dependencies:
  - matplotlib
  - seaborn
  - scipy
+ - shapely
+ - contextily
+ - descartes
  - pip:
    - hydroeval
    - python-dateutil
