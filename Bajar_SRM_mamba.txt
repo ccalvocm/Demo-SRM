@@ -1,3 +1,0 @@
-git clone https://github.com/ccalvocm/Demo-SRM.git
-conda install mamba -n base -c conda-forge
-mamba env create -f .\Demo-SRM\pySRM_win.yaml
