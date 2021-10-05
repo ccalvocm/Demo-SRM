@@ -346,7 +346,7 @@ class Ui_MainWindow(object):
             Qfor = pd.read_csv(path_caudal_simulado,
                                              index_col=0,
                                              parse_dates=True, header = 0)
-            Qfor = Qfor.loc[Qfor.index >= plot_ini]/1e3
+            Qfor = Qfor.loc[Qfor.index >= plot_ini]
             
             # fechas
             Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qfor)-1), freq = '1d').date]  
