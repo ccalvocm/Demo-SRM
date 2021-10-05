@@ -165,9 +165,10 @@ class Ui_MainWindow(object):
         self.label_version.setText(_translate("MainWindow", "Versión 1.0"))
         
     global path_subcuenca
+    global path_actual
 
     def seleccionar_cuenca(self):
-        
+        path_actual = os.getcwd()
         if self.comboBox_cuencas.currentText() != "<Seleccione una cuenca>":
             opcion = self.comboBox_cuencas.currentText()
             self.comboBox_cuencas_cabecera.clear()
@@ -192,12 +193,14 @@ class Ui_MainWindow(object):
             msg.setIcon(QMessageBox.Information)
             msg.setText("Simulación exitosa")
             msg.exec_()
+            os.chdir(path_actual)
         except:
             errormsg = QMessageBox()
             errormsg.setIcon(QMessageBox.Critical)
             errormsg.setText("Error en la simulación")
             errormsg.exec_()
-            
+            os.chdir(path_actual)
+
     def plotear_resultados(self):
         plt.close('all')
         current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
@@ -414,6 +417,9 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
+    import ssl
+    ssl._create_default_https_context = ssl._create_unverified_context
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
