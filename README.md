@@ -5,8 +5,8 @@
  OS Windows 
 
  Instalación:
- 1. Descargar el instalador ["InstalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/InstalarSRM.zip)
- 2. Descomprimir el archivo ["InstalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/InstalarSRM.zip)
+ 1. Descargar el instalador ["InstalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/blob/main/instalarSRM.zip)
+ 2. Descomprimir el archivo ["InstalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/blob/main/instalarSRM.zip)
  3. Presionar el ejecutable "instalarMiniconda.bat"
 
  Ejecución:
