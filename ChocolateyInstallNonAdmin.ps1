@@ -18,3 +18,6 @@ choco install git.commandline -y
 
 #intalar miniconda
 choco install miniconda3 --params="'/AddToPath:1 /InstallationType:JustMe'" -y
+
+#recargar entorno
+refreshenv

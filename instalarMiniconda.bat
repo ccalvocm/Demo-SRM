@@ -5,6 +5,6 @@ CD ..
 ) else (
 call git clone https://github.com/ccalvocm/Demo-SRM.git
 )
-call conda create -n pySRM python=3.8 -y &
-call conda install mamba -n base -c conda-forge -y &
-call mamba env update -n pySRM --file .\Demo-SRM\pySRM_win.yaml &
+Powershell.exe -Command "conda create -n pySRM python=3.8 -y" &
+Powershell.exe -Command "call conda install mamba -n base -c conda-forge -y" &
+Powershell.exe -Command "call mamba env update -n pySRM --file .\Demo-SRM\pySRM_win.yaml"
