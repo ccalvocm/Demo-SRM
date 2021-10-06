@@ -19,9 +19,9 @@
  1. Para actualizar SRM a la última versión entrar a la carpeta Demo-SRM
  2. Presionar "Actualizar SRM.bat"
 
- Nota: (Solamente usuarios de Windows 7):
- Instalar Powershell 3 desde el siguiente enlace:
- https://www.microsoft.com/en-us/download/details.aspx?id=34595
+ Nota: (Solamente usuarios de Windows 7):  
+ Instalar Powershell 3 desde el siguiente enlace: https://www.microsoft.com/en-us/download/details.aspx?id=34595  
+ .NET Framework 4+: https://go.microsoft.com/fwlink/?linkid=2088632  
 
  Contacto:
  1. Felipe Arróspide: farrospide@ciren.cl
