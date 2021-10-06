@@ -1,1 +1,4 @@
-call git pull &&  mshta "about:<script>alert('SRM actualizado exitosamente');close()</script>" || mshta "about:<script>alert('Primero ejecutar los instaladores Etapa1.bay y Etapa2.bat');close()</script>"
+call  git fetch --all
+call  git reset --hard origin/main
+call git pull
+mshta "about:<script>alert('SRM actualizado existosamente');close()</script>"
