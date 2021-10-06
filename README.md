@@ -10,7 +10,7 @@
  3. Presionar el ejecutable "instalarMiniconda.bat"
 
  Ejecución:
- 1. Esperar a que termine el ejecutable "instalarMiniconda.bat"
+ 1. Esperar a que termine el ejecutable "instalarSRM.bat"
  2. Navegar a la carpeta Demo-SRM
  3. Presionar interfaz_SRM.bat
 
