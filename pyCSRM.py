@@ -624,6 +624,8 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     swe_sim.index.name = 'Fecha'
     Q_out = pd.DataFrame(Qtot, index = dates, columns = ['Caudal (m3/s)']) # en l/s
     Q_out.index.name = 'Fecha'
+    if not os.path.exists(os.path.join(root,'Resultados')):
+        os.makedirs(os.path.join(root,'Resultados'))
     swe_sim.to_csv(os.path.join(root,'Resultados','SWEsim_'+Basin+'.csv')) 
     Q_out.to_csv(os.path.join(root,'Resultados','Qsim_'+Basin+'.csv'))
 
