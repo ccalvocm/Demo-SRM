@@ -26,7 +26,6 @@ def loop(FirstDay, Days, nZones, PCR2MET, Pbands, Tbands, Tcrit, snowAcc, A, sum
                    PCR2MET[i,j]=0
                    if summerdays[i] == 1:
                        Qnewsnow[i + 1,j]=max(RCsnow[i,j]*DegDaySnow[i]*Tbands[i,j]*(1 - SCA[i,j])*A[j]/86400,0) #en m3/s
-                       snowAcc[i+1,j] = max(snowAcc[i+1,j]-DegDaySnow[i]*Tbands[i,j], 0) # en m/d
                # La precipitacion se trata por zonas para cuencas con un desnivel mayor a 500m seg�n  Martinec (2008):
                # suprimo el if innecesario de la temperatura de fusi�n con un maxmin
                #De acuerdo a Martinec (2008) p. 22, los Rc y DD debiesen depender de j
