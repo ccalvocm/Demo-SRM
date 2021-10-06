@@ -15,6 +15,10 @@
  2. Navegar a la carpeta Demo-SRM
  3. Presionar interfaz_SRM.bat
 
+ Actualización:
+ 1. Para actualizar SRM a la última versión entrar a la carpeta Demo-SRM
+ 2. Presionar "Actualizar SRM.bat"
+
  Contacto:
  1. Felipe Arróspide: farrospide@ciren.cl
  2. Carlos Calvo: ccalvo@ciren.cl
