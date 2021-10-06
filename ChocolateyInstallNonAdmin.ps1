@@ -1,4 +1,5 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force;
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 # Set directory for installation - Chocolatey does not lock
 # down the directory if not the default
 $InstallDir='C:\ProgramData\chocoportable'
