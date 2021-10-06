@@ -14,7 +14,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force;
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 #instalar git
-choco install git.commandline -y
+choco install git.commandline -yfd
 $sh = New-Object -ComObject "Wscript.Shell"
 $intButton = $sh.Popup("git instalado correctamente",0,"Instalador SRM",0+64)
 
