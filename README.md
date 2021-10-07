@@ -20,8 +20,8 @@
  2. Presionar "Actualizar SRM.bat"
 
  Nota: (Solamente usuarios de Windows 7):  
- Instalar Powershell 3 desde el siguiente enlace: https://www.microsoft.com/en-us/download/details.aspx?id=34595  
- Instalar .NET Framework 4+ desde el siguiente enlace: https://go.microsoft.com/fwlink/?linkid=2088632  
+ Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu)  
+ Instalar .NET Framework 4+ desde el siguiente enlace: [Net Framework](https://go.microsoft.com/fwlink/?linkid=2088632)
 
  Contacto:
  1. Felipe Arróspide: farrospide@ciren.cl
