@@ -10,18 +10,22 @@
  3. Presionar el ejecutable "Etapa 1.bat"
  4. Presionar el ejecutable "Etapa 2.bat"
 
+ Nota (solamente usuarios de Windows 7):  
+ Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu)  
+ Instalar .NET Framework 4+ desde el siguiente enlace: [Net Framework](https://go.microsoft.com/fwlink/?linkid=2088632)
+
  Ejecución:
  1. Esperar a que termine el ejecutable "Etapa 2.bat"
  2. Navegar a la carpeta Demo-SRM
  3. Presionar interfaz_SRM.bat
 
  Actualización:
- 1. Para actualizar SRM a la última versión entrar a la carpeta Demo-SRM
+ 1. Para actualizar los archivos de SRM a la última versión entrar a la carpeta Demo-SRM
  2. Presionar "Actualizar SRM.bat"
 
- Nota: (Solamente usuarios de Windows 7):  
- Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu)  
- Instalar .NET Framework 4+ desde el siguiente enlace: [Net Framework](https://go.microsoft.com/fwlink/?linkid=2088632)
+ Desinstalación:
+ 1. Entrar a la carpeta Demo-SRM
+ 2. Presionar "Desinstalar_SRM"
 
  Contacto:
  1. Felipe Arróspide: farrospide@ciren.cl
