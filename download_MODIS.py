@@ -118,7 +118,7 @@ def main(date_i, date_f, dir_out, argv=None):
                                   bounding_box=bounding_box, polygon=polygon,
                                   filename_filter=filename_filter, quiet=quiet)
 
-        cmr_download(url_list, force=force, quiet=quiet)
+        cmr_download(url_list, URS_URL, force=force, quiet=quiet)
     except KeyboardInterrupt:
         quit()
 
@@ -149,7 +149,7 @@ def get_password():
     return password
 
 
-def get_credentials(url):
+def get_credentials(url, URS_URL):
     """Get user credentials from .netrc or prompt for input."""
     credentials = None
     errprefix = ''
@@ -267,7 +267,7 @@ def cmr_read_in_chunks(file_object, chunk_size=1024 * 1024):
         yield data
 
 
-def cmr_download(urls, force=False, quiet=False):
+def cmr_download(urls, URS_URL, force=False, quiet=False):
     """Download files from list of urls."""
     if not urls:
         return
@@ -279,7 +279,7 @@ def cmr_download(urls, force=False, quiet=False):
 
     for index, url in enumerate(urls, start=1):
         if not credentials and urlparse(url).scheme == 'https':
-            credentials = get_credentials(url)
+            credentials = get_credentials(url, URS_URL)
 
         filename = url.split('/')[-1]
         if not quiet:
