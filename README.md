@@ -25,7 +25,7 @@
 
  Desinstalación:
  1. Entrar a la carpeta Demo-SRM
- 2. Presionar "Desinstalar_SRM"
+ 2. Presionar "Desinstalar_SRM.bat"
 
  Contacto:
  1. Felipe Arróspide: farrospide@ciren.cl
