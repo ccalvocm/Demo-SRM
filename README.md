@@ -17,7 +17,7 @@
 ### Ejecución:
  1. Esperar a que termine el ejecutable "Etapa 2.bat"
  2. Navegar a la carpeta Demo-SRM
- 3. Presionar interfaz_SRM.bat
+ 3. Presionar "interfaz_SRM.bat"
 
 ### Actualización:
  1. Para actualizar los archivos de SRM a la última versión entrar a la carpeta Demo-SRM
