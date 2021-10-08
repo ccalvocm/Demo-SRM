@@ -23,6 +23,7 @@ dependencies:
  - shapely
  - contextily
  - descartes
+ - pygeos
  - pip:
    - hydroeval
    - python-dateutil
@@ -30,3 +31,4 @@ dependencies:
    - pyqt5-tools
    - pyqt5-sip
    - pyqtwebengine
+   - dask_geopandas
