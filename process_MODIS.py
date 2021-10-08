@@ -36,6 +36,9 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
     # setear directorios de entrada y de salida
     dir_in = os.path.join(dir_in,str(yr),'prm','reproj')
     dir_out = os.path.join(dir_out,str(yr),'clip')
+
+    if not os.path.exists(dir_out):
+        os.makedirs(dir_out)
     
     # cargar shape de la cuenca
     shp = fiona.open(shp)

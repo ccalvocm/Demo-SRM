@@ -307,7 +307,6 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
             gpd_polygonized_raster = geopandas.GeoDataFrame.from_features(geoms)
             gpd_polygonized_raster = gpd_polygonized_raster.set_crs(epsg = 32719)
             
-            start = time.time()
             for banda in snow_cover.columns:
                 
                 # clip y calcular el área dentro de cada banda de elevacion
