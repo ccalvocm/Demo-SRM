@@ -22,6 +22,7 @@ from osgeo import gdal
 import os
 from osgeo import ogr
 import datetime
+import dask_geopandas
 
 # ================================
 #          funciones
@@ -306,13 +307,41 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
             gpd_polygonized_raster = geopandas.GeoDataFrame.from_features(geoms)
             gpd_polygonized_raster = gpd_polygonized_raster.set_crs(epsg = 32719)
             
+            start = time.time()
             for banda in snow_cover.columns:
                 
                 # clip y calcular el área dentro de cada banda de elevacion
                 shp_banda = geopandas.GeoDataFrame(shp_eb.iloc[banda])
                 shp_banda = geopandas.GeoDataFrame(geometry = shp_banda.loc['geometry'])
                 shp_banda = shp_banda.set_crs(epsg = 32719)
-                gpd_polygonized_raster_c = geopandas.clip(gpd_polygonized_raster, shp_banda)
+                
+                # clip de las areas por banda de elevación usando Dask
+                # create data
+                ddf = dask_geopandas.from_geopandas(gpd_polygonized_raster, npartitions=4)
+                
+                # Esta es la máscara para clipear
+                mask = shp_banda
+                
+                # Create more localized spatial partitions
+                ddf = ddf.reset_index().persist()
+                ddf.calculate_spatial_partitions()
+                
+                # Smarter version (~1.37s on my machine)
+                new_spatial_partitions = geopandas.clip(ddf.spatial_partitions.to_frame('geometry'), mask)
+                intersecting_partitions = np.asarray(new_spatial_partitions.index)
+        
+                name = 'clip-test'
+                dsk = {(name, i): (geopandas.clip, (ddf._name, l), mask) for i, l in enumerate(intersecting_partitions)}
+                divisions = [None] * (len(dsk) + 1)
+                from dask.highlevelgraph import HighLevelGraph
+                graph = HighLevelGraph.from_collections(name, dsk, dependencies=[ddf])
+                result = dask_geopandas.core.GeoDataFrame(graph, name, ddf._meta, tuple(divisions))
+                result.spatial_partitions = new_spatial_partitions
+                
+                gpd_polygonized_raster_c = result.compute()
+                gpd_polygonized_raster_c.index = gpd_polygonized_raster_c['index']
+                
+                # clip área glaciar
                 gpd_polygonized_raster_c_glaciar = geopandas.clip(gpd_polygonized_raster_c, gdf_glaciar)
                                                                       
                 # inicializar áreas nivales dentro de la banda de elevación
@@ -326,7 +355,7 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
                 # asignar áreas glaciares dentro de la banda de elevación al raster de modis
                 idx_gl = gpd_polygonized_raster_c_glaciar.index
                 gpd_polygonized_raster.loc[idx_gl,"areagl_"+str(banda)] = gpd_polygonized_raster_c_glaciar['geometry'].area.values
-        
+
         # procesar todos los días
         
         for m, modis in enumerate(lista_modis):
@@ -500,31 +529,31 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
         glacial_cover.index = indice
     
         #% plots    
-        plt.close("all")
-        fig , ax = plt.subplots(5,5)
-        ax = ax.reshape(-1)
+        # plt.close("all")
+        # fig , ax = plt.subplots(5,5)
+        # ax = ax.reshape(-1)
         
-        for i,axis in enumerate(snow_cover.columns):
-            snow_cover.iloc[:,i].plot(ax = ax[i])
-            ax[i].set_ylim(bottom = 0, top = 1)    
-            ax[i].set_ylabel('Cob. nival') 
-            for tick in ax[i].xaxis.get_major_ticks():
-                tick.label.set_fontsize(8)
-        for i in range(19,25):
-            fig.delaxes(ax[i])
+        # for i,axis in enumerate(snow_cover.columns):
+        #     snow_cover.iloc[:,i].plot(ax = ax[i])
+        #     ax[i].set_ylim(bottom = 0, top = 1)    
+        #     ax[i].set_ylabel('Cob. nival') 
+        #     for tick in ax[i].xaxis.get_major_ticks():
+        #         tick.label.set_fontsize(8)
+        # for i in range(19,25):
+        #     fig.delaxes(ax[i])
             
-        # plot glacier
-        fig , ax = plt.subplots(5,5)
-        ax = ax.reshape(-1)
+        # # plot glacier
+        # fig , ax = plt.subplots(5,5)
+        # ax = ax.reshape(-1)
         
-        for i,axis in enumerate(snow_cover.columns):
-            glacial_cover.iloc[:,i].plot(ax = ax[i])
-            ax[i].set_ylim(bottom = 0, top = 1)    
-            ax[i].set_ylabel('Cob. nival') 
-            for tick in ax[i].xaxis.get_major_ticks():
-                tick.label.set_fontsize(8)
-        for i in range(19,25):
-            fig.delaxes(ax[i])
+        # for i,axis in enumerate(snow_cover.columns):
+        #     glacial_cover.iloc[:,i].plot(ax = ax[i])
+        #     ax[i].set_ylim(bottom = 0, top = 1)    
+        #     ax[i].set_ylabel('Cob. nival') 
+        #     for tick in ax[i].xaxis.get_major_ticks():
+        #         tick.label.set_fontsize(8)
+        # for i in range(19,25):
+        #     fig.delaxes(ax[i])
         
         snow_cover.iloc[dia-1:,:] = np.nan
     
