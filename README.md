@@ -1,28 +1,32 @@
 # Demo SRM
- Transferencia de modelos
+## Transferencia de modelos
  
- Requisitos:
+### Requisitos:
  OS Windows 
 
- Instalación:
+### Instalación:
  1. Descargar el instalador ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
  2. Descomprimir el archivo ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
  3. Presionar el ejecutable "Etapa 1.bat"
  4. Presionar el ejecutable "Etapa 2.bat"
 
- Ejecución:
+ Nota (solamente usuarios de Windows 7):  
+ - Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu) 
+ - Instalar .NET Framework 4+ desde el siguiente enlace: [Net Framework](https://go.microsoft.com/fwlink/?linkid=2088632)
+
+### Ejecución:
  1. Esperar a que termine el ejecutable "Etapa 2.bat"
  2. Navegar a la carpeta Demo-SRM
- 3. Presionar interfaz_SRM.bat
+ 3. Presionar "interfaz_SRM.bat"
 
- Actualización:
- 1. Para actualizar SRM a la última versión entrar a la carpeta Demo-SRM
+### Actualización:
+ 1. Para actualizar los archivos de SRM a la última versión entrar a la carpeta Demo-SRM
  2. Presionar "Actualizar SRM.bat"
 
- Nota: (Solamente usuarios de Windows 7):  
- Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu)  
- Instalar .NET Framework 4+ desde el siguiente enlace: [Net Framework](https://go.microsoft.com/fwlink/?linkid=2088632)
+### Desinstalación:
+ 1. Entrar a la carpeta Demo-SRM
+ 2. Presionar "Desinstalar_SRM.bat"
 
- Contacto:
- 1. Felipe Arróspide: farrospide@ciren.cl
- 2. Carlos Calvo: ccalvo@ciren.cl
+### Contacto:
+ - Felipe Arróspide: farrospide@ciren.cl
+ - Carlos Calvo: ccalvo@ciren.cl
