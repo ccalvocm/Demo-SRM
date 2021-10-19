@@ -10,12 +10,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import interfaz_variables_metodos_auxiliares as var_aux
 import os
 import autotest
-from PyQt5.QtWidgets import QFileDialog, QMessageBox, QDialogButtonBox
+from PyQt5.QtWidgets import QFileDialog, QMessageBox
 import pandas as pd
 from matplotlib import pyplot as plt
 import datetime
 import numpy as np
 import matplotlib.ticker as mticker
+# secure socket layers
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
 class Ui_MainWindow(object):
@@ -165,9 +168,12 @@ class Ui_MainWindow(object):
         self.label_version.setText(_translate("MainWindow", "Versión 1.0"))
         
     global path_subcuenca
+    global path_actual
+    
+    path_actual = os.getcwd()
 
     def seleccionar_cuenca(self):
-        
+        path_actual = os.getcwd()
         if self.comboBox_cuencas.currentText() != "<Seleccione una cuenca>":
             opcion = self.comboBox_cuencas.currentText()
             self.comboBox_cuencas_cabecera.clear()
@@ -186,17 +192,21 @@ class Ui_MainWindow(object):
         path_completo = os.path.join(os.getcwd(),path_subcuenca)
         print(path_completo)
         try:
+            
             autotest.run_pySRM(path_completo, tipo = 'P')
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Information)
             msg.setText("Simulación exitosa")
             msg.exec_()
+            os.chdir(path_actual)
         except:
             errormsg = QMessageBox()
             errormsg.setIcon(QMessageBox.Critical)
             errormsg.setText("Error en la simulación")
             errormsg.exec_()
-            
+            print('Error en la simulacion. Volviendo a menu principal')
+            os.chdir(path_actual)
+
     def plotear_resultados(self):
         plt.close('all')
         current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
@@ -211,9 +221,8 @@ class Ui_MainWindow(object):
         
         try:    
             df_caudal_simulado = pd.read_csv(path_caudal_simulado,
-                                             header = None,
                                              index_col=0,
-                                             parse_dates=True)
+                                             parse_dates=True, header = 0)
             
             #######################################
             #   graficar periodo de validación    #
@@ -334,8 +343,10 @@ class Ui_MainWindow(object):
             plot_ini = pd.to_datetime(str(years[-2])+'-04-01')
     
             # Qforecast
-            Qfor = pd.read_csv(os.path.join(path_completo,'SRM','Resultados',r'Qsim_01_RMELA.csv'), index_col = 0, parse_dates = True, header = None)
-            Qfor = Qfor.loc[Qfor.index >= plot_ini]/1e3
+            Qfor = pd.read_csv(path_caudal_simulado,
+                                             index_col=0,
+                                             parse_dates=True, header = 0)
+            Qfor = Qfor.loc[Qfor.index >= plot_ini]
             
             # fechas
             Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qfor)-1), freq = '1d').date]  
@@ -413,6 +424,9 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
+    import ssl
+    ssl._create_default_https_context = ssl._create_unverified_context
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

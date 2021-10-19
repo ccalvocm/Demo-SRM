@@ -2,9 +2,10 @@
 
 # Form implementation generated from reading ui file 'interfaz.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.12.3
 #
 # WARNING! All changes made in this file will be lost!
+
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import interfaz_variables_metodos_auxiliares as var_aux
@@ -28,7 +29,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.comboBox_cuencas = QtWidgets.QComboBox(self.centralwidget)
-        self.comboBox_cuencas.setGeometry(QtCore.QRect(300, 120, 231, 23))
+        self.comboBox_cuencas.setGeometry(QtCore.QRect(160, 70, 231, 23))
         self.comboBox_cuencas.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToMinimumContentsLength)
         self.comboBox_cuencas.setObjectName("comboBox_cuencas")
         self.comboBox_cuencas.addItem("")
@@ -37,13 +38,13 @@ class Ui_MainWindow(object):
         self.comboBox_cuencas.addItem("")
         self.comboBox_cuencas.addItem("")
         self.comboBox_cuencas_cabecera = QtWidgets.QComboBox(self.centralwidget)
-        self.comboBox_cuencas_cabecera.setGeometry(QtCore.QRect(300, 250, 231, 22))
+        self.comboBox_cuencas_cabecera.setGeometry(QtCore.QRect(160, 150, 231, 22))
         self.comboBox_cuencas_cabecera.setObjectName("comboBox_cuencas_cabecera")
         self.pushButton_simular = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_simular.setGeometry(QtCore.QRect(300, 420, 111, 61))
+        self.pushButton_simular.setGeometry(QtCore.QRect(160, 230, 111, 61))
         self.pushButton_simular.setObjectName("pushButton_simular")
         self.pushButton_plotear = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_plotear.setGeometry(QtCore.QRect(420, 420, 111, 61))
+        self.pushButton_plotear.setGeometry(QtCore.QRect(280, 230, 111, 61))
         self.pushButton_plotear.setObjectName("pushButton_plotear")
         self.label_titulo = QtWidgets.QLabel(self.centralwidget)
         self.label_titulo.setGeometry(QtCore.QRect(150, 0, 511, 41))
@@ -94,26 +95,26 @@ class Ui_MainWindow(object):
         self.label_paso3.setWordWrap(True)
         self.label_paso3.setObjectName("label_paso3")
         self.label_paso1_menu = QtWidgets.QLabel(self.centralwidget)
-        self.label_paso1_menu.setGeometry(QtCore.QRect(300, 90, 57, 15))
+        self.label_paso1_menu.setGeometry(QtCore.QRect(160, 40, 57, 15))
         self.label_paso1_menu.setObjectName("label_paso1_menu")
         self.label_paso2_menu = QtWidgets.QLabel(self.centralwidget)
-        self.label_paso2_menu.setGeometry(QtCore.QRect(300, 220, 57, 15))
+        self.label_paso2_menu.setGeometry(QtCore.QRect(160, 120, 57, 15))
         self.label_paso2_menu.setObjectName("label_paso2_menu")
         self.label_paso3_menu = QtWidgets.QLabel(self.centralwidget)
-        self.label_paso3_menu.setGeometry(QtCore.QRect(300, 390, 57, 15))
+        self.label_paso3_menu.setGeometry(QtCore.QRect(160, 200, 57, 15))
         self.label_paso3_menu.setObjectName("label_paso3_menu")
         self.line_3 = QtWidgets.QFrame(self.centralwidget)
-        self.line_3.setGeometry(QtCore.QRect(300, 110, 118, 3))
+        self.line_3.setGeometry(QtCore.QRect(160, 60, 118, 3))
         self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.line_4 = QtWidgets.QFrame(self.centralwidget)
-        self.line_4.setGeometry(QtCore.QRect(300, 240, 118, 3))
+        self.line_4.setGeometry(QtCore.QRect(160, 140, 118, 3))
         self.line_4.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_4.setObjectName("line_4")
         self.line_5 = QtWidgets.QFrame(self.centralwidget)
-        self.line_5.setGeometry(QtCore.QRect(300, 410, 118, 3))
+        self.line_5.setGeometry(QtCore.QRect(160, 220, 118, 3))
         self.line_5.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_5.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_5.setObjectName("line_5")
@@ -123,6 +124,13 @@ class Ui_MainWindow(object):
         self.label_version = QtWidgets.QLabel(self.centralwidget)
         self.label_version.setGeometry(QtCore.QRect(10, 470, 121, 16))
         self.label_version.setObjectName("label_version")
+        self.webEngineView = QtWebEngineWidgets.QWebEngineView(self.centralwidget)
+        self.webEngineView.setGeometry(QtCore.QRect(410, 70, 251, 341))
+        self.webEngineView.setUrl(QtCore.QUrl("about:blank"))
+        self.webEngineView.setObjectName("webEngineView")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(410, 50, 171, 16))
+        self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 893, 20))
@@ -166,6 +174,7 @@ class Ui_MainWindow(object):
         self.label_paso3_menu.setText(_translate("MainWindow", "Paso 3"))
         self.label.setText(_translate("MainWindow", "Preparado para:"))
         self.label_version.setText(_translate("MainWindow", "Versión 1.0"))
+        self.label_2.setText(_translate("MainWindow", "Mapa explorador"))
         
     global path_subcuenca
     global path_actual
@@ -180,11 +189,18 @@ class Ui_MainWindow(object):
             for item in var_aux.dic_cuencas[opcion]:
                 self.comboBox_cuencas_cabecera.addItem(item)
                 
+                
     def seleccionar_subcuenca(self):
         if self.comboBox_cuencas_cabecera.currentText() != '':    
             current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
             path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
             print(path_subcuenca)
+            html_subcuenca = os.path.join('.', var_aux.dic_paths[current_subcuenca][-1] + '.html')
+            with open(html_subcuenca, 'r') as f:
+                html = f.read()
+                self.webEngineView.setHtml(html)
+                print(html_subcuenca)
+                self.webEngineView.show()
             
     def simular(self):
         current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
@@ -419,18 +435,15 @@ class Ui_MainWindow(object):
             errormsg.setText("Error en la carga de resultados\n" \
                              "Simule primero la cuenca o seleccione otra cuenca")
             errormsg.exec_()
-    
+            
+from PyQt5 import QtWebEngineWidgets
 
 
 if __name__ == "__main__":
     import sys
-    import ssl
-    ssl._create_default_https_context = ssl._create_unverified_context
-
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
