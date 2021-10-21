@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'interfaz.ui'
+# Form implementation generated from reading ui file 'interfaz2.ui'
 #
 # Created by: PyQt5 UI code generator 5.12.3
 #
@@ -25,7 +25,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1920, 1080)
+        MainWindow.resize(4095, 2927)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.comboBox_cuencas = QtWidgets.QComboBox(self.centralwidget)
@@ -47,7 +47,7 @@ class Ui_MainWindow(object):
         self.pushButton_plotear.setGeometry(QtCore.QRect(280, 230, 111, 61))
         self.pushButton_plotear.setObjectName("pushButton_plotear")
         self.label_titulo = QtWidgets.QLabel(self.centralwidget)
-        self.label_titulo.setGeometry(QtCore.QRect(150, 0, 511, 41))
+        self.label_titulo.setGeometry(QtCore.QRect(280, 0, 511, 41))
         font = QtGui.QFont()
         font.setPointSize(18)
         self.label_titulo.setFont(font)
@@ -59,16 +59,16 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.line_2 = QtWidgets.QFrame(self.centralwidget)
-        self.line_2.setGeometry(QtCore.QRect(660, 0, 21, 501))
+        self.line_2.setGeometry(QtCore.QRect(870, 0, 21, 501))
         self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.label_instrucciones = QtWidgets.QLabel(self.centralwidget)
-        self.label_instrucciones.setGeometry(QtCore.QRect(680, 50, 211, 21))
+        self.label_instrucciones.setGeometry(QtCore.QRect(890, 50, 211, 21))
         self.label_instrucciones.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.label_instrucciones.setObjectName("label_instrucciones")
         self.label_paso1 = QtWidgets.QLabel(self.centralwidget)
-        self.label_paso1.setGeometry(QtCore.QRect(680, 60, 211, 171))
+        self.label_paso1.setGeometry(QtCore.QRect(890, 60, 211, 171))
         self.label_paso1.setWordWrap(True)
         self.label_paso1.setObjectName("label_paso1")
         self.label_programadopor = QtWidgets.QLabel(self.centralwidget)
@@ -87,11 +87,11 @@ class Ui_MainWindow(object):
         self.label_icon_CNR.setScaledContents(True)
         self.label_icon_CNR.setObjectName("label_icon_CNR")
         self.label_paso2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_paso2.setGeometry(QtCore.QRect(680, 210, 211, 91))
+        self.label_paso2.setGeometry(QtCore.QRect(890, 210, 211, 91))
         self.label_paso2.setWordWrap(True)
         self.label_paso2.setObjectName("label_paso2")
         self.label_paso3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_paso3.setGeometry(QtCore.QRect(680, 360, 211, 141))
+        self.label_paso3.setGeometry(QtCore.QRect(890, 360, 211, 141))
         self.label_paso3.setWordWrap(True)
         self.label_paso3.setObjectName("label_paso3")
         self.label_paso1_menu = QtWidgets.QLabel(self.centralwidget)
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         self.label_version.setGeometry(QtCore.QRect(10, 470, 121, 16))
         self.label_version.setObjectName("label_version")
         self.webEngineView = QtWebEngineWidgets.QWebEngineView(self.centralwidget)
-        self.webEngineView.setGeometry(QtCore.QRect(410, 70, 251, 341))
+        self.webEngineView.setGeometry(QtCore.QRect(410, 70, 461, 431))
         self.webEngineView.setUrl(QtCore.QUrl("about:blank"))
         self.webEngineView.setObjectName("webEngineView")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
@@ -133,13 +133,13 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 893, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 4095, 20))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        
+
         self.comboBox_cuencas.activated.connect(self.seleccionar_cuenca)
         self.comboBox_cuencas_cabecera.currentTextChanged.connect(self.seleccionar_subcuenca)
         self.pushButton_simular.clicked.connect(self.simular)
@@ -150,7 +150,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Modelo Pronostico Caudales CNR"))
         self.comboBox_cuencas.setItemText(0, _translate("MainWindow", "<Seleccione una cuenca>"))
         self.comboBox_cuencas.setItemText(1, _translate("MainWindow", "Rio Maipo"))
         self.comboBox_cuencas.setItemText(2, _translate("MainWindow", "Rio Rapel"))
@@ -435,7 +435,11 @@ class Ui_MainWindow(object):
             errormsg.setText("Error en la carga de resultados\n" \
                              "Simule primero la cuenca o seleccione otra cuenca")
             errormsg.exec_()
-            
+        
+        
+        
+        
+        
 from PyQt5 import QtWebEngineWidgets
 
 
