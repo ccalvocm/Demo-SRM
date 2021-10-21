@@ -238,7 +238,7 @@ class Ui_MainWindow(object):
             
             # obtener la otra temporada de riego que se quiere comparar
             # ejemplo 
-            fecha = '2018-04-01'
+            fecha = '2019-04-01'
             fecha = pd.to_datetime(fecha)
             
             # chequear si se quiere comparar con una temporada anterior
