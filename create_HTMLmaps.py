@@ -19,7 +19,11 @@ dic_subcuencas = {'01_RMELA': 'Rio Mapocho en Los Almendros',
                   '02_RMEEM': 'Rio Maipo en El Manzano',
                   '01_RCEPTDC': 'Rio Cachapoal en Puente Termas de Cauquenes',
                   '02_RCEHLN': 'Rio Claro en Hacienda Las Nieves',
-                  '03_RTBLB': 'Rio Tinguiririca bajo Los Briones'}
+                  '03_RTBLB': 'Rio Tinguiririca bajo Los Briones',
+                  '01_RTDJCC': 'Rio Teno despues de junta con Claro',
+                  '02_RCEJCP': 'Rio Colorado en junta con Palos',
+                  '03_RPEJCC': 'Rio Palos en junta con Colorado',
+                  '01_RMEA': 'Rio Maule en Armerillo'}
 
 def export_html_map(shp_file_path):
 
@@ -84,7 +88,7 @@ def create_4326_shapefile(filepath):
     
 if __name__ == '__main__':
     
-    subcuenca = os.path.join(*['02_Rapel', '03_RTBLB'])
+    subcuenca = os.path.join(*['04_Maule', '01_RMEA'])
     
     shp_file_path = os.path.join(subcuenca,'Shapes', 'cuenca.shp')
     create_4326_shapefile(shp_file_path)
