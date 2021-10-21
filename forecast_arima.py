@@ -139,8 +139,8 @@ def forecast_dataframe_file(path):
 if __name__ == '__main__':
     
     path = ['/home', 'faarrosp','Documents','GitHub',
-            'Demo-SRM','01_Maipo','02_RMEEM',
-            'Predictores_precipitacion', 'viento_actual.csv']
+            'Demo-SRM','02_Rapel','03_RTBLB',
+            'Temperatura', 'temperatura_actual.csv']
     
     path_dataset = os.path.join(*path)
     
