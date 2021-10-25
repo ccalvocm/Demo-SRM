@@ -20,10 +20,14 @@ import matplotlib.ticker as mticker
 # secure socket layers
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
-
+from PyQt5.QtCore import QThreadPool
+from Worker import Worker
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        # crear thread pool
+        self.threadpool1 = QThreadPool()
+        
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1920, 1080)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -203,6 +207,38 @@ class Ui_MainWindow(object):
                 self.webEngineView.show()
             
     def simular(self):
+        current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
+        path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
+        path_completo = os.path.join(os.getcwd(),path_subcuenca)
+        print(path_completo)
+        
+        
+        worker = Worker(autotest.run_pySRM, path_completo, tipo='P')
+        # worker.signals.result.connect(self.plotResults) # funcion para cuando termina
+        # worker.signals.progress.connect(self.progress_fn) #
+        # worker.signals.error.connect(self.error)
+        
+        
+        
+        # try:
+            
+        #     autotest.run_pySRM(path_completo, tipo = 'P')
+        #     msg = QMessageBox()
+        #     msg.setIcon(QMessageBox.Information)
+        #     msg.setText("Simulación exitosa")
+        #     msg.exec_()
+        #     os.chdir(path_actual)
+        # except:
+        #     errormsg = QMessageBox()
+        #     errormsg.setIcon(QMessageBox.Critical)
+        #     errormsg.setText("Error en la simulación")
+        #     errormsg.exec_()
+        #     print('Error en la simulacion. Volviendo a menu principal')
+        #     os.chdir(path_actual)
+            
+    
+    
+    def qthread_simular(self):
         current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
         path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
         path_completo = os.path.join(os.getcwd(),path_subcuenca)
