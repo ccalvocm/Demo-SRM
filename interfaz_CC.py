@@ -229,6 +229,14 @@ class Ui_MainWindow(object):
             #         graficar predictivo         #
             #######################################
             
+            # cargar desviaciones estandar
+            est_dev = pd.read_csv(os.path.join(path_completo,'SRM','Inputs',r'df_std_dev.csv'), index_col = 0, parse_dates = True)
+            # convertir a m3/s
+            est_dev = est_dev/1e3
+            # pasar a mensuales
+            est_dev_mon = est_dev.resample('MS').mean()
+            est_dev_mon = est_dev_mon.divide(np.sqrt(est_dev_mon.index.daysinmonth), axis = 0)
+            
             # cargar el master y su información
             master = pd.read_csv(os.path.join(path_completo,'SRM','Inputs',r'Master.csv'), index_col = 0, parse_dates = True)
             
@@ -238,7 +246,7 @@ class Ui_MainWindow(object):
             
             # obtener la otra temporada de riego que se quiere comparar
             # ejemplo 
-            fecha = '2019-04-01'
+            fecha = '2021-04-01'
             fecha = pd.to_datetime(fecha)
             
             # chequear si se quiere comparar con una temporada anterior
@@ -262,6 +270,10 @@ class Ui_MainWindow(object):
             
             # seleccionar los caudales simulados
             Qfor = Qfor.loc[(Qfor.index >= plot_ini) & (Qfor.index <= plot_fin)]
+            idx = est_dev.index
+            # Z value del 99%
+            Qfor_ul = Qfor.loc[idx]+2.58*est_dev.values
+            Qfor_ll = Qfor.loc[idx]-2.58*est_dev.values           
             
             # fechas
             Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qfor)-1), freq = '1d').date]  
@@ -278,13 +290,17 @@ class Ui_MainWindow(object):
             fig = plt.figure(figsize=(18 , 12))
             ax = fig.add_subplot(2,1,1)
             Qfor.plot(ax = ax, style='r-', linewidth = 2)
+            ax.fill_between(Qfor_ll.index, y1 = Qfor_ll.squeeze(), y2 = Qfor_ul.squeeze(),
+                facecolor='steelblue', alpha=0.2, interpolate=True)
+            # Qfor_ul.plot(ax = ax, style='b-', linewidth = 2)
+            # Qfor_ll.plot(ax = ax, style='g-', linewidth = 2)
             plt.ylim(bottom = 0)
             plt.ylabel('Caudal $(m^3/s)$', fontsize = 12)
             title = 'Pronóstico de caudales para años: ' \
                 +str(first_year)+'-'+str(last_year)
             current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
             plt.title('\n'.join([title, current_subcuenca]))
-            plt.legend(['Q Simulado'])
+            plt.legend(['Q Simulado', 'Intervalo de Confianza de 99%'])
             _ = plt.xlabel('')
             plt.grid()
                          
@@ -293,6 +309,10 @@ class Ui_MainWindow(object):
             # calcular los caudales medios mensuales
             Q_mon = Qfor.resample('MS').mean()
             Q_mon.reset_index(inplace = True, drop = True)
+            
+            # intervalos de Confianza
+            Qfor_ul_mon = Q_mon.loc[idx]+2.58*est_dev_mon.values
+            Qfor_ll_mon = Q_mon.loc[idx]-2.58*est_dev_mon.values
             
             # graficar la curva de variación estacional histórica
         
@@ -305,7 +325,8 @@ class Ui_MainWindow(object):
                              
             # caudales medios mensuales pronosticados
             Q_mon.plot(ax = axis, color='r', style='--', marker = 'D', markersize=10, legend=False, linewidth = 3, logy=False)
-            
+            axis.fill_between(Qfor_ll_mon.index, y1 = Qfor_ll_mon.squeeze(), y2 = Qfor_ul_mon.squeeze(),
+                facecolor='steelblue', alpha=0.2, interpolate=True)        
             axis.set_ylabel('Caudal $(m^3/s)$',  fontsize = 12)
             axis.set_ylim(bottom = 0)
             axis.grid(linestyle='-.')
