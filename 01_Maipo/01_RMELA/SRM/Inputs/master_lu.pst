@@ -3,7 +3,7 @@ pcf
 restart estimation
 90    365      18       0       1
 2    1 single point   1   0   0
-10.0  -3  0.3  0.03  10  lamforgive derforgive
+10.0  -3  0.3  0.03  10  lamforgive uptestmin=20
 10.0  10.0  0.001
 0.1  noaui
    -2  0.005  4  4  0.005  4
@@ -125,7 +125,7 @@ beta	none	factor	0.51	2.00E-01	5.10E-01	beta	1	0	1
 * observation groups
 q
 * observation data
- q7762                  2392.642       0  q
+ q7762                  2000       0  q
  q7763                  2374.590       4.170573E-03  q
  q7764                  2357.538       4.300902E-03  q
  q7765                  2342.437       4.431234E-03  q

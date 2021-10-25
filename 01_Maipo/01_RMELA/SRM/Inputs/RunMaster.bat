@@ -1,2 +1,2 @@
-beopest64 master_lu /h :4004
+beopest64 master /h :4004
 pause
