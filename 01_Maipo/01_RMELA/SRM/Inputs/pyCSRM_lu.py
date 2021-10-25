@@ -188,7 +188,7 @@ def DEVELOP_SRM(root, Basin, alpha, Tcrit, plots):
     beta = time_lags_DDs.values[0,4]
     
     # leer master del periodo anterior
-    master = pd.read_csv(root+r'/Master_lu.csv', index_col = 0, parse_dates = True)
+    master = pd.read_csv(root+r'/Master.csv', index_col = 0, parse_dates = True)
     
     # última fecha con datos 
     lastDate = pd.to_datetime('2022-03-31')
