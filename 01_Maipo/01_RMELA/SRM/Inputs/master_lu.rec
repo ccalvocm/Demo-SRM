@@ -65,22 +65,22 @@ Derivatives calculation:-
 Param        Increment   Increment   Increment   Forward or   Multiplier  Method
 group        type                    low bound   central      (central)   (central)
 ddsd         relative    2.5000E-02   none         switch       2.000     parabolic
-ddsw         relative    0.2500       none         switch       2.000     parabolic
-ddgd         relative    0.2500       none         switch       2.000     parabolic
-ddgw         relative    0.2500       none         switch       2.000     parabolic
-rcsd         relative    0.2500       none         switch       2.000     parabolic
-rcsw         relative    0.2500       none         switch       2.000     parabolic
-rcrd         relative    0.2500       none         switch       2.000     parabolic
-rcrw         relative    2.5000E-02   none         switch       2.000     parabolic
-rcgd         relative    2.5000E-02   none         switch       2.000     parabolic
-rcgw         relative    2.5000E-02   none         switch       2.000     parabolic
-tl           relative    2.5000E-02   none         switch       2.000     parabolic
-xw           relative    2.5000E-02   none         switch       2.000     parabolic
-yw           relative    3.0000E-02   none         switch       2.000     parabolic
-x            relative    2.5000E-02   none         switch       2.000     parabolic
-y            relative    2.5000E-02   none         switch       2.000     parabolic
-tlr          relative    0.5000       none         switch       2.000     parabolic
-tls          relative    0.5000       none         switch       2.000     parabolic
+ddsw         relative     5.000       none         switch       2.000     parabolic
+ddgd         relative     5.000       none         switch       2.000     parabolic
+ddgw         relative     5.000       none         switch       2.000     parabolic
+rcsd         relative     5.000       none         switch       2.000     parabolic
+rcsw         relative     5.000       none         switch       2.000     parabolic
+rcrd         relative     5.000       none         switch       2.000     parabolic
+rcrw         relative     5.000       none         switch       2.000     parabolic
+rcgd         relative     5.000       none         switch       2.000     parabolic
+rcgw         relative     5.000       none         switch       2.000     parabolic
+tl           relative     5.000       none         switch       2.000     parabolic
+xw           relative     5.000       none         switch       2.000     parabolic
+yw           relative     3.000       none         switch       2.000     parabolic
+x            relative     5.000       none         switch       2.000     parabolic
+y            relative     5.000       none         switch       2.000     parabolic
+tlr          relative     5.000       none         switch       2.000     parabolic
+tls          relative     5.000       none         switch       2.000     parabolic
 beta         relative    2.5000E-02   none         switch       2.000     parabolic
 
 Derivatives problem rectification through split slope analysis:-
@@ -112,94 +112,94 @@ Parameter definitions:-
 Name         Trans-            Change       Initial        Lower          Upper
              formation         limit        value          bound          bound
 ddsd         log               factor     0.411140       0.100000        2.10000    
-ddsw         log               factor      2.10000       0.100000        2.10000    
-ddgd         log               factor     0.668448       1.000000E-08    10.0000    
-ddgw         log               factor     9.360000E-02   1.000000E-08    10.0000    
-rcs1d        log               factor     0.308039       1.000000E-08    10.0000    
-rcs1w        log               factor     0.572893       1.000000E-08    10.0000    
-rcs2d        log               factor     0.675793       1.000000E-08    10.0000    
-rcs2w        log               factor     0.997370       1.000000E-08    10.0000    
-rcs3d        log               factor     0.100516       1.000000E-08    10.0000    
-rcs3w        log               factor     0.974006       1.000000E-08    10.0000    
-rcs4d        log               factor     1.970000E-02   1.000000E-08    10.0000    
-rcs4w        log               factor     0.230849       1.000000E-08    10.0000    
-rcs5d        log               factor     1.980000E-02   1.000000E-08    10.0000    
-rcs5w        log               factor     0.135577       1.000000E-08    10.0000    
-rcs6d        log               factor     1.800000E-02   1.000000E-08    10.0000    
-rcs6w        log               factor     5.100000E-02   1.000000E-08    10.0000    
-rcs7d        log               factor     5.860000E-03   1.000000E-08    10.0000    
-rcs7w        log               factor     0.466911       1.000000E-08    10.0000    
-rcs8d        log               factor     0.312665       1.000000E-08    10.0000    
-rcs8w        log               factor     1.530000E-02   1.000000E-08    10.0000    
-rcs9d        log               factor      1.00000       1.000000E-08    10.0000    
-rcs9w        log               factor      1.00000       1.000000E-08    10.0000    
-rcs10d       log               factor     3.570000E-03   1.000000E-08    10.0000    
-rcs10w       log               factor     8.720000E-03   1.000000E-08    10.0000    
-rcs11d       log               factor     5.500000E-03   1.000000E-08    10.0000    
-rcs11w       log               factor     7.640000E-03   1.000000E-08    10.0000    
-rcs12d       log               factor     0.711298       1.000000E-08    10.0000    
-rcs12w       log               factor     0.108454       1.000000E-08    10.0000    
-rcs13d       log               factor      1.00000       1.000000E-08    10.0000    
-rcs13w       log               factor      1.00000       1.000000E-08    10.0000    
-rcs14d       log               factor      1.00000       1.000000E-08    10.0000    
-rcs14w       log               factor      1.00000       1.000000E-08    10.0000    
-rcs15d       log               factor      1.00000       1.000000E-08    10.0000    
-rcs15w       log               factor      1.00000       1.000000E-08    10.0000    
-rcs16d       log               factor      1.00000       1.000000E-08    10.0000    
-rcs16w       log               factor      1.00000       1.000000E-08    10.0000    
-rcs17d       log               factor      1.00000       1.000000E-08    10.0000    
-rcs17w       log               factor      1.00000       1.000000E-08    10.0000    
-rcs18d       log               factor      1.00000       1.000000E-08    10.0000    
-rcs18w       log               factor      1.00000       1.000000E-08    10.0000    
-rcs19d       log               factor      1.00000       1.000000E-08    10.0000    
-rcs19w       log               factor     0.108937       1.000000E-08    10.0000    
-rcr1d        log               factor     5.390000E-02   1.000000E-08    10.0000    
-rcr1w        log               factor     0.104016       1.000000E-08    10.0000    
-rcr2d        log               factor     0.846417       1.000000E-08    10.0000    
-rcr2w        log               factor     0.871717       1.000000E-08    10.0000    
-rcr3d        log               factor     7.300000E-02   1.000000E-08    10.0000    
-rcr3w        log               factor     0.649503       1.000000E-08    10.0000    
-rcr4d        log               factor     2.360000E-02   1.000000E-08    10.0000    
-rcr4w        log               factor     0.189609       1.000000E-08    10.0000    
-rcr5d        log               factor     1.040000E-02   1.000000E-08    10.0000    
-rcr5w        log               factor     9.310000E-02   1.000000E-08    10.0000    
-rcr6d        log               factor     1.760000E-02   1.000000E-08    10.0000    
-rcr6w        log               factor     4.970000E-02   1.000000E-08    10.0000    
-rcr7d        log               factor     1.300000E-02   1.000000E-08    10.0000    
-rcr7w        log               factor     1.340000E-02   1.000000E-08    10.0000    
-rcr8d        log               factor     6.480000E-03   1.000000E-08    10.0000    
-rcr8w        log               factor     1.360000E-02   1.000000E-08    10.0000    
-rcr9d        log               factor     0.182111       1.000000E-08    10.0000    
-rcr9w        log               factor     1.540000E-02   1.000000E-08    10.0000    
-rcr10d       log               factor     1.030000E-02   1.000000E-08    10.0000    
-rcr10w       log               factor     1.610000E-02   1.000000E-08    10.0000    
-rcr11d       log               factor     6.910000E-03   1.000000E-08    10.0000    
-rcr11w       log               factor     1.150000E-02   1.000000E-08    10.0000    
-rcr12d       log               factor     4.350000E-03   1.000000E-08    10.0000    
-rcr12w       log               factor     1.010000E-02   1.000000E-08    10.0000    
-rcr13d       log               factor     7.460000E-03   1.000000E-08    10.0000    
-rcr13w       log               factor      1.00000       1.000000E-08    10.0000    
-rcr14d       log               factor     1.250000E-02   1.000000E-08    10.0000    
-rcr14w       log               factor      1.00000       1.000000E-08    10.0000    
-rcr15d       log               factor     2.530000E-02   1.000000E-08    10.0000    
-rcr15w       log               factor     8.940000E-02   1.000000E-08    10.0000    
-rcr16d       log               factor     4.390000E-02   1.000000E-08    10.0000    
-rcr16w       log               factor     0.116352       1.000000E-08    10.0000    
-rcr17d       log               factor     5.200000E-02   1.000000E-08    10.0000    
-rcr17w       log               factor     0.108262       1.000000E-08    10.0000    
-rcr18d       log               factor     5.210000E-02   1.000000E-08    10.0000    
-rcr18w       log               factor     0.100445       1.000000E-08    10.0000    
-rcr19d       log               factor     5.070000E-02   1.000000E-08    10.0000    
-rcr19w       log               factor     9.630000E-02   1.000000E-08    10.0000    
-rcgd         log               factor     1.680000E-02   1.000000E-08    10.0000    
-rcgw         log               factor     0.444827       1.000000E-08    10.0000    
-tl           log               factor      5.00000       1.000000E-08    5.00000    
-xw           log               factor     0.952395       1.000000E-08    2.10000    
-yw           log               factor     2.540000E-04   1.000000E-08    1.00000    
-x            log               factor      1.15645       1.000000E-08    2.30000    
-y            log               factor     2.850000E-02   1.000000E-08    10.0000    
-tlr          log               factor     6.820000E-02   1.000000E-08    10.0000    
-tls          log               factor     0.222000       1.000000E-08    30.0000    
+ddsw         log               factor      2.10000       0.100000        100.000    
+ddgd         log               factor     0.668448       0.100000        100.000    
+ddgw         log               factor     9.360000E-02   1.980000E-02    100.000    
+rcs1d        log               factor     0.308039       0.100000        100.000    
+rcs1w        log               factor     0.572893       0.100000        100.000    
+rcs2d        log               factor     0.675793       0.100000        100.000    
+rcs2w        log               factor     0.997370       0.100000        100.000    
+rcs3d        log               factor     0.100516       0.100000        100.000    
+rcs3w        log               factor     0.974006       0.100000        100.000    
+rcs4d        log               factor     1.970000E-02   1.000000E-03    100.000    
+rcs4w        log               factor     0.230849       1.000000E-03    100.000    
+rcs5d        log               factor     1.980000E-02   1.000000E-03    100.000    
+rcs5w        log               factor     0.135577       1.000000E-03    100.000    
+rcs6d        log               factor     1.800000E-02   1.000000E-03    100.000    
+rcs6w        log               factor     5.100000E-02   1.000000E-03    100.000    
+rcs7d        log               factor     5.860000E-03   1.000000E-03    100.000    
+rcs7w        log               factor     0.466911       1.000000E-03    100.000    
+rcs8d        log               factor     0.312665       1.000000E-03    100.000    
+rcs8w        log               factor     1.530000E-02   1.000000E-03    100.000    
+rcs9d        log               factor      1.00000       1.000000E-03    100.000    
+rcs9w        log               factor      1.00000       1.000000E-03    100.000    
+rcs10d       log               factor     3.570000E-03   1.000000E-03    100.000    
+rcs10w       log               factor     8.720000E-03   1.000000E-03    100.000    
+rcs11d       log               factor     5.500000E-03   1.000000E-03    100.000    
+rcs11w       log               factor     7.640000E-03   1.000000E-03    100.000    
+rcs12d       log               factor     0.711298       1.000000E-03    100.000    
+rcs12w       log               factor     0.108454       1.000000E-03    100.000    
+rcs13d       log               factor      1.00000       1.000000E-03    100.000    
+rcs13w       log               factor      1.00000       1.000000E-03    100.000    
+rcs14d       log               factor      1.00000       1.000000E-03    100.000    
+rcs14w       log               factor      1.00000       1.000000E-03    100.000    
+rcs15d       log               factor      1.00000       1.000000E-03    100.000    
+rcs15w       log               factor      1.00000       1.000000E-03    100.000    
+rcs16d       log               factor      1.00000       1.000000E-03    100.000    
+rcs16w       log               factor      1.00000       1.000000E-03    100.000    
+rcs17d       log               factor      1.00000       1.000000E-03    100.000    
+rcs17w       log               factor      1.00000       1.000000E-03    100.000    
+rcs18d       log               factor      1.00000       1.000000E-03    100.000    
+rcs18w       log               factor      1.00000       1.000000E-03    100.000    
+rcs19d       log               factor      1.00000       1.000000E-03    100.000    
+rcs19w       log               factor     0.108937       1.000000E-03    100.000    
+rcr1d        log               factor     5.390000E-02   1.000000E-03    100.000    
+rcr1w        log               factor     0.104016       1.000000E-03    100.000    
+rcr2d        log               factor     0.846417       1.000000E-03    100.000    
+rcr2w        log               factor     0.871717       1.000000E-03    100.000    
+rcr3d        log               factor     7.300000E-02   1.000000E-03    100.000    
+rcr3w        log               factor     0.649503       1.000000E-03    100.000    
+rcr4d        log               factor     2.360000E-02   1.000000E-03    100.000    
+rcr4w        log               factor     0.189609       1.000000E-03    100.000    
+rcr5d        log               factor     1.040000E-02   1.000000E-03    100.000    
+rcr5w        log               factor     9.310000E-02   1.000000E-03    100.000    
+rcr6d        log               factor     1.760000E-02   1.000000E-03    100.000    
+rcr6w        log               factor     4.970000E-02   1.000000E-03    100.000    
+rcr7d        log               factor     1.300000E-02   1.000000E-03    100.000    
+rcr7w        log               factor     1.340000E-02   1.000000E-03    100.000    
+rcr8d        log               factor     6.480000E-03   1.000000E-03    100.000    
+rcr8w        log               factor     1.360000E-02   1.000000E-03    100.000    
+rcr9d        log               factor     0.182111       1.000000E-03    100.000    
+rcr9w        log               factor     1.540000E-02   1.000000E-03    100.000    
+rcr10d       log               factor     1.030000E-02   1.000000E-03    100.000    
+rcr10w       log               factor     1.610000E-02   1.000000E-03    100.000    
+rcr11d       log               factor     6.910000E-03   1.000000E-03    100.000    
+rcr11w       log               factor     1.150000E-02   1.000000E-03    100.000    
+rcr12d       log               factor     4.350000E-03   1.000000E-03    100.000    
+rcr12w       log               factor     1.010000E-02   1.000000E-03    100.000    
+rcr13d       log               factor     7.460000E-03   1.000000E-03    100.000    
+rcr13w       log               factor      1.00000       1.000000E-03    100.000    
+rcr14d       log               factor     1.250000E-02   1.000000E-03    100.000    
+rcr14w       log               factor      1.00000       1.000000E-03    100.000    
+rcr15d       log               factor     2.530000E-02   1.000000E-03    100.000    
+rcr15w       log               factor     8.940000E-02   1.000000E-03    100.000    
+rcr16d       log               factor     4.390000E-02   1.000000E-03    100.000    
+rcr16w       log               factor     0.116352       1.000000E-03    100.000    
+rcr17d       log               factor     5.200000E-02   1.000000E-03    100.000    
+rcr17w       log               factor     0.108262       1.000000E-03    100.000    
+rcr18d       log               factor     5.210000E-02   1.000000E-03    100.000    
+rcr18w       log               factor     0.100445       1.000000E-03    100.000    
+rcr19d       log               factor     5.070000E-02   1.000000E-03    100.000    
+rcr19w       log               factor     9.630000E-02   1.000000E-03    100.000    
+rcgd         log               factor     1.680000E-02   1.000000E-03    100.000    
+rcgw         log               factor     0.444827       1.000000E-03    100.000    
+tl           log               factor      5.00000       1.000000E-03    100.000    
+xw           log               factor     0.952395       1.000000E-03    100.000    
+yw           log               factor     2.540000E-04   1.000000E-05    100.000    
+x            log               factor      1.15645       1.000000E-03    100.000    
+y            log               factor     2.850000E-02   1.000000E-03    100.000    
+tlr          log               factor     6.820000E-02   1.000000E-03    100.000    
+tls          log               factor     0.222000       1.000000E-03    100.000    
 beta         log               factor     0.510000       0.200000       0.510000    
 
 Name         Group          Scale         Offset        Model command number
@@ -722,9 +722,7 @@ File saving options: -
 
 
 INITIAL CONDITIONS: 
-   Sum of squared weighted residuals (ie phi)               =   365.00    
-   Contribution to phi from observation group "q"           =   365.00    
-   Contribution to phi from observation group "swe"         =   0.0000    
+   Sum of squared weighted residuals (ie phi) =   365.00    
 
       Current parameter values
       ddsd            0.411140    
@@ -821,6 +819,4 @@ INITIAL CONDITIONS:
 
 OPTIMISATION ITERATION NO.        : 1
    Model calls so far             : 1
-   Starting phi for this iteration                          :   365.00    
-   Contribution to phi from observation group "q"           :   365.00    
-   Contribution to phi from observation group "swe"         :   0.0000    
+   Starting phi for this iteration:   365.00    

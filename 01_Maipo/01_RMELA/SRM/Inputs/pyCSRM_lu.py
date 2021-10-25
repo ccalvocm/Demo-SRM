@@ -516,5 +516,5 @@ def DEVELOP_SRM(root, Basin, alpha, Tcrit, plots):
 if __name__ == '__main__':
     root = '.'
     Basin = 'Mapocho_Los_Almendros'
-    DEVELOP_SRM(root, Basin, alpha = 0.959, Tcrit = 1, plots = True)
+    DEVELOP_SRM(root, Basin, alpha = 0.959, Tcrit = 1, plots = False)
     

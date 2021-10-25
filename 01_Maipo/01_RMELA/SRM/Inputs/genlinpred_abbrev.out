@@ -51,7 +51,7 @@
  
     Parameter              Identifiability        Rel_uncert_var_redn
     ---------              ---------------        -------------------
-    ddsd                     1.000000              0.9987674
+    ddsd                     1.000000              0.9986249
     ddsw                     0.000000               0.000000
     ddgd                     0.000000               0.000000
     ddgw                     0.000000               0.000000
@@ -140,7 +140,7 @@
     y                        0.000000               0.000000
     tlr                      0.000000               0.000000
     tls                      0.000000               0.000000
-    beta                     1.000000              0.9999849
+    beta                     1.000000              0.9999891
  
     Note: run IDENTPAR yourself to see identiability contributions by different solution 
     space eigencomponents.
@@ -154,8 +154,8 @@
     Sing_val       Null-space       Soln-space     Total             Total
     index          term             term           variance          std_dev
     --------       ----------       ----------     --------          -------
-       0             5896407.         0.000000       5896407.          2428.252    
-       1             167010.6         47.91218       167058.5          408.7279    
+       0             7966297.         0.000000       7966297.          2822.463    
+       1             150270.5         47.48777       150318.0          387.7087    
        2             0.000000         255.1472       255.1472          15.97333    
        3             0.000000        1.0000000E+35  1.0000000E+35     3.1622777E+17
        4             0.000000        1.0000000E+35  1.0000000E+35     3.1622777E+17
@@ -189,8 +189,8 @@
       90             0.000000        1.0000000E+35  1.0000000E+35     3.1622777E+17
  
     Pre-calibration:- 
-    Total error variance                 =   5896407.    
-    Total error standard deviation       =   2428.252    
+    Total error variance                 =   7966297.    
+    Total error standard deviation       =   2822.463    
  
     Post-calibration:-
     Total error variance                 =   255.1472    
@@ -201,12 +201,12 @@
  PREDUNC1 analysis for prediction "q7971" ----->
 
     Pre-calibration:- 
-    Total uncertainty variance           =   5896408.    
-    Total uncertainty standard deviation =   2428.252    
+    Total uncertainty variance           =   7966297.    
+    Total uncertainty standard deviation =   2822.463    
  
     Post-calibration:-
-    Total uncertainty variance           =   254.8898    
-    Total uncertainty standard deviation =   15.96527    
+    Total uncertainty variance           =   254.8605    
+    Total uncertainty standard deviation =   15.96435    
  
  
  PREDUNC4 analysis for prediction "q7971" ----->
@@ -216,7 +216,7 @@
     Parameter      Pre-cal             Post-cal
     group          contribution        contribution
     ---------      ------------        ------------
-    ddsd             341722.0            208.1854    
+    ddsd             306255.0            208.1557    
     ddsw             0.000000            0.000000    
     ddgd             0.000000            0.000000    
     ddgw             0.000000            0.000000    
@@ -233,7 +233,7 @@
     y                0.000000            0.000000    
     tlr              0.000000            0.000000    
     tls              0.000000            0.000000    
-    beta             5554685.            20.27470    
+    beta             7660042.            20.26370    
  
  
  PREDUNC5 observation subtraction analysis for prediction "q7971" ----->
@@ -242,8 +242,7 @@
 
     Observation_group        Variance_increase
     -----------------        -----------------
-    q                          5896152.    
-    swe                        0.000000    
+    q                          254.8605    
  
  
  PREDUNC5 observation addition analysis for prediction "q7971" ----->
@@ -252,5 +251,4 @@
 
     Observation_group        Variance_decrease
     -----------------        -----------------
-    q                          5896152.    
-    swe                        0.000000    
+    q                          254.8605    
