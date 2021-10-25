@@ -15,7 +15,7 @@ Case dimensions:-
    Number of parameters                           :    90
    Number of adjustable parameters                :    90
    Number of parameter groups                     :    18
-   Number of observations                         :   730
+   Number of observations                         :   365
    Number of prior estimates                      :     0
 
 
@@ -43,10 +43,8 @@ Model interface files:-
 
    Instruction files:
       q_lu.ins
-      swe_lu.ins
    for reading model output files:
       Qsim_Mapocho_Los_Almendros.csv
-      SWEsim_Mapocho_Los_Almendros.csv
 
 
 PEST-to-model message file:-
@@ -67,12 +65,12 @@ Derivatives calculation:-
 Param        Increment   Increment   Increment   Forward or   Multiplier  Method
 group        type                    low bound   central      (central)   (central)
 ddsd         relative    2.5000E-02   none         switch       2.000     parabolic
-ddsw         relative    2.5000E-02   none         switch       2.000     parabolic
-ddgd         relative    2.5000E-02   none         switch       2.000     parabolic
-ddgw         relative    2.5000E-02   none         switch       2.000     parabolic
-rcsd         relative    2.5000E-02   none         switch       2.000     parabolic
-rcsw         relative    2.5000E-02   none         switch       2.000     parabolic
-rcrd         relative    2.5000E-02   none         switch       2.000     parabolic
+ddsw         relative    0.2500       none         switch       2.000     parabolic
+ddgd         relative    0.2500       none         switch       2.000     parabolic
+ddgw         relative    0.2500       none         switch       2.000     parabolic
+rcsd         relative    0.2500       none         switch       2.000     parabolic
+rcsw         relative    0.2500       none         switch       2.000     parabolic
+rcrd         relative    0.2500       none         switch       2.000     parabolic
 rcrw         relative    2.5000E-02   none         switch       2.000     parabolic
 rcgd         relative    2.5000E-02   none         switch       2.000     parabolic
 rcgw         relative    2.5000E-02   none         switch       2.000     parabolic
@@ -113,96 +111,96 @@ Parameter definitions:-
 
 Name         Trans-            Change       Initial        Lower          Upper
              formation         limit        value          bound          bound
-ddsd         none              factor     0.411140       0.100000        2.10000    
-ddsw         none              factor      2.10000       0.100000        2.10000    
-ddgd         none              factor     0.668448       1.000000E-08    1.10000    
-ddgw         none              factor     9.363215E-02   1.000000E-08    1.10000    
-rcs1d        none              factor     0.308039       1.000000E-08    1.00000    
-rcs1w        none              factor     0.572893       1.000000E-08    1.00000    
-rcs2d        none              factor     0.675793       1.000000E-08    1.00000    
-rcs2w        none              factor     0.997370       1.000000E-08    1.00000    
-rcs3d        none              factor     0.100516       1.000000E-08    1.00000    
-rcs3w        none              factor     0.974006       1.000000E-08    1.00000    
-rcs4d        none              factor     1.969571E-02   1.000000E-08    1.00000    
-rcs4w        none              factor     0.230849       1.000000E-08    1.00000    
-rcs5d        none              factor     1.982967E-02   1.000000E-08    1.00000    
-rcs5w        none              factor     0.135577       1.000000E-08    1.00000    
-rcs6d        none              factor     1.804456E-02   1.000000E-08    1.00000    
-rcs6w        none              factor     5.104879E-02   1.000000E-08    1.00000    
-rcs7d        none              factor     5.861036E-03   1.000000E-08    1.00000    
-rcs7w        none              factor     0.466911       1.000000E-08    1.00000    
-rcs8d        none              factor     0.312665       1.000000E-08    1.00000    
-rcs8w        none              factor     1.525142E-02   1.000000E-08    1.00000    
-rcs9d        none              factor      1.00000       1.000000E-08    1.00000    
-rcs9w        none              factor      1.00000       1.000000E-08    1.00000    
-rcs10d       none              factor     3.568219E-03   1.000000E-08    1.00000    
-rcs10w       none              factor     8.716318E-03   1.000000E-08    1.00000    
-rcs11d       none              factor     5.500734E-03   1.000000E-08    1.00000    
-rcs11w       none              factor     7.640258E-03   1.000000E-08    1.00000    
-rcs12d       none              factor     0.711298       1.000000E-08    1.00000    
-rcs12w       none              factor     0.108454       1.000000E-08    1.00000    
-rcs13d       none              factor      1.00000       1.000000E-08    1.00000    
-rcs13w       none              factor      1.00000       1.000000E-08    1.00000    
-rcs14d       none              factor      1.00000       1.000000E-08    1.00000    
-rcs14w       none              factor      1.00000       1.000000E-08    1.00000    
-rcs15d       none              factor      1.00000       1.000000E-08    1.00000    
-rcs15w       none              factor      1.00000       1.000000E-08    1.00000    
-rcs16d       none              factor      1.00000       1.000000E-08    1.00000    
-rcs16w       none              factor      1.00000       1.000000E-08    1.00000    
-rcs17d       none              factor      1.00000       1.000000E-08    1.00000    
-rcs17w       none              factor      1.00000       1.000000E-08    1.00000    
-rcs18d       none              factor      1.00000       1.000000E-08    1.00000    
-rcs18w       none              factor      1.00000       1.000000E-08    1.00000    
-rcs19d       none              factor      1.00000       1.000000E-08    1.00000    
-rcs19w       none              factor     0.108937       1.000000E-08    1.00000    
-rcr1d        none              factor     5.392504E-02   1.000000E-08    1.00000    
-rcr1w        none              factor     0.104016       1.000000E-08    1.00000    
-rcr2d        none              factor     0.846417       1.000000E-08    1.00000    
-rcr2w        none              factor     0.871717       1.000000E-08    1.00000    
-rcr3d        none              factor     7.298732E-02   1.000000E-08    1.00000    
-rcr3w        none              factor     0.649503       1.000000E-08    1.00000    
-rcr4d        none              factor     2.355815E-02   1.000000E-08    1.00000    
-rcr4w        none              factor     0.189609       1.000000E-08    1.00000    
-rcr5d        none              factor     1.043544E-02   1.000000E-08    1.00000    
-rcr5w        none              factor     9.305872E-02   1.000000E-08    1.00000    
-rcr6d        none              factor     1.760712E-02   1.000000E-08    1.00000    
-rcr6w        none              factor     4.966750E-02   1.000000E-08    1.00000    
-rcr7d        none              factor     1.296624E-02   1.000000E-08    1.00000    
-rcr7w        none              factor     1.342662E-02   1.000000E-08    1.00000    
-rcr8d        none              factor     6.478597E-03   1.000000E-08    1.00000    
-rcr8w        none              factor     1.362705E-02   1.000000E-08    1.00000    
-rcr9d        none              factor     0.182111       1.000000E-08    1.00000    
-rcr9w        none              factor     1.536678E-02   1.000000E-08    1.00000    
-rcr10d       none              factor     1.029514E-02   1.000000E-08    1.00000    
-rcr10w       none              factor     1.608858E-02   1.000000E-08    1.00000    
-rcr11d       none              factor     6.907774E-03   1.000000E-08    1.00000    
-rcr11w       none              factor     1.146896E-02   1.000000E-08    1.00000    
-rcr12d       none              factor     4.349457E-03   1.000000E-08    1.00000    
-rcr12w       none              factor     1.010861E-02   1.000000E-08    1.00000    
-rcr13d       none              factor     7.459957E-03   1.000000E-08    1.00000    
-rcr13w       none              factor      1.00000       1.000000E-08    1.00000    
-rcr14d       none              factor     1.254871E-02   1.000000E-08    1.00000    
-rcr14w       none              factor      1.00000       1.000000E-08    1.00000    
-rcr15d       none              factor     2.528484E-02   1.000000E-08    1.00000    
-rcr15w       none              factor     8.942299E-02   1.000000E-08    1.00000    
-rcr16d       none              factor     4.391602E-02   1.000000E-08    1.00000    
-rcr16w       none              factor     0.116352       1.000000E-08    1.00000    
-rcr17d       none              factor     5.196978E-02   1.000000E-08    1.00000    
-rcr17w       none              factor     0.108262       1.000000E-08    1.00000    
-rcr18d       none              factor     5.206352E-02   1.000000E-08    1.00000    
-rcr18w       none              factor     0.100445       1.000000E-08    1.00000    
-rcr19d       none              factor     5.070011E-02   1.000000E-08    1.00000    
-rcr19w       none              factor     9.627595E-02   1.000000E-08    1.00000    
-rcgd         none              factor     1.678468E-02   1.000000E-08    1.00000    
-rcgw         none              factor     0.444827       1.000000E-08    1.00000    
-tl           none              factor      5.00000       1.000000E-08    5.00000    
-xw           none              factor     0.952395       1.000000E-08    2.10000    
-yw           none              factor     2.543284E-04   1.000000E-08    1.00000    
-x            none              factor      1.15645       1.000000E-08    2.30000    
-y            none              factor     2.846943E-02   1.000000E-08    1.00000    
-tlr          none              factor     6.820000E-02   1.000000E-08    10.0000    
-tls          none              factor     0.222000       1.000000E-08    30.0000    
-beta         none              factor     0.510000       0.200000       0.510000    
+ddsd         log               factor     0.411140       0.100000        2.10000    
+ddsw         log               factor      2.10000       0.100000        2.10000    
+ddgd         log               factor     0.668448       1.000000E-08    10.0000    
+ddgw         log               factor     9.360000E-02   1.000000E-08    10.0000    
+rcs1d        log               factor     0.308039       1.000000E-08    10.0000    
+rcs1w        log               factor     0.572893       1.000000E-08    10.0000    
+rcs2d        log               factor     0.675793       1.000000E-08    10.0000    
+rcs2w        log               factor     0.997370       1.000000E-08    10.0000    
+rcs3d        log               factor     0.100516       1.000000E-08    10.0000    
+rcs3w        log               factor     0.974006       1.000000E-08    10.0000    
+rcs4d        log               factor     1.970000E-02   1.000000E-08    10.0000    
+rcs4w        log               factor     0.230849       1.000000E-08    10.0000    
+rcs5d        log               factor     1.980000E-02   1.000000E-08    10.0000    
+rcs5w        log               factor     0.135577       1.000000E-08    10.0000    
+rcs6d        log               factor     1.800000E-02   1.000000E-08    10.0000    
+rcs6w        log               factor     5.100000E-02   1.000000E-08    10.0000    
+rcs7d        log               factor     5.860000E-03   1.000000E-08    10.0000    
+rcs7w        log               factor     0.466911       1.000000E-08    10.0000    
+rcs8d        log               factor     0.312665       1.000000E-08    10.0000    
+rcs8w        log               factor     1.530000E-02   1.000000E-08    10.0000    
+rcs9d        log               factor      1.00000       1.000000E-08    10.0000    
+rcs9w        log               factor      1.00000       1.000000E-08    10.0000    
+rcs10d       log               factor     3.570000E-03   1.000000E-08    10.0000    
+rcs10w       log               factor     8.720000E-03   1.000000E-08    10.0000    
+rcs11d       log               factor     5.500000E-03   1.000000E-08    10.0000    
+rcs11w       log               factor     7.640000E-03   1.000000E-08    10.0000    
+rcs12d       log               factor     0.711298       1.000000E-08    10.0000    
+rcs12w       log               factor     0.108454       1.000000E-08    10.0000    
+rcs13d       log               factor      1.00000       1.000000E-08    10.0000    
+rcs13w       log               factor      1.00000       1.000000E-08    10.0000    
+rcs14d       log               factor      1.00000       1.000000E-08    10.0000    
+rcs14w       log               factor      1.00000       1.000000E-08    10.0000    
+rcs15d       log               factor      1.00000       1.000000E-08    10.0000    
+rcs15w       log               factor      1.00000       1.000000E-08    10.0000    
+rcs16d       log               factor      1.00000       1.000000E-08    10.0000    
+rcs16w       log               factor      1.00000       1.000000E-08    10.0000    
+rcs17d       log               factor      1.00000       1.000000E-08    10.0000    
+rcs17w       log               factor      1.00000       1.000000E-08    10.0000    
+rcs18d       log               factor      1.00000       1.000000E-08    10.0000    
+rcs18w       log               factor      1.00000       1.000000E-08    10.0000    
+rcs19d       log               factor      1.00000       1.000000E-08    10.0000    
+rcs19w       log               factor     0.108937       1.000000E-08    10.0000    
+rcr1d        log               factor     5.390000E-02   1.000000E-08    10.0000    
+rcr1w        log               factor     0.104016       1.000000E-08    10.0000    
+rcr2d        log               factor     0.846417       1.000000E-08    10.0000    
+rcr2w        log               factor     0.871717       1.000000E-08    10.0000    
+rcr3d        log               factor     7.300000E-02   1.000000E-08    10.0000    
+rcr3w        log               factor     0.649503       1.000000E-08    10.0000    
+rcr4d        log               factor     2.360000E-02   1.000000E-08    10.0000    
+rcr4w        log               factor     0.189609       1.000000E-08    10.0000    
+rcr5d        log               factor     1.040000E-02   1.000000E-08    10.0000    
+rcr5w        log               factor     9.310000E-02   1.000000E-08    10.0000    
+rcr6d        log               factor     1.760000E-02   1.000000E-08    10.0000    
+rcr6w        log               factor     4.970000E-02   1.000000E-08    10.0000    
+rcr7d        log               factor     1.300000E-02   1.000000E-08    10.0000    
+rcr7w        log               factor     1.340000E-02   1.000000E-08    10.0000    
+rcr8d        log               factor     6.480000E-03   1.000000E-08    10.0000    
+rcr8w        log               factor     1.360000E-02   1.000000E-08    10.0000    
+rcr9d        log               factor     0.182111       1.000000E-08    10.0000    
+rcr9w        log               factor     1.540000E-02   1.000000E-08    10.0000    
+rcr10d       log               factor     1.030000E-02   1.000000E-08    10.0000    
+rcr10w       log               factor     1.610000E-02   1.000000E-08    10.0000    
+rcr11d       log               factor     6.910000E-03   1.000000E-08    10.0000    
+rcr11w       log               factor     1.150000E-02   1.000000E-08    10.0000    
+rcr12d       log               factor     4.350000E-03   1.000000E-08    10.0000    
+rcr12w       log               factor     1.010000E-02   1.000000E-08    10.0000    
+rcr13d       log               factor     7.460000E-03   1.000000E-08    10.0000    
+rcr13w       log               factor      1.00000       1.000000E-08    10.0000    
+rcr14d       log               factor     1.250000E-02   1.000000E-08    10.0000    
+rcr14w       log               factor      1.00000       1.000000E-08    10.0000    
+rcr15d       log               factor     2.530000E-02   1.000000E-08    10.0000    
+rcr15w       log               factor     8.940000E-02   1.000000E-08    10.0000    
+rcr16d       log               factor     4.390000E-02   1.000000E-08    10.0000    
+rcr16w       log               factor     0.116352       1.000000E-08    10.0000    
+rcr17d       log               factor     5.200000E-02   1.000000E-08    10.0000    
+rcr17w       log               factor     0.108262       1.000000E-08    10.0000    
+rcr18d       log               factor     5.210000E-02   1.000000E-08    10.0000    
+rcr18w       log               factor     0.100445       1.000000E-08    10.0000    
+rcr19d       log               factor     5.070000E-02   1.000000E-08    10.0000    
+rcr19w       log               factor     9.630000E-02   1.000000E-08    10.0000    
+rcgd         log               factor     1.680000E-02   1.000000E-08    10.0000    
+rcgw         log               factor     0.444827       1.000000E-08    10.0000    
+tl           log               factor      5.00000       1.000000E-08    5.00000    
+xw           log               factor     0.952395       1.000000E-08    2.10000    
+yw           log               factor     2.540000E-04   1.000000E-08    1.00000    
+x            log               factor      1.15645       1.000000E-08    2.30000    
+y            log               factor     2.850000E-02   1.000000E-08    10.0000    
+tlr          log               factor     6.820000E-02   1.000000E-08    10.0000    
+tls          log               factor     0.222000       1.000000E-08    30.0000    
+beta         log               factor     0.510000       0.200000       0.510000    
 
 Name         Group          Scale         Offset        Model command number
 ddsd         ddsd          1.00000        0.00000            1
@@ -670,371 +668,6 @@ Observation name        Observation       Weight       Group
  q8124                   2025.19         1.5035E-02   q           
  q8125                   2022.22         1.5073E-02   q           
  q8126                   2019.18         1.5112E-02   q           
- swe1                    0.00000          2.490       swe         
- swe2                    0.00000          2.571       swe         
- swe3                    0.00000          2.651       swe         
- swe4                    0.00000          2.731       swe         
- swe5                    0.00000          2.811       swe         
- swe6                    0.00000          2.892       swe         
- swe7                    0.00000          2.972       swe         
- swe8                    0.00000          3.052       swe         
- swe9                    0.00000          3.133       swe         
- swe10                   0.00000          3.213       swe         
- swe11                   0.00000          3.293       swe         
- swe12                   0.00000          3.374       swe         
- swe13                   0.00000          3.454       swe         
- swe14                   0.00000          3.534       swe         
- swe15                   0.00000          3.615       swe         
- swe16                   0.00000          3.695       swe         
- swe17                   0.00000          3.775       swe         
- swe18                   0.00000          3.856       swe         
- swe19                   0.00000          3.936       swe         
- swe20                   0.00000          4.016       swe         
- swe21                   0.00000          4.097       swe         
- swe22                   0.00000          4.177       swe         
- swe23                   0.00000          4.257       swe         
- swe24                   0.00000          4.338       swe         
- swe25                   0.00000          4.418       swe         
- swe26                   0.00000          4.498       swe         
- swe27                   0.00000          4.579       swe         
- swe28                   0.00000          4.659       swe         
- swe29                   0.00000          4.739       swe         
- swe30                   0.00000          4.820       swe         
- swe31                   0.00000          4.900       swe         
- swe32                   0.00000          4.980       swe         
- swe33                   0.00000          5.061       swe         
- swe34                   0.00000          5.141       swe         
- swe35                   0.00000          5.221       swe         
- swe36                   0.00000          5.302       swe         
- swe37                   0.00000          5.382       swe         
- swe38                   0.00000          5.462       swe         
- swe39                   0.00000          5.543       swe         
- swe40                   0.00000          5.623       swe         
- swe41                   0.00000          5.703       swe         
- swe42                   0.00000          5.784       swe         
- swe43                   0.00000          5.864       swe         
- swe44                   0.00000          5.944       swe         
- swe45                   0.00000          6.025       swe         
- swe46                   0.00000          6.105       swe         
- swe47                   0.00000          6.185       swe         
- swe48                   0.00000          6.266       swe         
- swe49                   0.00000          6.346       swe         
- swe50                   0.00000          6.426       swe         
- swe51                  1.258822E-03      6.507       swe         
- swe52                  2.244834E-02      6.587       swe         
- swe53                  2.244834E-02      6.667       swe         
- swe54                  2.244834E-02      6.748       swe         
- swe55                  2.172227E-02      6.828       swe         
- swe56                  2.132358E-02      6.908       swe         
- swe57                  1.946703E-02      6.989       swe         
- swe58                  1.719894E-02      7.069       swe         
- swe59                  1.747401E-02      7.149       swe         
- swe60                  1.694955E-02      7.230       swe         
- swe61                  1.626975E-02      7.310       swe         
- swe62                  1.546103E-02      7.390       swe         
- swe63                  1.416188E-02      7.471       swe         
- swe64                  1.323547E-02      7.551       swe         
- swe65                  1.263426E-02      7.631       swe         
- swe66                  1.204158E-02      7.712       swe         
- swe67                  2.000923E-02      7.792       swe         
- swe68                  2.436610E-02      7.872       swe         
- swe69                  2.606844E-02      7.953       swe         
- swe70                  2.566623E-02      8.033       swe         
- swe71                  2.554506E-02      8.113       swe         
- swe72                  2.558841E-02      8.193       swe         
- swe73                  2.514573E-02      8.274       swe         
- swe74                  2.387758E-02      8.354       swe         
- swe75                  2.301364E-02      8.434       swe         
- swe76                  2.268971E-02      8.515       swe         
- swe77                  2.430546E-02      8.595       swe         
- swe78                  2.745729E-02      8.675       swe         
- swe79                  2.745729E-02      8.756       swe         
- swe80                  2.745729E-02      8.836       swe         
- swe81                  2.745729E-02      8.916       swe         
- swe82                  2.745729E-02      8.997       swe         
- swe83                  2.745729E-02      9.077       swe         
- swe84                  2.745950E-02      9.157       swe         
- swe85                  2.870880E-02      9.238       swe         
- swe86                  2.870880E-02      9.318       swe         
- swe87                  4.640024E-02      9.398       swe         
- swe88                  4.640024E-02      9.479       swe         
- swe89                  4.640024E-02      9.559       swe         
- swe90                  4.640024E-02      9.639       swe         
- swe91                  4.911171E-02      9.720       swe         
- swe92                  4.911171E-02      9.800       swe         
- swe93                  5.289416E-02      9.880       swe         
- swe94                  5.289416E-02      9.961       swe         
- swe95                  5.263436E-02      10.04       swe         
- swe96                  7.011820E-02      10.12       swe         
- swe97                  8.096425E-02      10.20       swe         
- swe98                  8.373977E-02      10.28       swe         
- swe99                  8.373977E-02      10.36       swe         
- swe100                 9.107825E-02      10.44       swe         
- swe101                 9.058661E-02      10.52       swe         
- swe102                 9.188492E-02      10.60       swe         
- swe103                 9.148884E-02      10.68       swe         
- swe104                 9.411418E-02      10.76       swe         
- swe105                 9.364855E-02      10.84       swe         
- swe106                 9.301500E-02      10.92       swe         
- swe107                 9.226069E-02      11.01       swe         
- swe108                 9.209359E-02      11.09       swe         
- swe109                 9.202767E-02      11.17       swe         
- swe110                 9.838594E-02      11.25       swe         
- swe111                 0.102557          11.33       swe         
- swe112                 0.103379          11.41       swe         
- swe113                 0.103379          11.49       swe         
- swe114                 0.103379          11.57       swe         
- swe115                 0.118799          11.65       swe         
- swe116                 0.118799          11.73       swe         
- swe117                 0.118636          11.81       swe         
- swe118                 0.124151          11.89       swe         
- swe119                 0.130838          11.97       swe         
- swe120                 0.130786          12.05       swe         
- swe121                 0.130312          12.13       swe         
- swe122                 0.131207          12.21       swe         
- swe123                 0.131598          12.29       swe         
- swe124                 0.130326          12.37       swe         
- swe125                 0.129100          12.45       swe         
- swe126                 0.125599          12.53       swe         
- swe127                 0.122695          12.61       swe         
- swe128                 0.121804          12.69       swe         
- swe129                 0.120512          12.77       swe         
- swe130                 0.118537          12.85       swe         
- swe131                 0.115868          12.93       swe         
- swe132                 0.113716          13.01       swe         
- swe133                 0.113726          13.09       swe         
- swe134                 0.113519          13.17       swe         
- swe135                 0.113514          13.25       swe         
- swe136                 0.113514          13.33       swe         
- swe137                 0.113514          13.41       swe         
- swe138                 0.113514          13.50       swe         
- swe139                 0.113514          13.58       swe         
- swe140                 0.113514          13.66       swe         
- swe141                 0.113514          13.74       swe         
- swe142                 0.113514          13.82       swe         
- swe143                 0.113514          13.90       swe         
- swe144                 0.113290          13.98       swe         
- swe145                 0.113092          14.06       swe         
- swe146                 0.112966          14.14       swe         
- swe147                 0.112966          14.22       swe         
- swe148                 0.112966          14.30       swe         
- swe149                 0.112966          14.38       swe         
- swe150                 0.112966          14.46       swe         
- swe151                 0.130124          14.54       swe         
- swe152                 0.130033          14.62       swe         
- swe153                 0.129925          14.70       swe         
- swe154                 0.129373          14.78       swe         
- swe155                 0.128821          14.86       swe         
- swe156                 0.128448          14.94       swe         
- swe157                 0.128014          15.02       swe         
- swe158                 0.132645          15.10       swe         
- swe159                 0.132645          15.18       swe         
- swe160                 0.133059          15.26       swe         
- swe161                 0.132668          15.34       swe         
- swe162                 0.136263          15.42       swe         
- swe163                 0.136963          15.50       swe         
- swe164                 0.135530          15.58       swe         
- swe165                 0.135090          15.66       swe         
- swe166                 0.134893          15.74       swe         
- swe167                 0.134760          15.82       swe         
- swe168                 0.134012          15.91       swe         
- swe169                 0.133705          15.99       swe         
- swe170                 0.137740          16.07       swe         
- swe171                 0.136662          16.15       swe         
- swe172                 0.134912          16.23       swe         
- swe173                 0.133460          16.31       swe         
- swe174                 0.132043          16.39       swe         
- swe175                 0.130808          16.47       swe         
- swe176                 0.129209          16.55       swe         
- swe177                 0.127284          16.63       swe         
- swe178                 0.124979          16.71       swe         
- swe179                 0.123876          16.79       swe         
- swe180                 0.123765          16.87       swe         
- swe181                 0.123757          16.95       swe         
- swe182                 0.123198          17.03       swe         
- swe183                 0.122994          17.11       swe         
- swe184                 0.122943          17.19       swe         
- swe185                 0.122770          17.27       swe         
- swe186                 0.122646          17.35       swe         
- swe187                 0.122508          17.43       swe         
- swe188                 0.121829          17.51       swe         
- swe189                 0.120006          17.59       swe         
- swe190                 0.118020          17.67       swe         
- swe191                 0.117016          17.75       swe         
- swe192                 0.116221          17.83       swe         
- swe193                 0.114601          17.91       swe         
- swe194                 0.111893          17.99       swe         
- swe195                 0.109480          18.07       swe         
- swe196                 0.106646          18.15       swe         
- swe197                 0.103355          18.23       swe         
- swe198                 9.982317E-02      18.31       swe         
- swe199                 9.633904E-02      18.40       swe         
- swe200                 9.301380E-02      18.48       swe         
- swe201                 9.016325E-02      18.56       swe         
- swe202                 8.766727E-02      18.64       swe         
- swe203                 8.546534E-02      18.72       swe         
- swe204                 8.296987E-02      18.80       swe         
- swe205                 8.014101E-02      18.88       swe         
- swe206                 7.710157E-02      18.96       swe         
- swe207                 7.370726E-02      19.04       swe         
- swe208                 7.099934E-02      19.12       swe         
- swe209                 7.002334E-02      19.20       swe         
- swe210                 6.755743E-02      19.28       swe         
- swe211                 6.563208E-02      19.36       swe         
- swe212                 6.444048E-02      19.44       swe         
- swe213                 6.277762E-02      19.52       swe         
- swe214                 6.114878E-02      19.60       swe         
- swe215                 5.875320E-02      19.68       swe         
- swe216                 5.646757E-02      19.76       swe         
- swe217                 5.430566E-02      19.84       swe         
- swe218                 5.179888E-02      19.92       swe         
- swe219                 4.980852E-02      20.00       swe         
- swe220                 4.799433E-02      20.08       swe         
- swe221                 4.639132E-02      20.16       swe         
- swe222                 4.444644E-02      20.24       swe         
- swe223                 4.223621E-02      20.32       swe         
- swe224                 4.025650E-02      20.40       swe         
- swe225                 3.818572E-02      20.48       swe         
- swe226                 3.620792E-02      20.56       swe         
- swe227                 3.421813E-02      20.64       swe         
- swe228                 3.231221E-02      20.72       swe         
- swe229                 3.128884E-02      20.81       swe         
- swe230                 3.019158E-02      20.89       swe         
- swe231                 2.892285E-02      20.97       swe         
- swe232                 2.765983E-02      21.05       swe         
- swe233                 2.628590E-02      21.13       swe         
- swe234                 2.549597E-02      21.21       swe         
- swe235                 2.509272E-02      21.29       swe         
- swe236                 2.451683E-02      21.37       swe         
- swe237                 2.314211E-02      21.45       swe         
- swe238                 2.176822E-02      21.53       swe         
- swe239                 2.054179E-02      21.61       swe         
- swe240                 1.934858E-02      21.69       swe         
- swe241                 1.803286E-02      21.77       swe         
- swe242                 1.727062E-02      21.85       swe         
- swe243                 1.649967E-02      21.93       swe         
- swe244                 1.552455E-02      22.01       swe         
- swe245                 1.446824E-02      22.09       swe         
- swe246                 1.349865E-02      22.17       swe         
- swe247                 1.285968E-02      22.25       swe         
- swe248                 1.244043E-02      22.33       swe         
- swe249                 1.203341E-02      22.41       swe         
- swe250                 1.159277E-02      22.49       swe         
- swe251                 1.104964E-02      22.57       swe         
- swe252                 1.046439E-02      22.65       swe         
- swe253                 9.884910E-03      22.73       swe         
- swe254                 9.143090E-03      22.81       swe         
- swe255                 8.477317E-03      22.89       swe         
- swe256                 7.987329E-03      22.97       swe         
- swe257                 7.467687E-03      23.05       swe         
- swe258                 6.959139E-03      23.13       swe         
- swe259                 6.355957E-03      23.21       swe         
- swe260                 6.034301E-03      23.30       swe         
- swe261                 5.764698E-03      23.38       swe         
- swe262                 5.475710E-03      23.46       swe         
- swe263                 5.322066E-03      23.54       swe         
- swe264                 5.236124E-03      23.62       swe         
- swe265                 5.041971E-03      23.70       swe         
- swe266                 4.694698E-03      23.78       swe         
- swe267                 4.310075E-03      23.86       swe         
- swe268                 3.955206E-03      23.94       swe         
- swe269                 3.722529E-03      24.02       swe         
- swe270                 3.532432E-03      24.10       swe         
- swe271                 3.353467E-03      24.18       swe         
- swe272                 3.177679E-03      24.26       swe         
- swe273                 3.002748E-03      24.34       swe         
- swe274                 2.831828E-03      24.42       swe         
- swe275                 2.681643E-03      24.50       swe         
- swe276                 2.466875E-03      24.58       swe         
- swe277                 2.241300E-03      24.66       swe         
- swe278                 2.069347E-03      24.74       swe         
- swe279                 1.916858E-03      24.82       swe         
- swe280                 1.828134E-03      24.90       swe         
- swe281                 1.732185E-03      24.98       swe         
- swe282                 1.619677E-03      25.06       swe         
- swe283                 1.490233E-03      25.14       swe         
- swe284                 1.381186E-03      25.22       swe         
- swe285                 1.288275E-03      25.30       swe         
- swe286                 1.189760E-03      25.38       swe         
- swe287                 1.094319E-03      25.46       swe         
- swe288                 9.564370E-04      25.54       swe         
- swe289                 8.150840E-04      25.62       swe         
- swe290                 6.942540E-04      25.71       swe         
- swe291                 5.958980E-04      25.79       swe         
- swe292                 5.166370E-04      25.87       swe         
- swe293                 4.322750E-04      25.95       swe         
- swe294                 3.687310E-04      26.03       swe         
- swe295                 3.260690E-04      26.11       swe         
- swe296                 2.830480E-04      26.19       swe         
- swe297                 2.369960E-04      26.27       swe         
- swe298                 1.838750E-04      26.35       swe         
- swe299                 1.307920E-04      26.43       swe         
- swe300                 8.090000E-05      26.51       swe         
- swe301                 3.730000E-05      26.59       swe         
- swe302                 7.310000E-06      26.67       swe         
- swe303                  0.00000          26.75       swe         
- swe304                  0.00000          26.83       swe         
- swe305                  0.00000          26.91       swe         
- swe306                  0.00000          26.99       swe         
- swe307                  0.00000          27.07       swe         
- swe308                 7.500000E-06      27.15       swe         
- swe309                 1.632510E-04      27.23       swe         
- swe310                 9.010000E-05      27.31       swe         
- swe311                 2.060000E-05      27.39       swe         
- swe312                  0.00000          27.47       swe         
- swe313                  0.00000          27.55       swe         
- swe314                  0.00000          27.63       swe         
- swe315                  0.00000          27.71       swe         
- swe316                  0.00000          27.79       swe         
- swe317                  0.00000          27.87       swe         
- swe318                  0.00000          27.95       swe         
- swe319                  0.00000          28.03       swe         
- swe320                  0.00000          28.11       swe         
- swe321                  0.00000          28.20       swe         
- swe322                  0.00000          28.28       swe         
- swe323                  0.00000          28.36       swe         
- swe324                  0.00000          28.44       swe         
- swe325                  0.00000          28.52       swe         
- swe326                  0.00000          28.60       swe         
- swe327                  0.00000          28.68       swe         
- swe328                  0.00000          28.76       swe         
- swe329                  0.00000          28.84       swe         
- swe330                  0.00000          28.92       swe         
- swe331                  0.00000          29.00       swe         
- swe332                  0.00000          29.08       swe         
- swe333                  0.00000          29.16       swe         
- swe334                  0.00000          29.24       swe         
- swe335                  0.00000          29.32       swe         
- swe336                  0.00000          29.40       swe         
- swe337                  0.00000          29.48       swe         
- swe338                  0.00000          29.56       swe         
- swe339                  0.00000          29.64       swe         
- swe340                  0.00000          29.72       swe         
- swe341                  0.00000          29.80       swe         
- swe342                  0.00000          29.88       swe         
- swe343                  0.00000          29.96       swe         
- swe344                  0.00000          30.04       swe         
- swe345                  0.00000          30.12       swe         
- swe346                  0.00000          30.20       swe         
- swe347                  0.00000          30.28       swe         
- swe348                  0.00000          30.36       swe         
- swe349                  0.00000          30.44       swe         
- swe350                  0.00000          30.52       swe         
- swe351                  0.00000          30.61       swe         
- swe352                  0.00000          30.69       swe         
- swe353                  0.00000          30.77       swe         
- swe354                  0.00000          30.85       swe         
- swe355                 6.410000E-07      30.93       swe         
- swe356                  0.00000          31.01       swe         
- swe357                  0.00000          31.09       swe         
- swe358                  0.00000          31.17       swe         
- swe359                  0.00000          31.25       swe         
- swe360                  0.00000          31.33       swe         
- swe361                  0.00000          31.41       swe         
- swe362                  0.00000          31.49       swe         
- swe363                  0.00000          31.57       swe         
- swe364                  0.00000          31.65       swe         
- swe365                  0.00000          31.73       swe         
 
 
 Control settings:-
@@ -1089,37 +722,37 @@ File saving options: -
 
 
 INITIAL CONDITIONS: 
-   Sum of squared weighted residuals (ie phi)               =   730.00    
+   Sum of squared weighted residuals (ie phi)               =   365.00    
    Contribution to phi from observation group "q"           =   365.00    
-   Contribution to phi from observation group "swe"         =   365.00    
+   Contribution to phi from observation group "swe"         =   0.0000    
 
       Current parameter values
       ddsd            0.411140    
       ddsw             2.10000    
       ddgd            0.668448    
-      ddgw            9.363215E-02
+      ddgw            9.360000E-02
       rcs1d           0.308039    
       rcs1w           0.572893    
       rcs2d           0.675793    
       rcs2w           0.997370    
       rcs3d           0.100516    
       rcs3w           0.974006    
-      rcs4d           1.969571E-02
+      rcs4d           1.970000E-02
       rcs4w           0.230849    
-      rcs5d           1.982967E-02
+      rcs5d           1.980000E-02
       rcs5w           0.135577    
-      rcs6d           1.804456E-02
-      rcs6w           5.104879E-02
-      rcs7d           5.861036E-03
+      rcs6d           1.800000E-02
+      rcs6w           5.100000E-02
+      rcs7d           5.860000E-03
       rcs7w           0.466911    
       rcs8d           0.312665    
-      rcs8w           1.525142E-02
+      rcs8w           1.530000E-02
       rcs9d            1.00000    
       rcs9w            1.00000    
-      rcs10d          3.568219E-03
-      rcs10w          8.716318E-03
-      rcs11d          5.500734E-03
-      rcs11w          7.640258E-03
+      rcs10d          3.570000E-03
+      rcs10w          8.720000E-03
+      rcs11d          5.500000E-03
+      rcs11w          7.640000E-03
       rcs12d          0.711298    
       rcs12w          0.108454    
       rcs13d           1.00000    
@@ -1136,51 +769,51 @@ INITIAL CONDITIONS:
       rcs18w           1.00000    
       rcs19d           1.00000    
       rcs19w          0.108937    
-      rcr1d           5.392504E-02
+      rcr1d           5.390000E-02
       rcr1w           0.104016    
       rcr2d           0.846417    
       rcr2w           0.871717    
-      rcr3d           7.298732E-02
+      rcr3d           7.300000E-02
       rcr3w           0.649503    
-      rcr4d           2.355815E-02
+      rcr4d           2.360000E-02
       rcr4w           0.189609    
-      rcr5d           1.043544E-02
-      rcr5w           9.305872E-02
-      rcr6d           1.760712E-02
-      rcr6w           4.966750E-02
-      rcr7d           1.296624E-02
-      rcr7w           1.342662E-02
-      rcr8d           6.478597E-03
-      rcr8w           1.362705E-02
+      rcr5d           1.040000E-02
+      rcr5w           9.310000E-02
+      rcr6d           1.760000E-02
+      rcr6w           4.970000E-02
+      rcr7d           1.300000E-02
+      rcr7w           1.340000E-02
+      rcr8d           6.480000E-03
+      rcr8w           1.360000E-02
       rcr9d           0.182111    
-      rcr9w           1.536678E-02
-      rcr10d          1.029514E-02
-      rcr10w          1.608858E-02
-      rcr11d          6.907774E-03
-      rcr11w          1.146896E-02
-      rcr12d          4.349457E-03
-      rcr12w          1.010861E-02
-      rcr13d          7.459957E-03
+      rcr9w           1.540000E-02
+      rcr10d          1.030000E-02
+      rcr10w          1.610000E-02
+      rcr11d          6.910000E-03
+      rcr11w          1.150000E-02
+      rcr12d          4.350000E-03
+      rcr12w          1.010000E-02
+      rcr13d          7.460000E-03
       rcr13w           1.00000    
-      rcr14d          1.254871E-02
+      rcr14d          1.250000E-02
       rcr14w           1.00000    
-      rcr15d          2.528484E-02
-      rcr15w          8.942299E-02
-      rcr16d          4.391602E-02
+      rcr15d          2.530000E-02
+      rcr15w          8.940000E-02
+      rcr16d          4.390000E-02
       rcr16w          0.116352    
-      rcr17d          5.196978E-02
+      rcr17d          5.200000E-02
       rcr17w          0.108262    
-      rcr18d          5.206352E-02
+      rcr18d          5.210000E-02
       rcr18w          0.100445    
-      rcr19d          5.070011E-02
-      rcr19w          9.627595E-02
-      rcgd            1.678468E-02
+      rcr19d          5.070000E-02
+      rcr19w          9.630000E-02
+      rcgd            1.680000E-02
       rcgw            0.444827    
       tl               5.00000    
       xw              0.952395    
-      yw              2.543284E-04
+      yw              2.540000E-04
       x                1.15645    
-      y               2.846943E-02
+      y               2.850000E-02
       tlr             6.820000E-02
       tls             0.222000    
       beta            0.510000    
@@ -1188,10 +821,6 @@ INITIAL CONDITIONS:
 
 OPTIMISATION ITERATION NO.        : 1
    Model calls so far             : 1
-   Starting phi for this iteration                          :   730.00    
+   Starting phi for this iteration                          :   365.00    
    Contribution to phi from observation group "q"           :   365.00    
-   Contribution to phi from observation group "swe"         :   365.00    
-
-   Optimisation complete: NOPTMAX supplied as -2 indicating that only the
-                          Jacobian for the initial parameter set is required.
-   Total model calls:     91
+   Contribution to phi from observation group "swe"         :   0.0000    
