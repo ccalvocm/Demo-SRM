@@ -88,7 +88,7 @@ def create_4326_shapefile(filepath):
     
 if __name__ == '__main__':
     
-    subcuenca = os.path.join(*['04_Maule', '01_RMEA'])
+    subcuenca = os.path.join(*['03_Mataquito', '01_RTDJCC'])
     
     shp_file_path = os.path.join(subcuenca,'Shapes', 'cuenca.shp')
     create_4326_shapefile(shp_file_path)
