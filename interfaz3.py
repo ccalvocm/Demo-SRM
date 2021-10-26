@@ -1,0 +1,142 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'interfaz2.ui'
+#
+# Created by: PyQt5 UI code generator 5.12.3
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1299, 825)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_5.addItem(spacerItem)
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setObjectName("label")
+        self.verticalLayout_5.addWidget(self.label)
+        self.label_icon_CNR = QtWidgets.QLabel(self.centralwidget)
+        self.label_icon_CNR.setMaximumSize(QtCore.QSize(131, 141))
+        self.label_icon_CNR.setText("")
+        self.label_icon_CNR.setPixmap(QtGui.QPixmap("thumbnails/logotipo-CNR.png"))
+        self.label_icon_CNR.setScaledContents(True)
+        self.label_icon_CNR.setObjectName("label_icon_CNR")
+        self.verticalLayout_5.addWidget(self.label_icon_CNR)
+        self.label_programadopor = QtWidgets.QLabel(self.centralwidget)
+        self.label_programadopor.setObjectName("label_programadopor")
+        self.verticalLayout_5.addWidget(self.label_programadopor)
+        self.label_icon_CIREN = QtWidgets.QLabel(self.centralwidget)
+        self.label_icon_CIREN.setMaximumSize(QtCore.QSize(121, 51))
+        self.label_icon_CIREN.setText("")
+        self.label_icon_CIREN.setPixmap(QtGui.QPixmap("thumbnails/logo_CIREN_trans.png"))
+        self.label_icon_CIREN.setScaledContents(True)
+        self.label_icon_CIREN.setObjectName("label_icon_CIREN")
+        self.verticalLayout_5.addWidget(self.label_icon_CIREN)
+        self.label_version = QtWidgets.QLabel(self.centralwidget)
+        self.label_version.setObjectName("label_version")
+        self.verticalLayout_5.addWidget(self.label_version)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_5.addItem(spacerItem1)
+        self.horizontalLayout_2.addLayout(self.verticalLayout_5)
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.label_paso1 = QtWidgets.QLabel(self.centralwidget)
+        self.label_paso1.setWordWrap(True)
+        self.label_paso1.setObjectName("label_paso1")
+        self.verticalLayout_4.addWidget(self.label_paso1)
+        self.comboBox_cuencas = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox_cuencas.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToMinimumContentsLength)
+        self.comboBox_cuencas.setObjectName("comboBox_cuencas")
+        self.comboBox_cuencas.addItem("")
+        self.comboBox_cuencas.addItem("")
+        self.comboBox_cuencas.addItem("")
+        self.comboBox_cuencas.addItem("")
+        self.comboBox_cuencas.addItem("")
+        self.verticalLayout_4.addWidget(self.comboBox_cuencas)
+        self.label_paso2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_paso2.setWordWrap(True)
+        self.label_paso2.setObjectName("label_paso2")
+        self.verticalLayout_4.addWidget(self.label_paso2)
+        self.comboBox_cuencas_cabecera = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox_cuencas_cabecera.setObjectName("comboBox_cuencas_cabecera")
+        self.verticalLayout_4.addWidget(self.comboBox_cuencas_cabecera)
+        self.label_paso3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_paso3.setWordWrap(True)
+        self.label_paso3.setObjectName("label_paso3")
+        self.verticalLayout_4.addWidget(self.label_paso3)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.pushButton_simular = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_simular.setObjectName("pushButton_simular")
+        self.horizontalLayout_3.addWidget(self.pushButton_simular)
+        self.pushButton_plotear = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_plotear.setObjectName("pushButton_plotear")
+        self.horizontalLayout_3.addWidget(self.pushButton_plotear)
+        self.verticalLayout_4.addLayout(self.horizontalLayout_3)
+        self.horizontalLayout_2.addLayout(self.verticalLayout_4)
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.webEngineView = QtWebEngineWidgets.QWebEngineView(self.centralwidget)
+        self.webEngineView.setUrl(QtCore.QUrl("about:blank"))
+        self.webEngineView.setObjectName("webEngineView")
+        self.verticalLayout_6.addWidget(self.webEngineView)
+        self.horizontalLayout_2.addLayout(self.verticalLayout_6)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.verticalLayout_7.addLayout(self.verticalLayout)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1299, 20))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MODELO PRONOSTICO CAUDALES CNR"))
+        self.label.setText(_translate("MainWindow", "Preparado para:"))
+        self.label_programadopor.setText(_translate("MainWindow", "Programado por:"))
+        self.label_version.setText(_translate("MainWindow", "Versión 1.0"))
+        self.label_paso1.setText(_translate("MainWindow", "<html><head/><body><p>Paso 1</p><p>Seleccione una macrocuenca del menu desplegable (ej: Río Maipo)</p><p>De esta manera el segundo menú desplegable habilitará las subcuencas correspondientes para su estudio</p></body></html>"))
+        self.comboBox_cuencas.setItemText(0, _translate("MainWindow", "<Seleccione una cuenca>"))
+        self.comboBox_cuencas.setItemText(1, _translate("MainWindow", "Rio Maipo"))
+        self.comboBox_cuencas.setItemText(2, _translate("MainWindow", "Rio Rapel"))
+        self.comboBox_cuencas.setItemText(3, _translate("MainWindow", "Rio Mataquito"))
+        self.comboBox_cuencas.setItemText(4, _translate("MainWindow", "Rio Maule"))
+        self.label_paso2.setText(_translate("MainWindow", "<html><head/><body><p>Paso 2</p><p>Seleccione una subcuenca del menu desplegable (ej: Maipo en El Manzano)</p><p>El mapa explorador a su derecha le mostrara un Google Maps donde podra ubicar la cuenca seleccionada</p></body></html>"))
+        self.label_paso3.setText(_translate("MainWindow", "<html><head/><body><p>Paso 3</p><p>Una vez seleccionada la subcuenca el modelo estará listo para simular la próxima temporada de riego o visualizar los resultados si es que éstos ya fueron generados anteriormente</p></body></html>"))
+        self.pushButton_simular.setText(_translate("MainWindow", "SIMULAR\n"
+"PROXIMA\n"
+"TEMPORADA"))
+        self.pushButton_plotear.setText(_translate("MainWindow", "PLOTEAR\n"
+"DATA\n"
+"ACTUAL"))
+from PyQt5 import QtWebEngineWidgets
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
