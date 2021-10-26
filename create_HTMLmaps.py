@@ -24,6 +24,10 @@ dic_subcuencas = {'01_RMELA': 'Rio Mapocho en Los Almendros',
                   '02_RCEJCP': 'Rio Colorado en junta con Palos',
                   '03_RPEJCC': 'Rio Palos en junta con Colorado',
                   '01_RMEA': 'Rio Maule en Armerillo'}
+dic_cuencas = {'01_Maipo': ['01_RMELA', '02_RMEEM'],
+               '02_Rapel': ['01_RCEPTDC', '02_RCEHLN', '03_RTBLB'],
+               '03_Mataquito': ['01_RTDJCC', '02_RCEJCP', '03_RPEJCC'],
+               '04_Maule': ['01_RMEA']}
 
 def export_html_map(shp_file_path):
 
@@ -86,9 +90,52 @@ def create_4326_shapefile(filepath):
     gdf = gdf.to_crs('EPSG:4326')
     gdf.to_file(filepath[:-4] + '_4326.shp')
     
+def write_centroids():
+    with open('centroides.csv', 'w') as file:
+        for key in dic_cuencas.keys():
+            for cuenca in dic_cuencas[key]:
+                subcuenca = os.path.join(*[key,cuenca])
+                shp_file_path = os.path.join(subcuenca,'Shapes', 'cuenca.shp')
+                gdf = gpd.read_file(shp_file_path)
+        
+                gdf_aux = gdf.to_crs('EPSG:32719')
+                lon = float(round(gdf_aux.geometry.centroid.x.values[0],3))
+                lat = float(round(gdf_aux.geometry.centroid.y.values[0],3))
+                
+                df = pd.DataFrame({'x': [lon], 'y': [lat]})
+                gdf_new = \
+                    gpd.GeoDataFrame(df, geometry = gpd.points_from_xy(df['x'],
+                                                                       df['y'],
+                                                                       crs='EPSG:32719'))        
+                gdf_new = gdf_new.to_crs('EPSG:4326')
+                lon = str(float(round(gdf_new['geometry'].x.values[0],3)))
+                lat = str(float(round(gdf_new['geometry'].y.values[0],3)))
+                
+                file.write(','.join([subcuenca,lon,lat])+'\n')
+        
+def renew_html_maps():
+    df_centroides = pd.read_csv('centroides.csv',header=None,index_col=0)
+    for key in dic_cuencas.keys():
+        for cuenca in dic_cuencas[key]:
+            ruta_shape = os.path.join(*[key,cuenca,'Shapes','cuenca_4326.shp'])
+            loc = os.path.join(*[key,cuenca])
+            lon = float(df_centroides.loc[loc,1])
+            lat = float(df_centroides.loc[loc,2])
+            Map = geemap.Map(toolbar_ctrl=True, layer_ctrl=True)
+            zoom = 8
+            Map.setCenter(lon, lat, zoom)
+            ee_object = geemap.shp_to_ee(ruta_shape)
+            layer_code = ruta_shape.split('/')[-3]
+            layer_name = dic_subcuencas[layer_code]
+            Map.addLayer(ee_object, name = layer_name)
+            html_file = os.path.join(os.getcwd(), layer_code + '.html')
+            Map.to_html(outfile=html_file, title='Mapa', width='100%',
+                        height='880px')
+            
+    
 if __name__ == '__main__':
     
-    subcuenca = os.path.join(*['03_Mataquito', '01_RTDJCC'])
+    subcuenca = os.path.join(*['03_Mataquito', '02_RCEJCP'])
     
     shp_file_path = os.path.join(subcuenca,'Shapes', 'cuenca.shp')
     create_4326_shapefile(shp_file_path)

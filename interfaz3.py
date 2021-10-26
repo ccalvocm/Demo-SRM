@@ -195,11 +195,30 @@ class Ui_MainWindow(object):
         current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
         path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
         path_completo = os.path.join(os.getcwd(),path_subcuenca)
-        print(path_completo)
+        print('Simulando en: ', path_completo)
+        self.pushButton_simular.setEnabled(False)
+        self.mensaje_iniciar_simulacion()
+        worker = Worker(autotest.run_pySRM, [path_completo], {'tipo' : 'P'})
+        worker.signals.result.connect(self.mensaje_simulacion_terminada) # funcion para cuando termina
+    
+    def mensaje_iniciar_simulacion(self):
+        current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        texto = 'La simulación se realizará en cuenca:\n' + current_subcuenca\
+            + '\nPresione OK para comenzar'
+        msg.setText(texto)
+        msg.exec_()
+    
+    
+    def mensaje_simulacion_terminada(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText("Simulación exitosa")
+        msg.exec_()
+        self.pushButton_simular.setEnabled(True)
         
         
-        worker = Worker(autotest.run_pySRM, path_completo, tipo='P')
-        # worker.signals.result.connect(self.plotResults) # funcion para cuando termina
         # worker.signals.progress.connect(self.progress_fn) #
         # worker.signals.error.connect(self.error)
         
@@ -208,9 +227,7 @@ class Ui_MainWindow(object):
         # try:
             
         #     autotest.run_pySRM(path_completo, tipo = 'P')
-        #     msg = QMessageBox()
-        #     msg.setIcon(QMessageBox.Information)
-        #     msg.setText("Simulación exitosa")
+        
         #     msg.exec_()
         #     os.chdir(path_actual)
         # except:
@@ -441,7 +458,7 @@ from PyQt5 import QtWebEngineWidgets
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    # apply_stylesheet(app, theme='dark_teal.xml')
+    apply_stylesheet(app, theme='dark_teal.xml')
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
