@@ -55,7 +55,7 @@ def main():
     # leer las desviaciones estandar
     for file in listout:
         file_read = pd.read_csv(os.path.join(folder,file))
-        std_dev = float(file_read.loc[181].values[0].split('=')[-1].split()[0])
+        std_dev = float(file_read.loc[173].values[0].split('=')[-1].split()[0])
         lista_std_dev.append(std_dev)
     
     df_std_dev = pd.DataFrame(lista_std_dev, columns = ['Desviacion estandar (l/s)'])
