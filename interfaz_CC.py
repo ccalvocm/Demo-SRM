@@ -272,8 +272,8 @@ class Ui_MainWindow(object):
             Qfor = Qfor.loc[(Qfor.index >= plot_ini) & (Qfor.index <= plot_fin)]
             idx = est_dev.index
             # Z value del 99%
-            Qfor_ul = Qfor.loc[idx]+2.58*est_dev.values
-            Qfor_ll = Qfor.loc[idx]-2.58*est_dev.values           
+            Qfor_ul = Qfor.loc[idx]+3*est_dev.values
+            Qfor_ll = Qfor.loc[idx]-3*est_dev.values           
             
             # fechas
             Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qfor)-1), freq = '1d').date]  
@@ -311,8 +311,9 @@ class Ui_MainWindow(object):
             Q_mon.reset_index(inplace = True, drop = True)
             
             # intervalos de Confianza
-            Qfor_ul_mon = Q_mon.loc[idx]+2.58*est_dev_mon.values
-            Qfor_ll_mon = Q_mon.loc[idx]-2.58*est_dev_mon.values
+            idx = Q_mon.index
+            Qfor_ul_mon = Q_mon.loc[idx]+3*est_dev_mon.values
+            Qfor_ll_mon = Q_mon.loc[idx]-3*est_dev_mon.values
             
             # graficar la curva de variación estacional histórica
         
@@ -325,7 +326,7 @@ class Ui_MainWindow(object):
                              
             # caudales medios mensuales pronosticados
             Q_mon.plot(ax = axis, color='r', style='--', marker = 'D', markersize=10, legend=False, linewidth = 3, logy=False)
-            axis.fill_between(Qfor_ll_mon.index, y1 = Qfor_ll_mon.squeeze(), y2 = Qfor_ul_mon.squeeze(),
+            axis.fill_between(Q_mon.index, y1 = Qfor_ll_mon.squeeze(), y2 = Qfor_ul_mon.squeeze(),
                 facecolor='steelblue', alpha=0.2, interpolate=True)        
             axis.set_ylabel('Caudal $(m^3/s)$',  fontsize = 12)
             axis.set_ylim(bottom = 0)
