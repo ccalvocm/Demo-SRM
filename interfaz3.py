@@ -20,17 +20,62 @@ import matplotlib.ticker as mticker
 # secure socket layers
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
-from PyQt5.QtCore import QThreadPool
+from PyQt5.QtCore import QThreadPool, QRunnable
 from Worker import Worker
 
 # theme
 from qt_material import apply_stylesheet
 
 
+
+# metodo de Alan para crear senales
+class WorkerSignals(QtCore.QObject):
+    '''
+    Defines the signals available from a running worker thread.
+
+    Supported signals are:
+
+    finished
+        No data
+
+    error
+        `tuple` (exctype, value, traceback.format_exc() )
+
+    result
+        `object` data returned from processing, anything
+
+    progress
+        `int` indicating % progress
+
+    '''
+    finished = QtCore.pyqtSignal()
+    error = QtCore.pyqtSignal(tuple)
+    result = QtCore.pyqtSignal(dict)
+    progress = QtCore.pyqtSignal(object)
+
+# example from TDS for QRunnable
+class Runnable(QRunnable):
+    def __init__(self, arg1):
+        super().__init__()
+        self.arg1 = arg1
+        self.signals = WorkerSignals()
+        
+    def run(self):
+        try:
+            autotest.run_pySRM(path=self.arg1)
+        except:
+            pass
+        else:
+            pass
+            # self.signals.result.emit()  # Return the result of the processing
+        finally:
+            self.signals.finished.emit()  # Done
+
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         # crear thread pool
-        self.threadpool1 = QThreadPool()
+        # self.threadpool1 = QThreadPool()
         
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1299, 825)
@@ -137,7 +182,7 @@ class Ui_MainWindow(object):
         
         self.comboBox_cuencas.activated.connect(self.seleccionar_cuenca)
         self.comboBox_cuencas_cabecera.currentTextChanged.connect(self.seleccionar_subcuenca)
-        self.pushButton_simular.clicked.connect(self.simular)
+        self.pushButton_simular.clicked.connect(self.simular_Qrunnable)
         self.pushButton_plotear.clicked.connect(self.plotear_resultados)
 
         self.retranslateUi(MainWindow)
@@ -184,7 +229,7 @@ class Ui_MainWindow(object):
             current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
             path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
             print(path_subcuenca)
-            html_subcuenca = os.path.join('.', var_aux.dic_paths[current_subcuenca][-1] + '.html')
+            html_subcuenca = os.path.join('.','basemaps', var_aux.dic_paths[current_subcuenca][-1] + '.html')
             with open(html_subcuenca, 'r') as f:
                 html = f.read()
                 self.webEngineView.setHtml(html)
@@ -198,8 +243,26 @@ class Ui_MainWindow(object):
         print('Simulando en: ', path_completo)
         self.pushButton_simular.setEnabled(False)
         self.mensaje_iniciar_simulacion()
-        worker = Worker(autotest.run_pySRM, [path_completo], {'tipo' : 'P'})
+        worker = Worker(autotest.run_pySRM, path_completo, tipo = 'P')
+        # worker.run()
+        # worker.signals.error.connect(self.error)
         worker.signals.result.connect(self.mensaje_simulacion_terminada) # funcion para cuando termina
+        
+    def simular_Qrunnable(self):
+        current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
+        path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
+        path_completo = os.path.join(os.getcwd(),path_subcuenca)
+        
+        print('Simulando en: ', path_completo)
+        self.pushButton_simular.setEnabled(False)
+        self.mensaje_iniciar_simulacion()
+        
+        threadCount = QThreadPool.globalInstance().maxThreadCount()
+        pool = QThreadPool().globalInstance()
+        runnable = Runnable(path_completo)
+        pool.start(runnable)
+        runnable.signals.finished.connect(self.mensaje_simulacion_terminada)
+        
     
     def mensaje_iniciar_simulacion(self):
         current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
@@ -220,7 +283,7 @@ class Ui_MainWindow(object):
         
         
         # worker.signals.progress.connect(self.progress_fn) #
-        # worker.signals.error.connect(self.error)
+        
         
         
         

@@ -122,12 +122,14 @@ def renew_html_maps():
             lon = float(df_centroides.loc[loc,1])
             lat = float(df_centroides.loc[loc,2])
             Map = geemap.Map(toolbar_ctrl=True, layer_ctrl=True)
+            Map.add_basemap('OpenTopoMap')
             zoom = 8
             Map.setCenter(lon, lat, zoom)
             ee_object = geemap.shp_to_ee(ruta_shape)
             layer_code = ruta_shape.split('/')[-3]
             layer_name = dic_subcuencas[layer_code]
-            Map.addLayer(ee_object, name = layer_name)
+            Map.addLayer(ee_object, name = layer_name,
+                         opacity=0.8)
             html_file = os.path.join(os.getcwd(), layer_code + '.html')
             Map.to_html(outfile=html_file, title='Mapa', width='100%',
                         height='880px')
@@ -135,12 +137,13 @@ def renew_html_maps():
     
 if __name__ == '__main__':
     
-    subcuenca = os.path.join(*['03_Mataquito', '02_RCEJCP'])
+    # subcuenca = os.path.join(*['03_Mataquito', '03_RPEJCC'])
     
-    shp_file_path = os.path.join(subcuenca,'Shapes', 'cuenca.shp')
-    create_4326_shapefile(shp_file_path)
+    # shp_file_path = os.path.join(subcuenca,'Shapes', 'cuenca.shp')
+    # create_4326_shapefile(shp_file_path)
     
-    shp_file_path2 = os.path.join(subcuenca,'Shapes', 'cuenca_4326.shp')
-    export_html_map(shp_file_path2)
+    # shp_file_path2 = os.path.join(subcuenca,'Shapes', 'cuenca_4326.shp')
+    # export_html_map(shp_file_path2)
+    renew_html_maps()
     
     
