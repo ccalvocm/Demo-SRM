@@ -12,6 +12,12 @@ import fiona
 import os
 import datetime
 
+def borrar(ruta):
+    # borrar primero los hdf
+    for ind,filename in enumerate(os.listdir(ruta)):
+        if (filename.endswith(".hdf")) | (filename.endswith(".xml")) | (filename.endswith(".tif")):
+            os.remove(os.path.join(ruta, filename))    
+
 def Process_MODIS(dir_in, dir_out, shp, yr):
     """
     
@@ -38,11 +44,6 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
     dir_in = os.path.join(dir_in,str(yr),'prm','reproj')
     dir_out = os.path.join(dir_out,str(yr),'clip')
     
-    # borrar primero los hdf
-    for ind,filename in enumerate(os.listdir(dir_hdf)):
-        if filename.endswith(".hdf"):
-            os.remove(os.path.join(dir_hdf, filename))
-
     # leer las imágenes MODIS
     if not os.path.exists(dir_out):
         os.makedirs(dir_out)
@@ -87,6 +88,9 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
             with rasterio.open(os.path.join(dir_out,filename.replace('.tif','')+'_clp.tif'), "w", **out_meta) as dest:
                 dest.write(out_image)
                 
+    # borrar primero los hdf
+    borrar(dir_hdf)
+               
     return None
 
 def main(dir_in,  yeari = datetime.date.today().year, yearf = datetime.date.today().year+1):
