@@ -33,10 +33,17 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
 
     """
     
-    # setear directorios de entrada y de salida
+    # setear directorios de hfs, entrada y de salida
+    dir_hdf = os.path.join(dir_in,str(yr))
     dir_in = os.path.join(dir_in,str(yr),'prm','reproj')
     dir_out = os.path.join(dir_out,str(yr),'clip')
+    
+    # borrar primero los hdf
+    for ind,filename in enumerate(os.listdir(dir_hdf)):
+        if filename.endswith(".hdf"):
+            os.remove(os.path.join(dir_hdf, filename))
 
+    # leer las imágenes MODIS
     if not os.path.exists(dir_out):
         os.makedirs(dir_out)
     
@@ -48,7 +55,7 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
     if not os.path.exists(dir_out):
         os.makedirs(dir_out)   
     
-    # leet las imágenes MODIS
+    # leer las imágenes MODIS
     for ind,filename in enumerate(os.listdir(dir_in)):
         if filename.endswith(".tif"): 
             if ind == 0:
