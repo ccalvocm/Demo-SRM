@@ -32,3 +32,4 @@ dependencies:
    - pyqt5-sip
    - pyqtwebengine
    - dask_geopandas
+   - qt_material
