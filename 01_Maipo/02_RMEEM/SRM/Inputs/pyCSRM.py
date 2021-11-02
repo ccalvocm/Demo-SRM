@@ -192,7 +192,7 @@ def DEVELOP_SRM(root, Basin, alpha, Tcrit, plots):
     master = pd.read_csv(root+r'/Master.csv', index_col = 0, parse_dates = True)
     
     # última fecha con datos 
-    lastDate = pd.to_datetime('2021-05-29')
+    lastDate = pd.to_datetime('2022-03-31')
         
     # último dia de la simulacion anterior
     FirstDay = 0
@@ -486,20 +486,20 @@ def DEVELOP_SRM(root, Basin, alpha, Tcrit, plots):
         swe_sim = np.sum(snowAcc*A, axis = 1) / Atot
         swe_sim = pd.DataFrame(swe_sim, index = dates, columns = ['SWE simulado']) # SWE en m
 
-        # SWe observado
-        swe_obs = pd.read_csv(r'C:\Users\ccalvo\OneDrive - ciren.cl\Of hidrica\AOHIA_ZC\Etapa 3\Scripts\outputs\GEE_downloads\Maipo\MEEM\Maipo_MEEM_bandas_ERA5hourly_SWE_2000_2021_simplify_0_05.csv', index_col = 0, parse_dates = True)
-        swe_obs_day = swe_obs.resample('D').mean()
-        swe_obs_day.iloc[:,-1] = swe_obs_day.iloc[:,-2]
-        swe_obs_day = swe_obs_day.loc[dates]
-        swe_obs_day = np.sum(swe_obs_day.values*A, axis = 1) / Atot
-        swe_obs_day = pd.DataFrame(swe_obs_day, index = dates, columns = ['SWE observado']) # SWE en m
+        # # SWe observado
+        # swe_obs = pd.read_csv(r'C:\Users\ccalvo\OneDrive - ciren.cl\Of hidrica\AOHIA_ZC\Etapa 3\Scripts\outputs\GEE_downloads\Maipo\MEEM\Maipo_MEEM_bandas_ERA5hourly_SWE_2000_2021_simplify_0_05.csv', index_col = 0, parse_dates = True)
+        # swe_obs_day = swe_obs.resample('D').mean()
+        # swe_obs_day.iloc[:,-1] = swe_obs_day.iloc[:,-2]
+        # swe_obs_day = swe_obs_day.loc[dates]
+        # swe_obs_day = np.sum(swe_obs_day.values*A, axis = 1) / Atot
+        # swe_obs_day = pd.DataFrame(swe_obs_day, index = dates, columns = ['SWE observado']) # SWE en m
         
-        # plots
-        fig, ax = plt.subplots(1)
-        swe_sim.plot(ax = ax)   
-        swe_obs_day.plot(ax = ax)        
-        plt.ylabel('Equivalente en agua de nieve (m)')
-        plt.grid()
+        # # plots
+        # fig, ax = plt.subplots(1)
+        # swe_sim.plot(ax = ax)   
+        # swe_obs_day.plot(ax = ax)        
+        # plt.ylabel('Equivalente en agua de nieve (m)')
+        # plt.grid()
        
 #%%    
     #==========================================================================
@@ -517,5 +517,5 @@ def DEVELOP_SRM(root, Basin, alpha, Tcrit, plots):
 if __name__ == '__main__':
     root = '.'
     Basin = 'Maipo_en_el_Manzano'
-    DEVELOP_SRM(root, Basin, alpha = 0.959, Tcrit = 1, plots = True)
+    DEVELOP_SRM(root, Basin, alpha = 0.959, Tcrit = 1, plots = False)
     
