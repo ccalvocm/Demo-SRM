@@ -24,6 +24,7 @@ dependencies:
  - contextily
  - descartes
  - pygeos
+ - geemap
  - pip:
    - hydroeval
    - python-dateutil
