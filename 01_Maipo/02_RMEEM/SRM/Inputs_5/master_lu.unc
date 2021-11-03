@@ -1,112 +1,113 @@
 START STANDARD_DEVIATION
-ddsd	5000
-ddsw	5000
-ddgd	5000
-ddgw	5000
-rcs1d	5000
-rcs1w	5000
-rcs2d	5000
-rcs2w	5000
-rcs3d	5000
-rcs3w	5000
-rcs4d	5000
-rcs4w	5000
-rcs5d	5000
-rcs5w	5000
-rcs6d	5000
-rcs6w	5000
-rcs7d	5000
-rcs7w	5000
-rcs8d	5000
-rcs8w	5000
-rcs9d	5000
-rcs9w	5000
-rcs10d	5000
-rcs10w	5000
-rcs11d	5000
-rcs11w	5000
-rcs12d	5000
-rcs12w	5000
-rcs13d	5000
-rcs13w	5000
-rcs14d	5000
-rcs14w	5000
-rcs15d	5000
-rcs15w	5000
-rcs16d	5000
-rcs16w	5000
-rcs17d	5000
-rcs17w	5000
-rcs18d	5000
-rcs18w	5000
-rcs19d	5000
-rcs19w	5000
-rcs20d	5000
-rcs20w	5000
-rcs21d	5000
-rcs21w	5000
-rcs22d	5000
-rcs22w	5000
-rcs23d	5000
-rcs23w	5000
-rcs24d	5000
-rcs24w	5000
-rcr1d	5000
-rcr1w	5000
-rcr2d	5000
-rcr2w	5000
-rcr3d	5000
-rcr3w	5000
-rcr4d	5000
-rcr4w	5000
-rcr5d	5000
-rcr5w	5000
-rcr6d	5000
-rcr6w	5000
-rcr7d	5000
-rcr7w	5000
-rcr8d	5000
-rcr8w	5000
-rcr9d	5000
-rcr9w	5000
-rcr10d	5000
-rcr10w	5000
-rcr11d	5000
-rcr11w	5000
-rcr12d	5000
-rcr12w	5000
-rcr13d	5000
-rcr13w	5000
-rcr14d	5000
-rcr14w	5000
-rcr15d	5000
-rcr15w	5000
-rcr16d	5000
-rcr16w	5000
-rcr17d	5000
-rcr17w	5000
-rcr18d	5000
-rcr18w	5000
-rcr19d	5000
-rcr19w	5000
-rcr20d	5000
-rcr20w	5000
-rcr21d	5000
-rcr21w	5000
-rcr22d	5000
-rcr22w	5000
-rcr23d	5000
-rcr23w	5000
-rcr24d	5000
-rcr24w	5000
-rcgd	5000
-rcgw	5000
-tl	5000
-xw	5000
-yw	5000
-x	5000
-y	5000
-tlr	5000
-tls	5000
-beta	500000
+  std_multiplier 3.0
+  ddsd 1
+  ddsw 1
+  ddgd 1
+  ddgw 1
+  rcs1d 1
+  rcs1w 1
+  rcs2d 1
+  rcs2w 1
+  rcs3d 1
+  rcs3w 1
+  rcs4d 1
+  rcs4w 1
+  rcs5d 1
+  rcs5w 1
+  rcs6d 1
+  rcs6w 1
+  rcs7d 1
+  rcs7w 1
+  rcs8d 1
+  rcs8w 1
+  rcs9d 1
+  rcs9w 1
+  rcs10d 1
+  rcs10w 1
+  rcs11d 1
+  rcs11w 1
+  rcs12d 1
+  rcs12w 1
+  rcs13d 1
+  rcs13w 1
+  rcs14d 1
+  rcs14w 1
+  rcs15d 1
+  rcs15w 1
+  rcs16d 1
+  rcs16w 1
+  rcs17d 1
+  rcs17w 1
+  rcs18d 1
+  rcs18w 1
+  rcs19d 1
+  rcs19w 1
+  rcs20d 1
+  rcs20w 1
+  rcs21d 1
+  rcs21w 1
+  rcs22d 1
+  rcs22w 1
+  rcs23d 1
+  rcs23w 1
+  rcs24d 1
+  rcs24w 1
+  rcr1d 1
+  rcr1w 1
+  rcr2d 1
+  rcr2w 1
+  rcr3d 1
+  rcr3w 1
+  rcr4d 1
+  rcr4w 1
+  rcr5d 1
+  rcr5w 1
+  rcr6d 1
+  rcr6w 1
+  rcr7d 1
+  rcr7w 1
+  rcr8d 1
+  rcr8w 1
+  rcr9d 1
+  rcr9w 1
+  rcr10d 1
+  rcr10w 1
+  rcr11d 1
+  rcr11w 1
+  rcr12d 1
+  rcr12w 1
+  rcr13d 1
+  rcr13w 1
+  rcr14d 1
+  rcr14w 1
+  rcr15d 1
+  rcr15w 1
+  rcr16d 1
+  rcr16w 1
+  rcr17d 1
+  rcr17w 1
+  rcr18d 1
+  rcr18w 1
+  rcr19d 1
+  rcr19w 1
+  rcr20d 1
+  rcr20w 1
+  rcr21d 1
+  rcr21w 1
+  rcr22d 1
+  rcr22w 1
+  rcr23d 1
+  rcr23w 1
+  rcr24d 1
+  rcr24w 1
+  rcgd 1
+  rcgw 1
+  tl 1
+  xw 1
+  yw 1
+  x 1
+  y 1
+  tlr 1
+  tls 1
+  beta 1
 END STANDARD_DEVIATION
