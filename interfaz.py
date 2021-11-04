@@ -73,6 +73,8 @@ class Runnable(QRunnable):
 
 
 class Ui_MainWindow(object):
+    global path_actual
+    path_actual = os.getcwd()
     def setupUi(self, MainWindow):
         # crear thread pool
         # self.threadpool1 = QThreadPool()
@@ -211,12 +213,12 @@ class Ui_MainWindow(object):
 "DE MODELACION"))
         
     global path_subcuenca
-    global path_actual
+
     
-    path_actual = os.getcwd()
+
 
     def seleccionar_cuenca(self):
-        path_actual = os.getcwd()
+
         if self.comboBox_cuencas.currentText() != "<Seleccione una cuenca>":
             opcion = self.comboBox_cuencas.currentText()
             self.comboBox_cuencas_cabecera.clear()
@@ -229,7 +231,7 @@ class Ui_MainWindow(object):
             current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
             path_subcuenca = os.path.join(*var_aux.dic_paths[current_subcuenca])
             print(path_subcuenca)
-            html_subcuenca = os.path.join('.','basemaps', var_aux.dic_paths[current_subcuenca][-1] + '.html')
+            html_subcuenca = os.path.join(path_actual,'basemaps', var_aux.dic_paths[current_subcuenca][-1] + '.html')
             with open(html_subcuenca, 'r') as f:
                 html = f.read()
                 self.webEngineView.setHtml(html)
