@@ -81,7 +81,7 @@ def export_html_map(shp_file_path):
     
     # if not os.path.exists(download_dir):
     #     os.makedirs(download_dir)
-    html_file = os.path.join(os.getcwd(), layer_code + '.html')
+    html_file = os.path.join(os.getcwd(),'basemaps', layer_code + '.html')
     Map.to_html(outfile=html_file, title='Mapa', width='100%', height='880px')
     
     
@@ -130,7 +130,7 @@ def renew_html_maps():
             layer_name = dic_subcuencas[layer_code]
             Map.addLayer(ee_object, name = layer_name,
                          opacity=0.8)
-            html_file = os.path.join(os.getcwd(), layer_code + '.html')
+            html_file = os.path.join(os.getcwd(), 'basemaps', layer_code + '.html')
             Map.to_html(outfile=html_file, title='Mapa', width='100%',
                         height='880px')
             
