@@ -4,15 +4,19 @@
 ### Requisitos:
  OS Windows 
 
-### Instalación:
+### Instalación (Windows 7):
+ 1. Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu) 
+ 2. Instalar .NET Framework 4+ desde el siguiente enlace: [Net Framework](https://go.microsoft.com/fwlink/?linkid=2088632)
+ 3. Descargar el instalador ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
+ 4. Descomprimir el archivo ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
+ 5. Presionar el ejecutable "Etapa 1.bat"
+ 6. Presionar el ejecutable "Etapa 2.bat"
+ 
+### Instalación (Windows 10):
  1. Descargar el instalador ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
  2. Descomprimir el archivo ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
  3. Presionar el ejecutable "Etapa 1.bat"
  4. Presionar el ejecutable "Etapa 2.bat"
-
- Nota (solamente usuarios de Windows 7):  
- - Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu) 
- - Instalar .NET Framework 4+ desde el siguiente enlace: [Net Framework](https://go.microsoft.com/fwlink/?linkid=2088632)
 
 ### Ejecución:
  1. Esperar a que termine el ejecutable "Etapa 2.bat"
