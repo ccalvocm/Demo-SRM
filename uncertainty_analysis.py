@@ -28,9 +28,9 @@ def main():
     unc_in = pd.read_csv(path_unc_in)
     
     # Río Mapocho en Los Almendros
-    master = pd.read_csv(path_master, skiprows = 7618, nrows=365, sep = '\t', header = None, index_col = 0)
+    # master = pd.read_csv(path_master, skiprows = 7618, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Maipo en el Manzano
-    master = pd.read_csv(path_master, skiprows = 7356, nrows=365, sep = ' ', header = None, index_col = 1)
+    master = pd.read_csv(path_master, skiprows = 7356, nrows=365, sep = '\t', header = None, index_col = 0)
     
     # ruta de archivos de simulacion
     # folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\Inputs'
