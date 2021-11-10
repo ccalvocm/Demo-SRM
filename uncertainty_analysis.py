@@ -18,23 +18,31 @@ def list_out(directory):
 def main():
     
     # rutas
+    # Mapocho en Los Almendros
     path_unc_in = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\Inputs\unc_analysis.in'
     path_master = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\Inputs\Master.pst'
-    
+  
+    # Maipo en el Manzano
     path_unc_in = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\Inputs\unc_analysis.in'
     path_master = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\Inputs\Master.pst'    
 
+    # Río Cachapoal en Puente Termas de Cauquenes
+    path_unc_in = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\02_Rapel\01_RCEPTDC\SRM\Inputs\unc_analysis.in'
+    path_master = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\02_Rapel\01_RCEPTDC\SRM\Inputs\Master.pst'
 
     unc_in = pd.read_csv(path_unc_in)
     
     # Río Mapocho en Los Almendros
     # master = pd.read_csv(path_master, skiprows = 7618, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Maipo en el Manzano
-    master = pd.read_csv(path_master, skiprows = 7356, nrows=365, sep = '\t', header = None, index_col = 0)
+    # master = pd.read_csv(path_master, skiprows = 7356, nrows=365, sep = '\t', header = None, index_col = 0)
+    # Río Cachapoal en Puente Termas
+    master = pd.read_csv(path_master, skiprows = 4198, nrows=365, sep = '\t', header = None, index_col = 0)
     
     # ruta de archivos de simulacion
     # folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\Inputs'
-    folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\Inputs'
+    # folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\Inputs'
+    folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\02_Rapel\01_RCEPTDC\SRM\Inputs'  
     
     # iterar sobre caudales
     for caudal in master.index:

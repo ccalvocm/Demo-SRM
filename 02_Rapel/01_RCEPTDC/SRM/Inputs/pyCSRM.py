@@ -192,7 +192,7 @@ def DEVELOP_SRM(root, Basin, alpha, Tcrit, plots):
     master = pd.read_csv(root+r'/Master.csv', index_col = 0, parse_dates = True)
     
     # última fecha con datos 
-    lastDate = pd.to_datetime('2021-05-29')
+    lastDate = pd.to_datetime('2022-03-31')
         
     # último dia de la simulacion anterior
     FirstDay = 0
@@ -518,5 +518,5 @@ def DEVELOP_SRM(root, Basin, alpha, Tcrit, plots):
 if __name__ == '__main__':
     root = '.'
     Basin = 'Cachapoal_Puente_Termas'
-    DEVELOP_SRM(root, Basin, alpha = 0.959, Tcrit = 1, plots = True)
+    DEVELOP_SRM(root, Basin, alpha = 0.959, Tcrit = 1, plots = False)
     

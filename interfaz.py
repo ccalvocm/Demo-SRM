@@ -436,6 +436,7 @@ class Ui_MainWindow(object):
             
             years = [x.year for x in master.index]
             years = list(dict.fromkeys(years))
+            years = [x for x in years if str(x) != 'nan']
             plot_ini = pd.to_datetime(str(years[-2])+'-04-01')
     
             # Qforecast
