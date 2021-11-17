@@ -126,7 +126,7 @@ def renew_html_maps():
             zoom = 8
             Map.setCenter(lon, lat, zoom)
             ee_object = geemap.shp_to_ee(ruta_shape)
-            layer_code = ruta_shape.split('/')[-3]
+            layer_code = os.path.split(ruta_shape)[-3]
             layer_name = dic_subcuencas[layer_code]
             Map.addLayer(ee_object, name = layer_name,
                          opacity=0.8)
