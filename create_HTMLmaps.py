@@ -114,23 +114,22 @@ def write_centroids():
                 file.write(','.join([subcuenca,lon,lat])+'\n')
         
 def renew_html_maps():
-    df_centroides = pd.read_csv('centroides.csv',header=None,index_col=0)
+    df_centroides = pd.read_csv('centroides.csv',header=None, index_col=1)
     for key in dic_cuencas.keys():
         for cuenca in dic_cuencas[key]:
             ruta_shape = os.path.join(*[key,cuenca,'Shapes','cuenca_4326.shp'])
-            loc = os.path.join(*[key,cuenca])
-            lon = float(df_centroides.loc[loc,1])
-            lat = float(df_centroides.loc[loc,2])
+            loc = cuenca
+            lon = float(df_centroides.loc[loc,2])
+            lat = float(df_centroides.loc[loc,3])
             Map = geemap.Map(toolbar_ctrl=True, layer_ctrl=True)
             Map.add_basemap('OpenTopoMap')
             zoom = 8
             Map.setCenter(lon, lat, zoom)
             ee_object = geemap.shp_to_ee(ruta_shape)
-            layer_code = os.path.split(ruta_shape)[-3]
-            layer_name = dic_subcuencas[layer_code]
+            layer_name = dic_subcuencas[cuenca]
             Map.addLayer(ee_object, name = layer_name,
                          opacity=0.8)
-            html_file = os.path.join(os.getcwd(), 'basemaps', layer_code + '.html')
+            html_file = os.path.join(os.getcwd(), 'basemaps', cuenca + '.html')
             Map.to_html(outfile=html_file, title='Mapa', width='100%',
                         height='880px')
             
