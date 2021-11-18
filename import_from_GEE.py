@@ -24,6 +24,27 @@ from shapely.geometry.base import (BaseGeometry,
 
 import numpy as np
 import shapely as sh
+import datetime
+
+def get_dataset_dates(dataset_str):
+    ee.Initialize()
+    collection = ee.ImageCollection(dataset_str)
+    date_range = collection.reduceColumns(ee.Reducer.minMax(),
+                                          ['system:time_start'])
+    jsondate1 = ee.Date(date_range.get('min'))
+    jsondate2 = ee.Date(date_range.get('max'))
+    
+    pydate1 = datetime.datetime.\
+        utcfromtimestamp(jsondate1.getInfo()['value']/1000.0)
+    pydate2 = datetime.datetime.\
+        utcfromtimestamp(jsondate2.getInfo()['value']/1000.0)
+    
+    datestr1 = pydate1.strftime('%Y-%m-%d')
+    datestr2 = pydate2.strftime('%Y-%m-%d')
+    
+    # print(datestr1,datestr2)
+    return [datestr1,datestr2]
+    
 
 def getPolyCoords(geom, coord_type):
     """Returns the coordinates ('x|y') of edges/vertices of a Polygon/others"""
@@ -157,7 +178,8 @@ img_path = './interfaz_descarga_GEE/thumbnails/'
 dic_productos = {'GPM': {'name': 'Global Precipitation Measurement (GPM) v6',
                          'sigla': 'GPM',
                          'snippet': 'NASA/GPM_L3/IMERG_V06',
-                         'dates': ['2000-06-01','2021-07-30'],
+                         'dates': get_dataset_dates('NASA/GPM_L3/IMERG_V06'),
+                         # 'dates': ['2000-06-01','2021-07-30'],
                          'scale': 0.1 * 110 * 1000,
                          'tres': '30-min',
                          'variables': {'pr': 'precipitationCal'},
@@ -165,7 +187,8 @@ dic_productos = {'GPM': {'name': 'Global Precipitation Measurement (GPM) v6',
                  'PERSIANN': {'name': 'Precipitation Estimation From Remotely Sensed Information Using Artificial Neural Networks-Climate Data Record',
                               'sigla': 'PERSIANN-CDR',
                               'snippet': 'NOAA/PERSIANN-CDR',
-                              'dates': ['1983-01-01','2021-04-01'],
+                              # 'dates': ['1983-01-01','2021-04-01'],
+                              'dates': get_dataset_dates('NOAA/PERSIANN-CDR'),
                               'scale': 0.25 * 110 * 1000,
                               'tres': 'daily',
                               'variables': {'pr': 'precipitation'},
@@ -174,7 +197,8 @@ dic_productos = {'GPM': {'name': 'Global Precipitation Measurement (GPM) v6',
                  'ERA5_daily': {'name': 'ERA5 Daily Aggregates - Latest Climate Reanalysis Produced by ECMWF / Copernicus Climate Change Service',
                                 'sigla': 'ERA5',
                                 'snippet': 'ECMWF/ERA5/DAILY',
-                                'dates': ['1979-01-02', '2020-07-09'],
+                                # 'dates': ['1979-01-02', '2020-07-09'],
+                                'dates': get_dataset_dates('ECMWF/ERA5/DAILY'),
                                 'scale': 0.25 * 110 * 1000,
                                 'tres': 'daily',
                                 'variables': {'pr': 'total_precipitation',
@@ -185,7 +209,8 @@ dic_productos = {'GPM': {'name': 'Global Precipitation Measurement (GPM) v6',
                  'ERA5_hourly': {'name': 'ERA5-Land Hourly - ECMWF Climate Reanalysis',
                                  'sigla': 'ERA5',
                                  'snippet': 'ECMWF/ERA5_LAND/HOURLY',
-                                 'dates': ['1981-01-01', '2021-06-30'],
+                                 # 'dates': ['1981-01-01', '2021-06-30'],
+                                 'dates': get_dataset_dates('ECMWF/ERA5_LAND/HOURLY'),
                                  'scale': 0.1 * 110 * 1000,
                                  'tres': 'hourly',
                                  'variables': {'t2m': 'temperature_2m',
@@ -196,7 +221,8 @@ dic_productos = {'GPM': {'name': 'Global Precipitation Measurement (GPM) v6',
                  'CHIRPS': {'name': 'CHIRPS Daily: Climate Hazards Group InfraRed Precipitation With Station Data (Version 2.0 Final)',
                             'sigla': 'CHIRPS',
                             'snippet': 'UCSB-CHG/CHIRPS/DAILY',
-                            'dates': ['1981-01-01', '2021-07-31'],
+                            # 'dates': ['1981-01-01', '2021-07-31'],
+                            'dates': get_dataset_dates('UCSB-CHG/CHIRPS/DAILY'),
                             'scale': 0.05 * 110 * 1000,
                             'tres': 'daily',
                             'variables': {'pr': 'precipitation'},
@@ -205,7 +231,8 @@ dic_productos = {'GPM': {'name': 'Global Precipitation Measurement (GPM) v6',
                  'GLDAS_2_1': {'name': 'GLDAS-2.1: Global Land Data Assimilation System',
                                'sigla': 'GLDAS 2.1',
                                'snippet': 'NASA/GLDAS/V021/NOAH/G025/T3H',
-                               'dates': ['2000-01-01', '2021-08-06'],
+                               # 'dates': ['2000-01-01', '2021-08-06'],
+                               'dates': get_dataset_dates('NASA/GLDAS/V021/NOAH/G025/T3H'),
                                'scale': 0.25 * 110 * 1000,
                                'tres': '3-hourly',
                                'variables': {'t2m': 'Tair_f_inst',
@@ -219,7 +246,8 @@ dic_productos = {'GPM': {'name': 'Global Precipitation Measurement (GPM) v6',
                  'CFSV2': {'name': 'CFSV2: NCEP Climate Forecast System Version 2, 6-Hourly Products',
                            'sigla': 'CFSV',
                            'snippet': 'NOAA/CFSV2/FOR6H',
-                           'dates': ['1979-01-01', '2021-09-06'],
+                           # 'dates': ['1979-01-01', '2021-09-06'],
+                           'dates': get_dataset_dates('NOAA/CFSV2/FOR6H'),
                            'scale': 0.2 * 110 * 1000,
                            'tres': '6-hourly',
                            'variables': {'pres': 'Pressure_surface',
