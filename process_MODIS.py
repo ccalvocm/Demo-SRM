@@ -90,7 +90,6 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
                 
     # borrar primero los hdf
     borrar(dir_hdf)
-    borrar(dir_in.replace('reproj',''))
                
     return None
 
