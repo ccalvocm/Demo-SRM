@@ -136,19 +136,19 @@ def forecast_dataframe_file(path):
     
 if __name__ == '__main__':
     
-    path = ['/home', 'faarrosp','Documents','GitHub',
-            'Demo-SRM','02_Rapel','03_RTBLB',
-            'Temperatura', 'temperatura_actual.csv']
+    path = ['/Users', 'felipearrospide','Documents','GitHub',
+            'Demo-SRM','03_Mataquito','03_RPEJCC',
+            'Precipitacion', 'precipitacion_actual.csv']
     
     path_dataset = os.path.join(*path)
     
-    # forecast_dataframe_file(path_dataset)
+    forecast_dataframe_file(path_dataset)
     
-    df = pd.read_csv(path_dataset, index_col=0, parse_dates=(True))
+    # df = pd.read_csv(path_dataset, index_col=0, parse_dates=(True))
     
-    ts = df['0']
+    # ts = df['0']
     
-    ts_new = forecast_method_2(ts)
+    # ts_new = forecast_method_2(ts)
     
     
     # train, test = model_selection.train_test_split(ts, train_size=0.95)
