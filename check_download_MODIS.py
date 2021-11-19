@@ -66,17 +66,30 @@ def main(folder):
         elif lastday == 365:
             continue
         
-        date_i = datetime.datetime(year, 1, 1) + datetime.timedelta(int(lastday) - 1)
-        date_i = str(date_i.year)+'-'+str(date_i.month)+'-'+str(date_i.day)
-        
-        if year == year_f:
-            date_f = date.today()
-            date_f = str(date_f.year)+'-'+str(date_f.month)+'-'+str(date_f.day)
-            download_MODIS.main(date_i, date_f, dir_out)
-        else:
-            date_f = datetime.datetime(year, 12, 31)
-            date_f = str(date_f.year)+'-'+str(date_f.month)+'-'+str(date_f.day)
-            download_MODIS.main(date_i, date_f, dir_out)
+        try:
+            date_i = datetime.datetime(year, 1, 1) + datetime.timedelta(int(lastday))
+            date_i = str(date_i.year)+'-'+str(date_i.month)+'-'+str(date_i.day)
+            
+            if year == year_f:
+                date_f = date.today()
+                date_f = str(date_f.year)+'-'+str(date_f.month)+'-'+str(date_f.day)
+                download_MODIS.main(date_i, date_f, dir_out)
+            else:
+                date_f = datetime.datetime(year, 12, 31)
+                date_f = str(date_f.year)+'-'+str(date_f.month)+'-'+str(date_f.day)
+                download_MODIS.main(date_i, date_f, dir_out)
+        except:
+            date_i = datetime.datetime(year, 1, 1) + datetime.timedelta(int(lastday) - 1)
+            date_i = str(date_i.year)+'-'+str(date_i.month)+'-'+str(date_i.day)
+            
+            if year == year_f:
+                date_f = date.today()
+                date_f = str(date_f.year)+'-'+str(date_f.month)+'-'+str(date_f.day)
+                download_MODIS.main(date_i, date_f, dir_out)
+            else:
+                date_f = datetime.datetime(year, 12, 31)
+                date_f = str(date_f.year)+'-'+str(date_f.month)+'-'+str(date_f.day)
+                download_MODIS.main(date_i, date_f, dir_out)            
 
     return list(range(2021, year_f+1))
         
