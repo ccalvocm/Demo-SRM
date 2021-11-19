@@ -49,7 +49,7 @@ class WorkerSignals(QtCore.QObject):
 
     '''
     finished = QtCore.pyqtSignal()
-    error = QtCore.pyqtSignal(tuple)
+    error = QtCore.pyqtSignal()
     result = QtCore.pyqtSignal(dict)
     progress = QtCore.pyqtSignal(object)
 
