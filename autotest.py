@@ -48,8 +48,8 @@ import ssl
 def run_pySRM(path, tipo = 'P'):
     ssl._create_default_https_context = ssl._create_unverified_context
     folder = os.path.abspath(path)
-    print('Iniciando actualización de imágenes MODIS')
-    progress = "Inicializando actualizacion de imagenes MODIS"
+    # print('Iniciando actualización de imágenes MODIS')
+    # progress = "Inicializando actualizacion de imagenes MODIS"
     # progressbar = QProgressDialog('Modelo en progreso', 'Cancelar', 0, 6)
     # progressbar.setWindowModality(Qt.WindowModal)
     # progressbar.setValue(0)
@@ -63,17 +63,17 @@ def run_pySRM(path, tipo = 'P'):
     # msg.setText(progress)
     
     # msg.exec_()
-    yrs = check_download_MODIS.main(folder)
+    # yrs = check_download_MODIS.main(folder)
     # Termina proceso check download MODIS
     # progressbar.setValue(1)
-    for yr in yrs:
-        # reproyectar
-        print('Reproyectando nuevas imágenes MODIS')
-        try:
-            nasa_new_win.Prepare_MODIS(folder,yr)
+    # for yr in yrs:
+    #     # reproyectar
+    #     print('Reproyectando nuevas imágenes MODIS')
+    #     try:
+    #         nasa_new_win.Prepare_MODIS(folder,yr)
     
-        except:
-            print('Imágenes reproyectadas')
+    #     except:
+    #         print('Imágenes reproyectadas')
     # Termina proceso Prepare_Modis
     # progressbar.setValue(2)
     # progress = [progress, 'Intersectando MODIS con la subcuenca']
