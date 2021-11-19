@@ -2,7 +2,7 @@
 ## Transferencia de modelos
  
 ### Requisitos:
- OS Windows 
+ OS Windows  
  macOS Big Sur
 ### Instalación (Windows 7):
  1. Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu) 
