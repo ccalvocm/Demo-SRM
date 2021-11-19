@@ -69,8 +69,11 @@ def run_pySRM(path, tipo = 'P'):
     for yr in yrs:
         # reproyectar
         print('Reproyectando nuevas imágenes MODIS')
-        nasa_new_win.Prepare_MODIS(folder,yr)
+        try:
+            nasa_new_win.Prepare_MODIS(folder,yr)
     
+        except:
+            print('Imágenes reproyectadas')
     # Termina proceso Prepare_Modis
     # progressbar.setValue(2)
     # progress = [progress, 'Intersectando MODIS con la subcuenca']
