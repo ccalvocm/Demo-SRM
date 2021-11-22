@@ -63,14 +63,14 @@ class Runnable(QRunnable):
     def run(self):
         try:
             autotest.run_pySRM(path=self.arg1)
-            self.signals.finished.emit()  # Done
         except:
+            # pass
             self.signals.error.emit()
         else:
             pass
             # self.signals.result.emit()  # Return the result of the processing
         finally:
-            pass
+            self.signals.finished.emit()  # Done
 
 
 class Ui_MainWindow(object):
@@ -264,7 +264,7 @@ class Ui_MainWindow(object):
         pool = QThreadPool().globalInstance()
         runnable = Runnable(path_completo)
         pool.start(runnable)
-        runnable.signals.error.connect(self.mensaje_error_simulacion)
+        # runnable.signals.error.connect(self.mensaje_error_simulacion)
         runnable.signals.finished.connect(self.mensaje_simulacion_terminada)
         
     
@@ -282,6 +282,7 @@ class Ui_MainWindow(object):
         errormsg.setIcon(QMessageBox.Critical)
         errormsg.setText("Error en la simulación")
         errormsg.exec_()
+        self.pushButton_simular.setEnabled(True)
     
     
     def mensaje_simulacion_terminada(self):
