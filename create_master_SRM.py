@@ -279,7 +279,7 @@ def SRM_master(folder):
     
     # # leer temperaturas del usuario
     df_t = df_t.loc[df_t.index <= master_pred.index[-1]]
-    df_t = df_pp.loc[df_pp.index.year > 2000]
+    df_t = df_t.loc[df_t.index.year > 2000]
     master_pred.loc[df_t.index, cols_t] = df_t.values
     
     # guardar el archivo master predictivo
