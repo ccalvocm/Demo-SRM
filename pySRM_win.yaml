@@ -19,7 +19,7 @@ dependencies:
  - xlrd
  - matplotlib
  - seaborn
- - scipy
+ - scipy=1.6.2
  - shapely
  - contextily
  - descartes
