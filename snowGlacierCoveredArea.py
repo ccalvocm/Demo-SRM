@@ -23,6 +23,7 @@ import os
 from osgeo import ogr
 import datetime
 import dask_geopandas
+from dask.highlevelgraph import HighLevelGraph
 
 # ================================
 #          funciones
@@ -149,7 +150,7 @@ def vtorast(vector_in):
     input_shp = ogr.Open(vector_in)
     shp_layer = input_shp.GetLayer()
     
-    pixel_size = 12.5
+    pixel_size = 30
     xmin, xmax, ymin, ymax = shp_layer.GetExtent()
     
     ds = gdal.Rasterize(vector_in.replace('.shp','')+str('_raster.tif'), vector_in, xRes=pixel_size, yRes=pixel_size, 
@@ -245,32 +246,7 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
         # resamplear la cuenca a la misma resolución de las MODIS
         modis_xr = xr.open_rasterio(os.path.join(ruta_MODIS,lista_modis[0]))
         elev_xr_rs = elev_xr.interp(x = modis_xr.x, y = modis_xr.y)
-        
-        # calcular el corrimiento
-        (x, y) = findOffset(elev_xr_rs, os.path.join(ruta_MODIS,lista_modis[0]))
-        # print((x, y))
-    
-        # corregir el desfase de las MODIS, esto se hace una sola vez
-        if ((flag == 0) & (x != 0 | y != 0)):
-            # revisar el corrimiento de las MODIS respecto a la cuenca
-            print('Status: Aligning image data!')
-        
-            dx = 463.31271652836585
-            dy = 463.31271652836585
-            gdal.AllRegister()
-            
-            for file in lista_modis:
-                rast_src = gdal.Open(os.path.join(ruta_MODIS,file), 1)
-                gt = rast_src.GetGeoTransform()
-                gtl = list(gt)
                 
-                gtl[0] += dx*x
-                gtl[3] += dy*y
-                rast_src.SetGeoTransform(tuple(gtl))
-                rast_src = None
-                
-            flag += 1
-        
         # crear df de dias y covertura nival
         snow_cover = pd.DataFrame([], index = list(range(0,days)), columns = list(range(bandas)))
         
@@ -332,7 +308,6 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
                 name = 'clip-test'
                 dsk = {(name, i): (geopandas.clip, (ddf._name, l), mask) for i, l in enumerate(intersecting_partitions)}
                 divisions = [None] * (len(dsk) + 1)
-                from dask.highlevelgraph import HighLevelGraph
                 graph = HighLevelGraph.from_collections(name, dsk, dependencies=[ddf])
                 result = dask_geopandas.core.GeoDataFrame(graph, name, ddf._meta, tuple(divisions))
                 result.spatial_partitions = new_spatial_partitions
