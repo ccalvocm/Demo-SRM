@@ -290,9 +290,15 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
                 shp_banda = geopandas.GeoDataFrame(geometry = shp_banda.loc['geometry'])
                 shp_banda = shp_banda.set_crs(epsg = 32719)
                 
+                # primero RTREE
+                spatial_index = gpd_polygonized_raster.sindex
+                bbox = tuple(shp_banda.bounds.iloc[0])
+                possible_matches_index = list(spatial_index.intersection(bbox))
+                possible_matches = gpd_polygonized_raster.iloc[possible_matches_index]
+
                 # clip de las areas por banda de elevación usando Dask
                 # create data
-                ddf = dask_geopandas.from_geopandas(gpd_polygonized_raster, npartitions=4)
+                ddf = dask_geopandas.from_geopandas(possible_matches, npartitions=4)
                 
                 # Esta es la máscara para clipear
                 mask = shp_banda
