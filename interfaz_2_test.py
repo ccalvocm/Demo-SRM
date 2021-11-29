@@ -8,6 +8,7 @@ from PyQt5.QtCore import QThreadPool, QRunnable
 
 import interfaz_variables_metodos_auxiliares as var_aux
 import autotest
+import create_HTMLmaps
 
 # secure socket layers
 import ssl
@@ -145,6 +146,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
 
 if __name__ == '__main__':
+    create_HTMLmaps.renew_html_maps()
     app = QtWidgets.QApplication(sys.argv)
     apply_stylesheet(app, theme='dark_teal.xml')
     ui = Ui_MainWindow()
