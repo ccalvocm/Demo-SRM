@@ -28,6 +28,6 @@ dependencies:
    - hydroeval==0.1.0
    - pyqt5-sip==4.19.18
    - pyqtwebengine==5.12.1
-   - dask_geopandas==0.1.0
+   - dask_geopandas==0.1.0a4
    - qt_material==2.8.12
    - pmdarima==1.8.2
