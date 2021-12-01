@@ -41,4 +41,6 @@
 ### Video tutorial de ejecución:
 [![Watch the video](https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/thumbnails/Portada_video_ejecucion.png)](https://cirencl-my.sharepoint.com/:v:/g/personal/ccalvo_ciren_cl/EUV5X2QLNGtKiktQkVIsj6oBTHhpwm4IjcuSXhgLfWxWlA?e=PkQgvG)
 
- 
+### Guía y manual de usuario:
+https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/Manual_SRM/SRM_Manual_Usuario.pdf
+
