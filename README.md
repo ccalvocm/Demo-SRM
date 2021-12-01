@@ -36,9 +36,9 @@
  - Carlos Calvo: ccalvo@ciren.cl
 
 ### Video tutorial de instalación:
-[![Watch the video](https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/thumbnails/Portada_video_instalacion.png)](https://cirencl-my.sharepoint.com/:v:/g/personal/ccalvo_ciren_cl/ER6xGwk_Qx5CkFY2xhd0gokBOVKKFE21q-D0rqXz7tGH7A?e=nCOwXK)
+[![Watch the video](https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/thumbnails/Portada_video_instalacion.png)](https://cirencl-my.sharepoint.com/:v:/g/personal/ccalvo_ciren_cl/EV97xbfFNuFMgSetIpBZmRsBxy8K3y6UArHAYxkQ4N5ILA?e=lbw9hM)
 
 ### Video tutorial de ejecución:
-[![Watch the video](https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/thumbnails/Portada_video_ejecucion.png)](https://cirencl-my.sharepoint.com/:v:/g/personal/ccalvo_ciren_cl/EfJd9dLNYcxGvtrTGCM9Cd4Bl2TcioyyOSr6Znjs4w6jGA?e=1wCSfE)
+[![Watch the video](https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/thumbnails/Portada_video_ejecucion.png)](https://cirencl-my.sharepoint.com/:v:/g/personal/ccalvo_ciren_cl/EUV5X2QLNGtKiktQkVIsj6oBTHhpwm4IjcuSXhgLfWxWlA?e=PkQgvG)
 
  
