@@ -34,3 +34,11 @@
 ### Contacto:
  - Felipe Arróspide: farrospide@ciren.cl
  - Carlos Calvo: ccalvo@ciren.cl
+
+### Video tutorial de instalación:
+[![Watch the video](https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/thumbnails/Portada_video_instalacion.png)](https://cirencl-my.sharepoint.com/:v:/g/personal/ccalvo_ciren_cl/ER6xGwk_Qx5CkFY2xhd0gokBOVKKFE21q-D0rqXz7tGH7A?e=nCOwXK)
+
+### Video tutorial de ejecución:
+[![Watch the video](https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/thumbnails/Portada_video_ejecucion.png)](https://cirencl-my.sharepoint.com/:v:/g/personal/ccalvo_ciren_cl/EfJd9dLNYcxGvtrTGCM9Cd4Bl2TcioyyOSr6Znjs4w6jGA?e=1wCSfE)
+
+ 
