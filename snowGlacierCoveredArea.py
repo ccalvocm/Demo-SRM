@@ -535,8 +535,8 @@ def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.t
         # for i in range(19,25):
         #     fig.delaxes(ax[i])
         
-        snow_cover.iloc[dia-1:,:] = np.nan
-        glacial_cover.iloc[dia-1:,:] = np.nan
+        snow_cover.iloc[dia:,:] = np.nan
+        glacial_cover.iloc[dia:,:] = np.nan
     
         #%% guardar el df de coberturas nivales y glaciares
        
