@@ -197,7 +197,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
 
 if __name__ == '__main__':
-    # create_HTMLmaps.renew_html_maps()
+    create_HTMLmaps.renew_html_maps()
     app = QtWidgets.QApplication(sys.argv)
     apply_stylesheet(app, theme='dark_teal.xml')
     ui = Ui_MainWindow()
