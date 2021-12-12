@@ -34,7 +34,10 @@ def main():
     path_unc_in = r'D:\GitHub\Demo-SRM\04_Maule\01_RMEA\SRM\LU\unc_analysis.in'
     path_master = r'D:\GitHub\Demo-SRM\04_Maule\01_RMEA\SRM\LU\master_lu.pst'
     
-
+    # Río Teno Después de Junta con Claro
+    path_unc_in = r'D:\GitHub\Demo-SRM\03_Mataquito\01_RTDJCC\SRM\LU\unc_analysis.in'
+    path_master = r'D:\GitHub\Demo-SRM\03_Mataquito\01_RTDJCC\SRM\LU\master_lu.pst'    
+    
     unc_in = pd.read_csv(path_unc_in)
     
     # Río Mapocho en Los Almendros
@@ -42,9 +45,11 @@ def main():
     # Río Maipo en el Manzano
     # master = pd.read_csv(path_master, skiprows = 7356, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Cachapoal en Puente Termas
-    master = pd.read_csv(path_master, skiprows = 4198, nrows=365, sep = '\t', header = None, index_col = 0)
+    # master = pd.read_csv(path_master, skiprows = 4198, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Maule en Armerillo
-    pst = pd.read_csv(path_master, skiprows = 5048, nrows=365, sep = '\t', header = None, index_col = 0)
+    # pst = pd.read_csv(path_master, skiprows = 5048, nrows=365, sep = '\t', header = None, index_col = 0)
+    # Río Teno Después de Junta con Claro
+    pst = pd.read_csv(path_master, skiprows = 7494, nrows=365, sep = ' ', header = None, index_col = 1)
     
     # ruta de archivos de simulacion
     # folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\Inputs'
@@ -82,7 +87,10 @@ def main():
         file_read = pd.read_csv(os.path.join(folder,file))
         # std_dev = float(file_read.loc[173].values[0].split('=')[-1].split()[0])
         # std_dev = float(file_read.loc[196].values[0].split('=')[-1].split()[0])
+        # std_dev = float(file_read.loc[163].values[0].split('=')[-1].split()[0])
+        # Río Teno Después de Junta con Claro
         std_dev = float(file_read.loc[163].values[0].split('=')[-1].split()[0])
+
         lista_std_dev.append(std_dev)
     
     df_std_dev = pd.DataFrame(lista_std_dev, columns = ['Desviacion estandar (l/s)'])
