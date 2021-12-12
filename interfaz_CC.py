@@ -271,9 +271,10 @@ class Ui_MainWindow(object):
             # seleccionar los caudales simulados
             Qfor = Qfor.loc[(Qfor.index >= plot_ini) & (Qfor.index <= plot_fin)]
             idx = est_dev.index
-            # Z value del 99%
-            Qfor_ul = Qfor.loc[idx]+2*est_dev.values
-            Qfor_ll = Qfor.loc[idx]-2*est_dev.values           
+            # z value de intervalo de confianza 95%
+            z_value = 1.96
+            Qfor_ul = Qfor.loc[idx]+z_value*est_dev.values
+            Qfor_ll = Qfor.loc[idx]-z_value*est_dev.values           
             
             # fechas
             Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qfor)-1), freq = '1d').date]  
@@ -312,8 +313,9 @@ class Ui_MainWindow(object):
             
             # intervalos de Confianza
             idx = Q_mon.index
-            Qfor_ul_mon = Q_mon.loc[idx]+2*est_dev_mon.values
-            Qfor_ll_mon = Q_mon.loc[idx]-2*est_dev_mon.values
+
+            Qfor_ul_mon = Q_mon.loc[idx]+z_value*est_dev_mon.values
+            Qfor_ll_mon = Q_mon.loc[idx]-z_value*est_dev_mon.values
             
             # graficar la curva de variación estacional histórica
         
