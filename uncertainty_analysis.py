@@ -49,7 +49,7 @@ def main():
     # Río Maule en Armerillo
     # pst = pd.read_csv(path_master, skiprows = 5048, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Teno Después de Junta con Claro
-    pst = pd.read_csv(path_master, skiprows = 7494, nrows=365, sep = ' ', header = None, index_col = 1)
+    pst = pd.read_csv(path_master, skiprows = 7494, nrows=365, sep = '\t', header = None, index_col = 0)
     
     # ruta de archivos de simulacion
     # folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\Inputs'

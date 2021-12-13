@@ -66,11 +66,11 @@ rcr15w	1
 rcgd	1
 rcgw	1
 tl	1
-xw	0.1
-yw	0.1
-x	0.1
-y	0.1
+xw	1
+yw	1
+x	1
+y	1
 tlr	1
 tls	1
-beta	0.1
+beta	1
 END STANDARD_DEVIATION
