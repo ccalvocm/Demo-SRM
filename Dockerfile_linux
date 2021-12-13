@@ -1,0 +1,7 @@
+FROM continuumio/miniconda3
+COPY linux.yml /tmp/linux.yml
+RUN conda install -c conda-forge -n base mamba && conda create -n pySRM python=3.8
+RUN mamba env update -n pySRM --file /tmp/linux.yml
+SHELL ["conda", "run", "-n", "pySRM", "/bin/bash", "-c"]
+RUN echo "make sure geopandas in installed"
+RUN python -c "import dask_geopandas"
