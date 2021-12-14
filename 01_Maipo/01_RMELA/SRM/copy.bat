@@ -1,1 +1,1 @@
-for /l %%A in (1,1,5) do @xcopy "Inputs" "Inputs_%%A" /i
+for /l %%A in (1,1,8) do @xcopy "LU" "LU_%%A" /i
