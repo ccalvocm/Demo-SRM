@@ -38,18 +38,24 @@ def main():
     # path_unc_in = r'D:\GitHub\Demo-SRM\03_Mataquito\01_RTDJCC\SRM\LU\unc_analysis.in'
     # path_master = r'D:\GitHub\Demo-SRM\03_Mataquito\01_RTDJCC\SRM\LU\master_lu.pst'    
     
+    # Río Claro en Hacienda Las Nieves
+    path_unc_in = os.path.join('.','02_Rapel','02_RCEHLN','SRM','LU','unc_analysis.in')
+    path_master = os.path.join('.','02_Rapel','02_RCEHLN','SRM','LU','master_lu.pst')
+    
     unc_in = pd.read_csv(path_unc_in)
     
     # Río Mapocho en Los Almendros
-    pst = pd.read_csv(path_master, skiprows = 7618, nrows=365, sep = '\t', header = None, index_col = 0)
-    # Río Maipo en el Manzano
-    pst = pd.read_csv(path_master, skiprows = 7356, nrows=365, sep = '\t', header = None, index_col = 0)
+    # pst = pd.read_csv(path_master, skiprows = 7618, nrows=365, sep = '\t', header = None, index_col = 0)
+    # # Río Maipo en el Manzano
+    # pst = pd.read_csv(path_master, skiprows = 7356, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Cachapoal en Puente Termas
     # pst = pd.read_csv(path_master, skiprows = 4198, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Maule en Armerillo
     # pst = pd.read_csv(path_master, skiprows = 5048, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Teno Después de Junta con Claro
     # pst = pd.read_csv(path_master, skiprows = 7494, nrows=365, sep = '\t', header = None, index_col = 0)
+    # Río Claro en Hacienda Las Nieves
+    pst = pd.read_csv(path_master, skiprows = 6430, nrows=365, sep = '\t', header = None, index_col = 0)
     
     # ruta de archivos de simulacion
     # folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\LU'
@@ -72,11 +78,11 @@ def main():
         # ejecutar el análisis de incertidumbre
         # ruta_bat = r"C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\Inputs"
         ruta_bat = folder
-        p = Popen("run_uncert.bat", cwd=ruta_bat)
+        p = Popen("run_uncert.bat")
         p.communicate()
 
     # juntar las desviaciones estandar
-    listout = list_out(folder)
+    listout = list_out('.')
     listout.sort()
     
     # lista de desviaciones estandar
@@ -84,18 +90,20 @@ def main():
     
     # leer las desviaciones estandar
     for file in listout:
-        file_read = pd.read_csv(os.path.join(folder,file))
+        file_read = pd.read_csv(file)
         # std_dev = float(file_read.loc[173].values[0].split('=')[-1].split()[0])
-        std_dev = float(file_read.loc[196].values[0].split('=')[-1].split()[0])
+        # std_dev = float(file_read.loc[196].values[0].split('=')[-1].split()[0])
         # std_dev = float(file_read.loc[163].values[0].split('=')[-1].split()[0])
         # Río Teno Después de Junta con Claro
         # std_dev = float(file_read.loc[163].values[0].split('=')[-1].split()[0])
+        # Río Claro en Hacienda Las Nieves
+        std_dev = float(file_read.loc[144].values[0].split('=')[-1].split()[0])
 
         lista_std_dev.append(std_dev)
     
     df_std_dev = pd.DataFrame(lista_std_dev, columns = ['Desviacion estandar (l/s)'])
     df_std_dev.index = pd.date_range(pd.to_datetime('2021-04-01'),pd.to_datetime('2022-03-31'),freq = '1d')
-    df_std_dev.to_csv(os.path.join(folder,'df_std_dev.csv'))
+    df_std_dev.to_csv(os.path.join('.','df_std_dev.csv'))
        
         
 if __name__ == '__main__':
