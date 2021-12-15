@@ -1,1 +1,1 @@
-for /l %%A in (1,1,8) do @RD /S /Q "Inputs_%%A"
+for /l %%A in (1,1,8) do @RD /S /Q "LU_%%A"

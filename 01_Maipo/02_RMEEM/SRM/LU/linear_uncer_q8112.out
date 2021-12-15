@@ -1,0 +1,280 @@
+ 
+ 
+                   ###################################################
+                   #                                                 #
+                   #      GENLINPRED UNCERTAINTY/ERROR ANALYSIS      #
+                   #                                                 #
+                   ###################################################
+ 
+ 
+ 
+                   ANALYSIS DETAILS
+                   ----------------
+ 
+    Name of PEST control file                                   : master_lu.pst
+    Factor by which to multiply observation weights             : 1.0000
+    Source of parameter uncertainty data                        : uncertainty file
+    Name of uncertainty file                                    : master_lu.unc
+ 
+    Perform global parameter estimability analysis              : yes
+         Parameter identifiability                              : yes
+         Relative parameter error reduction                     : no
+         Relative parameter uncertainty reduction               : yes
+ 
+    Analyse error/uncertainty of an entity                      : yes
+         Name of entity                                         : q8112
+         Type of entity                                         : prediction
+         File containing prediction sensitivities               : master_lu.jco
+ 
+         Total error variance                                   : yes
+         Total uncertainty                                      : yes
+ 
+         Parameter contributions to error variance              : no
+         Parameter contributions to uncertainty                 : yes
+         Parameter contributions                                : by group
+ 
+         Observation worth in reducing error variance           : no
+         Observation worth in reducing uncertainty variance     : yes
+         Observation worth                                      : by group
+
+
+                   ANALYSIS OF PARAMETERS
+                   ----------------------
+
+
+ Outcomes of running program SUPCALC ----->
+ 
+    Number of dimensions of calibration solution space = 38
+    Number of dimensions of calibration null space     = 72
+
+ Outcomes of parameter identifiability and error/uncertainty variance reduction analysis ----->
+ 
+    Parameter              Identifiability        Rel_uncert_var_redn
+    ---------              ---------------        -------------------
+    ddsd                    0.9999998              0.9999882
+    ddsw                    0.9999999              0.9999612
+    ddgd                    0.4999995              0.4999947
+    ddgw                    0.5000000              0.4999944
+    rcs1d                   5.2750056E-05          3.4910000E-04
+    rcs1w                   3.3648748E-06          1.3700000E-04
+    rcs2d                   3.7892248E-03          2.3870900E-02
+    rcs2w                   4.9281203E-04          7.2447000E-03
+    rcs3d                   0.2278540              0.5087024
+    rcs3w                   0.3132249              0.4108651
+    rcs4d                   0.7838380              0.7547821
+    rcs4w                   0.7122735              0.6779620
+    rcs5d                   0.9854314              0.8860433
+    rcs5w                   0.9742290              0.8970145
+    rcs6d                   0.9997271              0.9869927
+    rcs6w                   0.9995626              0.9865033
+    rcs7d                   0.9999734              0.9963470
+    rcs7w                   0.9999009              0.9926186
+    rcs8d                   0.9977498              0.5636120
+    rcs8w                   0.9999374              0.9795671
+    rcs9d                   0.9997654              0.9418891
+    rcs9w                   0.9999675              0.9715956
+    rcs10d                  0.9999925              0.9945227
+    rcs10w                  0.9999696              0.9475046
+    rcs11d                  0.9999887              0.9967410
+    rcs11w                  0.9999784              0.9657809
+    rcs12d                  0.9999189              0.9974761
+    rcs12w                  0.9999760              0.9834879
+    rcs13d                  0.9999465              0.9936754
+    rcs13w                  0.9999606              0.9795061
+    rcs14d                  0.9998817              0.9886101
+    rcs14w                  0.9997078              0.9465983
+    rcs15d                  0.9997555              0.9837014
+    rcs15w                  0.9969768              0.9374127
+    rcs16d                  0.9985397              0.9843648
+    rcs16w                  0.9986282              0.9023322
+    rcs17d                  0.9990809              0.9583172
+    rcs17w                  0.9359113              0.8189981
+    rcs18d                  0.8234768              0.8591180
+    rcs18w                  0.7832292              0.7576202
+    rcs19d                  0.3666629              0.6052424
+    rcs19w                  0.2233145              0.3181020
+    rcs20d                  0.7719679              0.6767998
+    rcs20w                  6.0565045E-02          0.1177208
+    rcs21d                  4.2090421E-02          0.2948363
+    rcs21w                  1.3897872E-03          8.7688000E-03
+    rcs22d                  1.7722871E-04          2.2795000E-03
+    rcs22w                  2.4366287E-05          2.9240000E-04
+    rcs23d                  2.4030768E-05          5.3240000E-04
+    rcs23w                  4.9139747E-06          8.7600000E-05
+    rcs24d                  5.5119183E-07          1.2900000E-05
+    rcs24w                  1.3406988E-07          2.7000000E-06
+    rcr1d                   1.4071802E-07          6.9000000E-06
+    rcr1w                   5.9726436E-07          1.1700000E-05
+    rcr2d                   4.2736003E-06          2.0060000E-04
+    rcr2w                   1.7480947E-05          3.3720000E-04
+    rcr3d                   1.3742717E-05          8.4120000E-04
+    rcr3w                   5.5916163E-05          1.2620000E-03
+    rcr4d                   1.6953473E-05          1.5301000E-03
+    rcr4w                   1.0925170E-04          2.1767000E-03
+    rcr5d                   1.7948364E-05          2.2827000E-03
+    rcr5w                   1.3127089E-04          2.6893000E-03
+    rcr6d                   2.8743876E-05          3.5516000E-03
+    rcr6w                   8.7929138E-05          3.3898000E-03
+    rcr7d                   4.7200822E-05          3.4130000E-03
+    rcr7w                   1.0261482E-05          1.1982000E-03
+    rcr8d                   3.4738732E-05          3.8617000E-03
+    rcr8w                   4.7086849E-06          7.7080000E-04
+    rcr9d                   4.5072579E-05          4.2203000E-03
+    rcr9w                   6.5216371E-06          8.6590000E-04
+    rcr10d                  5.3313632E-05          4.7827000E-03
+    rcr10w                  5.1732419E-06          7.7670000E-04
+    rcr11d                  4.9335376E-05          5.5027000E-03
+    rcr11w                  4.7000997E-06          7.1160000E-04
+    rcr12d                  1.6621708E-05          3.5159000E-03
+    rcr12w                  3.9441867E-06          3.9790000E-04
+    rcr13d                  4.5405607E-06          1.5691000E-03
+    rcr13w                  2.0792753E-06          1.7780000E-04
+    rcr14d                  2.2186452E-06          7.3590000E-04
+    rcr14w                  9.2379625E-07          7.6500000E-05
+    rcr15d                  1.0360425E-06          3.3920000E-04
+    rcr15w                  2.2499967E-07          2.3800000E-05
+    rcr16d                  5.0539566E-07          1.6680000E-04
+    rcr16w                  1.1616351E-07          1.3100000E-05
+    rcr17d                  2.7392115E-07          6.4100000E-05
+    rcr17w                  1.8897768E-08          3.3000000E-06
+    rcr18d                  3.9177600E-08          1.0500000E-05
+    rcr18w                  8.5018432E-09          1.3000000E-06
+    rcr19d                  2.0544918E-08          5.2000000E-06
+    rcr19w                  4.5339501E-09          6.0000000E-07
+    rcr20d                  8.2315590E-09          1.9000000E-06
+    rcr20w                  1.1578816E-09          2.0000000E-07
+    rcr21d                  7.9856318E-10          2.0000000E-07
+    rcr21w                  1.4858928E-10           0.000000
+    rcr22d                  3.6577045E-11           0.000000
+    rcr22w                  5.8340870E-12           0.000000
+    rcr23d                  1.1854585E-11           0.000000
+    rcr23w                  1.9494319E-12           0.000000
+    rcr24d                  3.4994166E-13           0.000000
+    rcr24w                  5.6485461E-14           0.000000
+    rcgd                    0.4999995              0.4999947
+    rcgw                    0.5000000              0.4999944
+    tl                       1.000000              0.9999970
+    xw                      2.3845398E-03          8.2196800E-02
+    yw                      0.9978488              0.9914401
+    x                        0.000000               0.000000
+    y                        0.000000               0.000000
+    tlr                     7.6593206E-05          6.8750900E-02
+    tls                      0.000000               0.000000
+    beta                    0.9999996              0.9999910
+ 
+    Note: run IDENTPAR yourself to see identiability contributions by different solution 
+    space eigencomponents.
+
+
+                   ANALYSIS OF PREDICTION
+                   ----------------------
+
+ PREDVAR1 analysis for prediction "q8112" ----->
+
+    Sing_val       Null-space       Soln-space     Total             Total
+    index          term             term           variance          std_dev
+    --------       ----------       ----------     --------          -------
+       0            1.9336160E+12     0.000000      1.9336160E+12      1390545.    
+       5            6.5442742E+10     1979639.      6.5444722E+10      255821.7    
+      10            9.6762965E+08     2869542.      9.7049919E+08      31152.84    
+      15            1.1940011E+08     3182403.      1.2258251E+08      11071.70    
+      20            8.3310850E+07     3339808.      8.6650658E+07      9308.634    
+      25            3.0543751E+07     4018891.      3.4562642E+07      5879.000    
+      30            2.0955662E+07     4444258.      2.5399920E+07      5039.833    
+      31            2.0912939E+07     4447546.      2.5360485E+07      5035.919    
+      32            2.0895400E+07     4449566.      2.5344966E+07      5034.378    
+      33            2.0864919E+07     4454690.      2.5319609E+07      5031.859    
+      34            2.0553968E+07     4524898.      2.5078866E+07      5007.880    
+      35             4419087.         9474736.      1.3893824E+07      3727.442    
+      36             2762548.         9991143.      1.2753691E+07      3571.231    
+      37             1120650.        1.0572952E+07  1.1693603E+07      3419.591    
+      38             1073230.        1.0614554E+07  1.1687785E+07      3418.740    
+      39             751895.7        1.1009214E+07  1.1761109E+07      3429.447    
+      40             750184.2        1.1011486E+07  1.1761670E+07      3429.529    
+      41             749308.1        1.1014212E+07  1.1763520E+07      3429.799    
+      42             6709.909        1.3628571E+07  1.3635281E+07      3692.598    
+      43             6650.560        1.3628851E+07  1.3635502E+07      3692.628    
+      44             6625.987        1.3629147E+07  1.3635773E+07      3692.665    
+      45             5647.724        1.3642347E+07  1.3647995E+07      3694.319    
+      46             5645.405        1.3642402E+07  1.3648047E+07      3694.326    
+      47             2176.222        1.3768511E+07  1.3770687E+07      3710.888    
+      48             2175.483        1.3768546E+07  1.3770722E+07      3710.892    
+      49             1880.095        1.3798126E+07  1.3800006E+07      3714.836    
+      50             1867.466        1.3799778E+07  1.3801646E+07      3715.057    
+      55             373.7623        1.4889631E+07  1.4890005E+07      3858.757    
+      60             85.26200        1.5832511E+07  1.5832596E+07      3979.019    
+      65             33.09779        1.6326132E+07  1.6326165E+07      4040.565    
+      70             7.170826        1.6903360E+07  1.6903367E+07      4111.370    
+      75             6.136192        1.6957282E+07  1.6957288E+07      4117.923    
+      80             5.320773        1.7036204E+07  1.7036210E+07      4127.494    
+      85             5.230235        1.7063246E+07  1.7063251E+07      4130.769    
+      90            6.7492854E-02    2.3206715E+07  2.3206715E+07      4817.335    
+      95            4.1807890E-02    2.4214826E+07  2.4214826E+07      4920.856    
+     100            8.3383562E-07    2.9664250E+07  2.9664250E+07      5446.490    
+     105            1.2397542E-13    3.6924179E+07  3.6924179E+07      6076.527    
+     110             0.000000        1.0000000E+35  1.0000000E+35     3.1622777E+17
+ 
+    Pre-calibration:- 
+    Total error variance                 =  1.9336160E+12
+    Total error standard deviation       =   1390545.    
+ 
+    Post-calibration:-
+    Total error variance                 =  1.1687785E+07
+    Total error standard deviation       =   3418.740    
+    Minimum error variance occurs at singular value number 38.
+ 
+ 
+ PREDUNC1 analysis for prediction "q8112" ----->
+
+    Pre-calibration:- 
+    Total uncertainty variance           =  1.9336154E+12
+    Total uncertainty standard deviation =   1390545.    
+ 
+    Post-calibration:-
+    Total uncertainty variance           =   9879920.    
+    Total uncertainty standard deviation =   3143.234    
+ 
+ 
+ PREDUNC4 analysis for prediction "q8112" ----->
+
+    Contributions to predictive uncertainty variance
+
+    Parameter      Pre-cal             Post-cal
+    group          contribution        contribution
+    ---------      ------------        ------------
+    ddsd            1.4905800E+10        189200.0    
+    ddsw             0.000000            17949.00    
+    ddgd            5.9265320E+11        1.000000    
+    ddgw             0.000000            0.000000    
+    rcsd            1.4418000E+09        7024652.    
+    rcsw             0.000000            112559.0    
+    rcrd             100000.0            5086.000    
+    rcrw             0.000000            53.00000    
+    rcgd            5.9265320E+11        1.000000    
+    rcgw             0.000000            0.000000    
+    tl              1.9394190E+11        147109.0    
+    xw               0.000000            1.000000    
+    yw               0.000000            21.00000    
+    x                0.000000            0.000000    
+    y                0.000000            0.000000    
+    tlr              0.000000            3185.000    
+    tls              0.000000            0.000000    
+    beta            5.3802020E+11        60331.00    
+ 
+ 
+ PREDUNC5 observation subtraction analysis for prediction "q8112" ----->
+
+    Increases in predictive uncertainty variance incurred through loss of observations
+
+    Observation_group        Variance_increase
+    -----------------        -----------------
+    q                          9879920.    
+ 
+ 
+ PREDUNC5 observation addition analysis for prediction "q8112" ----->
+
+    Decreases in pre-calibration predictive uncertainty variance incurred through addition of observations
+
+    Observation_group        Variance_decrease
+    -----------------        -----------------
+    q                          9879920.    

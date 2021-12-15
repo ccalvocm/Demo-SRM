@@ -1,0 +1,268 @@
+                   PEST RUN MANAGEMENT RECORD: CASE master_lu
+ 
+ 
+ ****************************************
+ RUN MANAGEMENT UNDERTAKEN USING BEOPEST.
+ COMMUNICATIONS PROTOCOL = TCP.
+ ****************************************
+ 
+
+ BEOPEST was either not able to find a run management file in the current
+ working directory or did not find a value for PARLAM in that file.
+
+ PARLAM has been assigned a value of 1. Hence Marquardt lambda search runs 
+ will be parallelized.
+
+ SLOW RUN DECLARATION FACTOR   : 2.5000
+
+ RUNNING MODEL FOR FIRST TIME  -----> 
+
+ Running model 1 time....
+   14 Dec 01:11:29.07:- index of 1 assigned to node at working directory "10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_1".
+   14 Dec 01:11:29.07:- index of 2 assigned to node at working directory "10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_2".
+   14 Dec 01:11:29.08:- model run 1 commencing on node 2.
+   14 Dec 01:11:29.21:- index of 3 assigned to node at working directory "10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_3".
+   14 Dec 01:11:29.38:- index of 4 assigned to node at working directory "10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_5".
+   14 Dec 01:11:29.54:- index of 5 assigned to node at working directory "10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_4".
+   14 Dec 01:11:29.57:- index of 6 assigned to node at working directory "10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_6".
+   14 Dec 01:11:29.64:- index of 7 assigned to node at working directory "10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_7".
+   14 Dec 01:11:29.75:- index of 8 assigned to node at working directory "10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_8".
+   14 Dec 01:11:33.36:- model run 1 completed on node 2.
+
+
+ OPTIMISATION ITERATION NO.  1 ----->
+
+ Calculating Jacobian matrix: running model 110 times .....
+   14 Dec 01:11:33.50:- model run 1 commencing on node 4.
+   14 Dec 01:11:33.50:- model run 2 commencing on node 5.
+   14 Dec 01:11:33.50:- model run 3 commencing on node 3.
+   14 Dec 01:11:33.50:- model run 4 commencing on node 8.
+   14 Dec 01:11:33.50:- model run 5 commencing on node 7.
+   14 Dec 01:11:33.50:- model run 6 commencing on node 2.
+   14 Dec 01:11:33.50:- model run 7 commencing on node 6.
+   14 Dec 01:11:33.50:- model run 8 commencing on node 1.
+   14 Dec 01:11:38.91:- model run 8 completed on node 1.
+   14 Dec 01:11:38.91:- model run 9 commencing on node 1.
+   14 Dec 01:11:39.15:- model run 1 completed on node 4.
+   14 Dec 01:11:39.15:- model run 10 commencing on node 4.
+   14 Dec 01:11:39.28:- model run 3 completed on node 3.
+   14 Dec 01:11:39.29:- model run 11 commencing on node 3.
+   14 Dec 01:11:40.03:- model run 6 completed on node 2.
+   14 Dec 01:11:40.03:- model run 12 commencing on node 2.
+   14 Dec 01:11:40.71:- model run 2 completed on node 5.
+   14 Dec 01:11:40.71:- model run 13 commencing on node 5.
+   14 Dec 01:11:40.73:- model run 4 completed on node 8.
+   14 Dec 01:11:40.73:- model run 14 commencing on node 8.
+   14 Dec 01:11:41.15:- model run 5 completed on node 7.
+   14 Dec 01:11:41.17:- model run 15 commencing on node 7.
+   14 Dec 01:11:41.52:- model run 7 completed on node 6.
+   14 Dec 01:11:41.53:- model run 16 commencing on node 6.
+   14 Dec 01:11:45.42:- model run 9 completed on node 1.
+   14 Dec 01:11:45.42:- model run 17 commencing on node 1.
+   14 Dec 01:11:45.54:- model run 11 completed on node 3.
+   14 Dec 01:11:45.54:- model run 18 commencing on node 3.
+   14 Dec 01:11:45.84:- model run 12 completed on node 2.
+   14 Dec 01:11:45.85:- model run 19 commencing on node 2.
+   14 Dec 01:11:46.35:- model run 10 completed on node 4.
+   14 Dec 01:11:46.36:- model run 20 commencing on node 4.
+   14 Dec 01:11:46.68:- model run 14 completed on node 8.
+   14 Dec 01:11:46.68:- model run 21 commencing on node 8.
+   14 Dec 01:11:48.70:- model run 15 completed on node 7.
+   14 Dec 01:11:48.70:- model run 22 commencing on node 7.
+   14 Dec 01:11:48.75:- model run 13 completed on node 5.
+   14 Dec 01:11:48.75:- model run 23 commencing on node 5.
+   14 Dec 01:11:49.50:- model run 16 completed on node 6.
+   14 Dec 01:11:49.50:- model run 24 commencing on node 6.
+   14 Dec 01:11:51.61:- model run 19 completed on node 2.
+   14 Dec 01:11:51.61:- model run 25 commencing on node 2.
+   14 Dec 01:11:52.65:- model run 17 completed on node 1.
+   14 Dec 01:11:52.66:- model run 26 commencing on node 1.
+   14 Dec 01:11:52.77:- model run 20 completed on node 4.
+   14 Dec 01:11:52.80:- model run 21 completed on node 8.
+   14 Dec 01:11:52.80:- model run 27 commencing on node 8.
+   14 Dec 01:11:52.80:- model run 28 commencing on node 4.
+   14 Dec 01:11:52.88:- model run 18 completed on node 3.
+   14 Dec 01:11:52.88:- model run 29 commencing on node 3.
+   14 Dec 01:11:54.85:- model run 23 completed on node 5.
+   14 Dec 01:11:54.85:- model run 30 commencing on node 5.
+   14 Dec 01:11:56.32:- model run 22 completed on node 7.
+   14 Dec 01:11:56.32:- model run 31 commencing on node 7.
+   14 Dec 01:11:57.13:- model run 24 completed on node 6.
+   14 Dec 01:11:57.13:- model run 32 commencing on node 6.
+   14 Dec 01:11:58.39:- model run 27 completed on node 8.
+   14 Dec 01:11:58.39:- model run 33 commencing on node 8.
+   14 Dec 01:11:58.45:- model run 26 completed on node 1.
+   14 Dec 01:11:58.46:- model run 34 commencing on node 1.
+   14 Dec 01:11:58.61:- model run 28 completed on node 4.
+   14 Dec 01:11:58.61:- model run 35 commencing on node 4.
+   14 Dec 01:11:58.73:- model run 25 completed on node 2.
+   14 Dec 01:11:58.73:- model run 36 commencing on node 2.
+   14 Dec 01:12:01.03:- model run 29 completed on node 3.
+   14 Dec 01:12:01.06:- model run 37 commencing on node 3.
+   14 Dec 01:12:01.99:- model run 30 completed on node 5.
+   14 Dec 01:12:01.99:- model run 38 commencing on node 5.
+   14 Dec 01:12:03.52:- model run 32 completed on node 6.
+   14 Dec 01:12:03.52:- model run 39 commencing on node 6.
+   14 Dec 01:12:04.26:- model run 31 completed on node 7.
+   14 Dec 01:12:04.26:- model run 40 commencing on node 7.
+   14 Dec 01:12:04.53:- model run 35 completed on node 4.
+   14 Dec 01:12:04.53:- model run 41 commencing on node 4.
+   14 Dec 01:12:04.72:- model run 34 completed on node 1.
+   14 Dec 01:12:04.72:- model run 42 commencing on node 1.
+   14 Dec 01:12:05.00:- model run 33 completed on node 8.
+   14 Dec 01:12:05.00:- model run 43 commencing on node 8.
+   14 Dec 01:12:06.64:- model run 36 completed on node 2.
+   14 Dec 01:12:06.64:- model run 44 commencing on node 2.
+   14 Dec 01:12:07.90:- model run 37 completed on node 3.
+   14 Dec 01:12:07.93:- model run 45 commencing on node 3.
+   14 Dec 01:12:08.39:- model run 38 completed on node 5.
+   14 Dec 01:12:08.39:- model run 46 commencing on node 5.
+   14 Dec 01:12:10.30:- model run 39 completed on node 6.
+   14 Dec 01:12:10.32:- model run 43 completed on node 8.
+   14 Dec 01:12:10.32:- model run 47 commencing on node 8.
+   14 Dec 01:12:10.33:- model run 48 commencing on node 6.
+   14 Dec 01:12:10.82:- model run 40 completed on node 7.
+   14 Dec 01:12:10.82:- model run 49 commencing on node 7.
+   14 Dec 01:12:12.28:- model run 41 completed on node 4.
+   14 Dec 01:12:12.31:- model run 50 commencing on node 4.
+   14 Dec 01:12:13.02:- model run 42 completed on node 1.
+   14 Dec 01:12:13.03:- model run 51 commencing on node 1.
+   14 Dec 01:12:14.09:- model run 44 completed on node 2.
+   14 Dec 01:12:14.09:- model run 52 commencing on node 2.
+   14 Dec 01:12:15.06:- model run 45 completed on node 3.
+   14 Dec 01:12:15.07:- model run 46 completed on node 5.
+   14 Dec 01:12:15.08:- model run 53 commencing on node 5.
+   14 Dec 01:12:15.10:- model run 54 commencing on node 3.
+   14 Dec 01:12:16.42:- model run 47 completed on node 8.
+   14 Dec 01:12:16.44:- model run 55 commencing on node 8.
+   14 Dec 01:12:17.02:- model run 48 completed on node 6.
+   14 Dec 01:12:17.02:- model run 56 commencing on node 6.
+   14 Dec 01:12:17.41:- model run 49 completed on node 7.
+   14 Dec 01:12:17.41:- model run 57 commencing on node 7.
+   14 Dec 01:12:19.00:- model run 50 completed on node 4.
+   14 Dec 01:12:19.01:- model run 58 commencing on node 4.
+   14 Dec 01:12:20.07:- model run 51 completed on node 1.
+   14 Dec 01:12:20.07:- model run 59 commencing on node 1.
+   14 Dec 01:12:20.36:- model run 52 completed on node 2.
+   14 Dec 01:12:20.36:- model run 60 commencing on node 2.
+   14 Dec 01:12:21.20:- model run 54 completed on node 3.
+   14 Dec 01:12:21.20:- model run 61 commencing on node 3.
+   14 Dec 01:12:21.89:- model run 53 completed on node 5.
+   14 Dec 01:12:21.89:- model run 62 commencing on node 5.
+   14 Dec 01:12:23.39:- model run 55 completed on node 8.
+   14 Dec 01:12:23.39:- model run 63 commencing on node 8.
+   14 Dec 01:12:23.67:- model run 56 completed on node 6.
+   14 Dec 01:12:23.67:- model run 64 commencing on node 6.
+   14 Dec 01:12:24.20:- model run 57 completed on node 7.
+   14 Dec 01:12:24.21:- model run 65 commencing on node 7.
+   14 Dec 01:12:25.51:- model run 58 completed on node 4.
+   14 Dec 01:12:25.51:- model run 66 commencing on node 4.
+   14 Dec 01:12:27.00:- model run 59 completed on node 1.
+   14 Dec 01:12:27.04:- model run 60 completed on node 2.
+   14 Dec 01:12:27.04:- model run 67 commencing on node 2.
+   14 Dec 01:12:27.04:- model run 68 commencing on node 1.
+   14 Dec 01:12:29.00:- model run 63 completed on node 8.
+   14 Dec 01:12:29.00:- model run 69 commencing on node 8.
+   14 Dec 01:12:29.28:- model run 62 completed on node 5.
+   14 Dec 01:12:29.28:- model run 70 commencing on node 5.
+   14 Dec 01:12:29.67:- model run 61 completed on node 3.
+   14 Dec 01:12:29.67:- model run 71 commencing on node 3.
+   14 Dec 01:12:30.32:- model run 64 completed on node 6.
+   14 Dec 01:12:30.32:- model run 72 commencing on node 6.
+   14 Dec 01:12:32.28:- model run 65 completed on node 7.
+   14 Dec 01:12:32.28:- model run 73 commencing on node 7.
+   14 Dec 01:12:32.31:- model run 66 completed on node 4.
+   14 Dec 01:12:32.31:- model run 74 commencing on node 4.
+   14 Dec 01:12:34.74:- model run 69 completed on node 8.
+   14 Dec 01:12:34.74:- model run 75 commencing on node 8.
+   14 Dec 01:12:34.91:- model run 67 completed on node 2.
+   14 Dec 01:12:34.91:- model run 76 commencing on node 2.
+   14 Dec 01:12:35.05:- model run 68 completed on node 1.
+   14 Dec 01:12:35.06:- model run 77 commencing on node 1.
+   14 Dec 01:12:35.35:- model run 70 completed on node 5.
+   14 Dec 01:12:35.35:- model run 78 commencing on node 5.
+   14 Dec 01:12:37.50:- model run 71 completed on node 3.
+   14 Dec 01:12:37.51:- model run 79 commencing on node 3.
+   14 Dec 01:12:37.94:- model run 72 completed on node 6.
+   14 Dec 01:12:37.94:- model run 80 commencing on node 6.
+   14 Dec 01:12:39.04:- model run 73 completed on node 7.
+   14 Dec 01:12:39.04:- model run 81 commencing on node 7.
+   14 Dec 01:12:40.41:- model run 74 completed on node 4.
+   14 Dec 01:12:40.41:- model run 82 commencing on node 4.
+   14 Dec 01:12:40.90:- model run 75 completed on node 8.
+   14 Dec 01:12:40.92:- model run 83 commencing on node 8.
+   14 Dec 01:12:41.67:- model run 76 completed on node 2.
+   14 Dec 01:12:41.67:- model run 84 commencing on node 2.
+   14 Dec 01:12:42.96:- model run 77 completed on node 1.
+   14 Dec 01:12:42.96:- model run 85 commencing on node 1.
+   14 Dec 01:12:43.05:- model run 78 completed on node 5.
+   14 Dec 01:12:43.05:- model run 86 commencing on node 5.
+   14 Dec 01:12:44.50:- model run 79 completed on node 3.
+   14 Dec 01:12:44.50:- model run 87 commencing on node 3.
+   14 Dec 01:12:44.72:- model run 80 completed on node 6.
+   14 Dec 01:12:44.72:- model run 88 commencing on node 6.
+   14 Dec 01:12:46.53:- model run 83 completed on node 8.
+   14 Dec 01:12:46.54:- model run 89 commencing on node 8.
+   14 Dec 01:12:47.23:- model run 82 completed on node 4.
+   14 Dec 01:12:47.23:- model run 90 commencing on node 4.
+   14 Dec 01:12:47.69:- model run 81 completed on node 7.
+   14 Dec 01:12:47.71:- model run 91 commencing on node 7.
+   14 Dec 01:12:49.54:- model run 85 completed on node 1.
+   14 Dec 01:12:49.54:- model run 92 commencing on node 1.
+   14 Dec 01:12:49.88:- model run 84 completed on node 2.
+   14 Dec 01:12:49.88:- model run 93 commencing on node 2.
+   14 Dec 01:12:50.44:- model run 86 completed on node 5.
+   14 Dec 01:12:50.44:- model run 94 commencing on node 5.
+   14 Dec 01:12:51.17:- model run 88 completed on node 6.
+   14 Dec 01:12:51.17:- model run 95 commencing on node 6.
+   14 Dec 01:12:52.33:- model run 87 completed on node 3.
+   14 Dec 01:12:52.33:- model run 96 commencing on node 3.
+   14 Dec 01:12:54.34:- model run 89 completed on node 8.
+   14 Dec 01:12:54.37:- model run 97 commencing on node 8.
+   14 Dec 01:12:54.66:- model run 91 completed on node 7.
+   14 Dec 01:12:54.67:- model run 98 commencing on node 7.
+   14 Dec 01:12:54.74:- model run 90 completed on node 4.
+   14 Dec 01:12:54.74:- model run 99 commencing on node 4.
+   14 Dec 01:12:56.62:- model run 93 completed on node 2.
+   14 Dec 01:12:56.63:- model run 100 commencing on node 2.
+   14 Dec 01:12:57.07:- model run 92 completed on node 1.
+   14 Dec 01:12:57.07:- model run 101 commencing on node 1.
+   14 Dec 01:12:58.23:- model run 96 completed on node 3.
+   14 Dec 01:12:58.23:- model run 102 commencing on node 3.
+   14 Dec 01:12:58.49:- model run 94 completed on node 5.
+   14 Dec 01:12:58.49:- model run 103 commencing on node 5.
+   14 Dec 01:12:59.81:- model run 95 completed on node 6.
+   14 Dec 01:12:59.81:- model run 104 commencing on node 6.
+   14 Dec 01:13:00.47:- model run 97 completed on node 8.
+   14 Dec 01:13:00.47:- model run 105 commencing on node 8.
+   14 Dec 01:13:01.26:- model run 99 completed on node 4.
+   14 Dec 01:13:01.26:- model run 106 commencing on node 4.
+   14 Dec 01:13:02.81:- model run 98 completed on node 7.
+   14 Dec 01:13:02.81:- model run 107 commencing on node 7.
+   14 Dec 01:13:03.15:- model run 100 completed on node 2.
+   14 Dec 01:13:03.15:- model run 108 commencing on node 2.
+   14 Dec 01:13:04.27:- model run 101 completed on node 1.
+   14 Dec 01:13:04.28:- model run 109 commencing on node 1.
+   14 Dec 01:13:05.90:- model run 103 completed on node 5.
+   14 Dec 01:13:05.91:- model run 110 commencing on node 5.
+   14 Dec 01:13:06.62:- model run 102 completed on node 3.
+   14 Dec 01:13:06.91:- model run 105 completed on node 8.
+   14 Dec 01:13:07.25:- model run 106 completed on node 4.
+   14 Dec 01:13:08.23:- model run 104 completed on node 6.
+   14 Dec 01:13:09.55:- model run 108 completed on node 2.
+   14 Dec 01:13:09.98:- model run 107 completed on node 7.
+   14 Dec 01:13:10.21:- model run 109 completed on node 1.
+   14 Dec 01:13:10.85:- model run 110 completed on node 5.
+ 
+ BEOSTATS:-
+   Node   1      5.935   14 10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_1
+   Node   2      6.395   15 10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_2
+   Node   3      8.368   13 10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_3
+   Node   4      5.987   14 10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_5
+   Node   5      4.952   14 10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_4
+   Node   6      8.418   13 10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_6
+   Node   7      7.163   13 10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_7
+   Node   8      6.446   15 10.10.20.50\\C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU_8
+   Total CPU time            763.7
+   Total elapsed time        124.8
+   Speedup                   6.119

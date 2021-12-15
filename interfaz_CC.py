@@ -16,6 +16,9 @@ from matplotlib import pyplot as plt
 import datetime
 import numpy as np
 import matplotlib.ticker as mticker
+# locale
+import locale
+locale.setlocale(locale.LC_ALL, '')
 # secure socket layers
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -272,7 +275,7 @@ class Ui_MainWindow(object):
             Qfor = Qfor.loc[(Qfor.index >= plot_ini) & (Qfor.index <= plot_fin)]
             idx = est_dev.index
             # z value de intervalo de confianza 95%
-            z_value = 1.96
+            z_value = 2
             Qfor_ul = Qfor.loc[idx]+z_value*est_dev.values
             Qfor_ll = Qfor.loc[idx]-z_value*est_dev.values           
             

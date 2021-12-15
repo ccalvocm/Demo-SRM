@@ -6,7 +6,7 @@ restart  estimation
 10.0  -3  0.3  0.03  10  lamforgive derforgive
 10.0  10.0  0.001
 0.1  noaui
-   -2  0.005  4  4  0.005  4
+-2  0.005  4  4  0.005  4
 0  0  0 parsaveitn reisaveitn
 * singular value decomposition
 1
