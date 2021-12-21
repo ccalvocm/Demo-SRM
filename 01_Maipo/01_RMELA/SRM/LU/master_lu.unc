@@ -1,92 +1,93 @@
 START STANDARD_DEVIATION
-ddsd	5
-ddsw	5
-ddgd	5
-ddgw	5
-rcs1d	5
-rcs1w	5
-rcs2d	5
-rcs2w	5
-rcs3d	5
-rcs3w	5
-rcs4d	5
-rcs4w	5
-rcs5d	5
-rcs5w	5
-rcs6d	5
-rcs6w	5
-rcs7d	5
-rcs7w	5
-rcs8d	5
-rcs8w	5
-rcs9d	5
-rcs9w	5
-rcs10d	5
-rcs10w	5
-rcs11d	5
-rcs11w	5
-rcs12d	5
-rcs12w	5
-rcs13d	5
-rcs13w	5
-rcs14d	5
-rcs14w	5
-rcs15d	5
-rcs15w	5
-rcs16d	5
-rcs16w	5
-rcs17d	5
-rcs17w	5
-rcs18d	5
-rcs18w	5
-rcs19d	5
-rcs19w	5
-rcr1d	5
-rcr1w	5
-rcr2d	5
-rcr2w	5
-rcr3d	5
-rcr3w	5
-rcr4d	5
-rcr4w	5
-rcr5d	5
-rcr5w	5
-rcr6d	5
-rcr6w	5
-rcr7d	5
-rcr7w	5
-rcr8d	5
-rcr8w	5
-rcr9d	5
-rcr9w	5
-rcr10d	5
-rcr10w	5
-rcr11d	5
-rcr11w	5
-rcr12d	5
-rcr12w	5
-rcr13d	5
-rcr13w	5
-rcr14d	5
-rcr14w	5
-rcr15d	5
-rcr15w	5
-rcr16d	5
-rcr16w	5
-rcr17d	5
-rcr17w	5
-rcr18d	5
-rcr18w	5
-rcr19d	5
-rcr19w	5
-rcgd	5
-rcgw	5
-tl	5
-xw	2.1
-yw	5
-x	2.3
-y	5
-tlr	5
-tls	30
-beta	5
+  std_multiplier 3.0
+  ddsd 3
+  ddsw 3
+  ddgd 3
+  ddgw 3
+  rcs1d 3
+  rcs1w 3
+  rcs2d 3
+  rcs2w 3
+  rcs3d 3
+  rcs3w 3
+  rcs4d 3
+  rcs4w 3
+  rcs5d 3
+  rcs5w 3
+  rcs6d 3
+  rcs6w 3
+  rcs7d 3
+  rcs7w 3
+  rcs8d 3
+  rcs8w 3
+  rcs9d 3
+  rcs9w 3
+  rcs10d 3
+  rcs10w 3
+  rcs11d 3
+  rcs11w 3
+  rcs12d 3
+  rcs12w 3
+  rcs13d 3
+  rcs13w 3
+  rcs14d 3
+  rcs14w 3
+  rcs15d 3
+  rcs15w 3
+  rcs16d 3
+  rcs16w 3
+  rcs17d 3
+  rcs17w 3
+  rcs18d 3
+  rcs18w 3
+  rcs19d 3
+  rcs19w 3
+  rcr1d 3
+  rcr1w 3
+  rcr2d 3
+  rcr2w 3
+  rcr3d 3
+  rcr3w 3
+  rcr4d 3
+  rcr4w 3
+  rcr5d 3
+  rcr5w 3
+  rcr6d 3
+  rcr6w 3
+  rcr7d 3
+  rcr7w 3
+  rcr8d 3
+  rcr8w 3
+  rcr9d 3
+  rcr9w 3
+  rcr10d 3
+  rcr10w 3
+  rcr11d 3
+  rcr11w 3
+  rcr12d 3
+  rcr12w 3
+  rcr13d 3
+  rcr13w 3
+  rcr14d 3
+  rcr14w 3
+  rcr15d 3
+  rcr15w 3
+  rcr16d 3
+  rcr16w 3
+  rcr17d 3
+  rcr17w 3
+  rcr18d 3
+  rcr18w 3
+  rcr19d 3
+  rcr19w 3
+  rcgd 3
+  rcgw 3
+  tl 3
+  xw 3
+  yw 3
+  x 3
+  y 3
+  tlr 3
+  tls 3
+  beta 3
 END STANDARD_DEVIATION

@@ -19,8 +19,8 @@ def main():
     
     # rutas
     # Mapocho en Los Almendros
-    # path_unc_in = os.path.join('.','01_Maipo','01_RMELA','SRM','LU','unc_analysis.in')
-    # path_master = os.path.join('.','01_Maipo','01_RMELA','SRM','LU','master_lu.pst')
+    path_unc_in = os.path.join('.','01_Maipo','01_RMELA','SRM','LU','unc_analysis.in')
+    path_master = os.path.join('.','01_Maipo','01_RMELA','SRM','LU','master_lu.pst')
   
     # Maipo en el Manzano
     # path_unc_in = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\02_RMEEM\SRM\LU\unc_analysis.in'
@@ -51,13 +51,13 @@ def main():
     # path_master = os.path.join('.','03_Mataquito','02_RCEJCP','SRM','LU','master_lu.pst')    
 
     # Río Palos en Junta con Colorado
-    path_unc_in = os.path.join('.','03_Mataquito','03_RPEJCC','SRM','LU','unc_analysis.in')
-    path_master = os.path.join('.','03_Mataquito','03_RPEJCC','SRM','LU','master_lu.pst')   
+    # path_unc_in = os.path.join('.','03_Mataquito','03_RPEJCC','SRM','LU','unc_analysis.in')
+    # path_master = os.path.join('.','03_Mataquito','03_RPEJCC','SRM','LU','master_lu.pst')   
     
     unc_in = pd.read_csv(path_unc_in)
     
     # Río Mapocho en Los Almendros
-    # pst = pd.read_csv(path_master, skiprows = 7618, nrows=365, sep = '\t', header = None, index_col = 0)
+    pst = pd.read_csv(path_master, skiprows = 7618, nrows=365, sep = '\t', header = None, index_col = 0)
     # # Río Maipo en el Manzano
     # pst = pd.read_csv(path_master, skiprows = 7356, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Cachapoal en Puente Termas
@@ -69,7 +69,7 @@ def main():
     # Río Claro en Hacienda Las Nieves
     # pst = pd.read_csv(path_master, skiprows = 6430, nrows=365, sep = '\t', header = None, index_col = 0)
     # Río Tinguiririca Bajo los Briones
-    pst = pd.read_csv(path_master, skiprows = 6804, nrows=365, sep = '\t', header = None, index_col = 0)
+    # pst = pd.read_csv(path_master, skiprows = 6804, nrows=365, sep = '\t', header = None, index_col = 0)
     
     # ruta de archivos de simulacion
     # folder = r'C:\Users\ccalvo\Documents\GitHub\Demo SRM\Demo-SRM\01_Maipo\01_RMELA\SRM\LU'
@@ -105,7 +105,7 @@ def main():
     # leer las desviaciones estandar
     for file in listout:
         file_read = pd.read_csv(file)
-        # std_dev = float(file_read.loc[173].values[0].split('=')[-1].split()[0])
+        std_dev = float(file_read.loc[173].values[0].split('=')[-1].split()[0])
         # std_dev = float(file_read.loc[196].values[0].split('=')[-1].split()[0])
         # std_dev = float(file_read.loc[163].values[0].split('=')[-1].split()[0])
         # Río Teno Después de Junta con Claro
@@ -117,7 +117,7 @@ def main():
         # Río Colorado Después de Junta con Claro
         # std_dev = float(file_read.loc[155].values[0].split('=')[-1].split()[0])
         # Río Palos en Junta con Colorado
-        std_dev = float(file_read.loc[139].values[0].split('=')[-1].split()[0])
+        # std_dev = float(file_read.loc[139].values[0].split('=')[-1].split()[0])
 
         lista_std_dev.append(std_dev)
     
