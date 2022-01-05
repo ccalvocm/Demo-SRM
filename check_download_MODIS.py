@@ -42,9 +42,9 @@ def main(folder):
     
     year_f = date.today().year
         
-    # obtener carpetas de años de imágenes MODIS
-    
-    for year in range(2021,year_f+1):
+    list_yrs = list(range(2021,year_f+1))
+    # obtener carpetas de años de imágenes MODIS    
+    for year in list_yrs:
         # chequear si existe la carpeta de imágenes MODIS del año
         dir_out = os.path.join(folder,str(year))
         if str(year) not in sorted(list_folders(folder)):
@@ -62,9 +62,11 @@ def main(folder):
         
         # chequear si el año ya se bajó
         if calendar.isleap(year):
-            if lastday == 366:
+            if int(lastday) == 366:
+                list_yrs.remove(year)
                 continue
-        elif lastday == 365:
+        elif int(lastday) == 365:
+            list_yrs.remove(year)
             continue
         
         try:
@@ -92,7 +94,7 @@ def main(folder):
                 date_f = str(date_f.year)+'-'+str(date_f.month)+'-'+str(date_f.day)
                 download_MODIS.main(date_i, date_f, dir_out)            
 
-    return list(range(2021, year_f+1))
+    return list_yrs
         
 if __name__ == '__main__':
     main('.')

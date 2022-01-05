@@ -76,15 +76,15 @@ def run_pySRM(path, tipo = 'P'):
             print('Imágenes reproyectadas')
         
         process_MODIS.main(folder, yr)
-    # Termina proceso Prepare_Modis
-    # progressbar.setValue(2)
-    # progress = [progress, 'Intersectando MODIS con la subcuenca']
-    
-    # msg.setText(progress)
-    # Termina proceso process_MODIS
-    # progressbar.setValue(3)
-    print('Calculando la fracción cubierta nival')
-    snowGlacierCoveredArea.main(folder)
+        # Termina proceso Prepare_Modis
+        # progressbar.setValue(2)
+        # progress = [progress, 'Intersectando MODIS con la subcuenca']
+        
+        # msg.setText(progress)
+        # Termina proceso process_MODIS
+        # progressbar.setValue(3)
+        print('Calculando la fracción cubierta nival')
+        snowGlacierCoveredArea.main(folder, yr)
     # Termina proceso snowGlacierCoveredArea
     # progressbar.setValue(4)
     print('Realizando proyección de nieve')

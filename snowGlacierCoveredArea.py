@@ -167,7 +167,7 @@ def vtorast(vector_in):
     
     
 # ===================================================================
-def main(root_MODIS, yeari = datetime.date.today().year, yearf = datetime.date.today().year+1):
+def main(root_MODIS, yeari , yearf = datetime.date.today().year+1):
     """
     
 

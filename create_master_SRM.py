@@ -150,7 +150,10 @@ def completarMaster(master, lday, df_h):
         yr_param = matchPp(pp, last_day_yr, df_h)
     
         # tengo que hacer el for por si hay años bisiestos
-        idx_date = idx_missing[(idx_missing <= last_day_yr) & (idx_missing >= pd.to_datetime(str(yr)+'-04-01'))]
+        if min(idx_missing).strftime('%m-%d') > '03-31':
+            idx_date = idx_missing[(idx_missing <= last_day_yr) & (idx_missing >= pd.to_datetime(str(yr)+'-04-01'))]
+        else:
+            idx_date = idx_missing[(idx_missing <= last_day_yr) & (idx_missing >= pd.to_datetime(str(yr-1)+'-04-01'))]            
         for date in idx_date: 
             yr_delta = date.year-idx_date.year[0]
             
