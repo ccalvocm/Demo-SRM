@@ -74,12 +74,13 @@ def run_pySRM(path, tipo = 'P'):
     
         except:
             print('Imágenes reproyectadas')
+        
+        process_MODIS.main(folder, yr)
     # Termina proceso Prepare_Modis
     # progressbar.setValue(2)
     # progress = [progress, 'Intersectando MODIS con la subcuenca']
     
     # msg.setText(progress)
-    process_MODIS.main(folder)
     # Termina proceso process_MODIS
     # progressbar.setValue(3)
     print('Calculando la fracción cubierta nival')

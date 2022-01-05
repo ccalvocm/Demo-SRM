@@ -93,7 +93,7 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
                
     return None
 
-def main(dir_in,  yeari = datetime.date.today().year, yearf = datetime.date.today().year+1):
+def main(dir_in,  yeari, yearf = datetime.date.today().year+1):
 
     # Parameters
     # ----------

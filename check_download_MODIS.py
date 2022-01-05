@@ -58,7 +58,7 @@ def main(folder):
         if len(onlyfiles):
             lastday = onlyfiles[-1].split('.')[1][-3:]
         else:
-            lastday = 1
+            lastday = 0
         
         # chequear si el año ya se bajó
         if calendar.isleap(year):
