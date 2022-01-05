@@ -49,6 +49,7 @@ def main(folder):
         dir_out = os.path.join(folder,str(year))
         if str(year) not in sorted(list_folders(folder)):
             os.mkdir(dir_out)
+            os.mkdir(os.path.join(dir_out,'clip'))
         
         # chequear los archivos MODIS
         onlyfiles = list_hdf(os.path.join(dir_out,'clip'))
