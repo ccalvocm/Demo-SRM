@@ -93,7 +93,7 @@ def Process_MODIS(dir_in, dir_out, shp, yr):
                
     return None
 
-def main(dir_in,  yeari, yearf = datetime.date.today().year+1):
+def main(dir_in,  yeari):
 
     # Parameters
     # ----------
@@ -116,7 +116,7 @@ def main(dir_in,  yeari, yearf = datetime.date.today().year+1):
     dir_in = os.path.abspath(os.path.join(dir_in,'Nieve'))
     dir_out = dir_in
     
-    for yr in range(yeari,yearf):
+    for yr in range(yeari,yeari+1):
         Process_MODIS(dir_in, dir_out, shp, str(yr))
     return None
  
