@@ -167,7 +167,7 @@ def vtorast(vector_in):
     
     
 # ===================================================================
-def main(root_MODIS, yeari , yearf = datetime.date.today().year+1):
+def main(root_MODIS, yeari):
     """
     
 
@@ -198,6 +198,7 @@ def main(root_MODIS, yeari , yearf = datetime.date.today().year+1):
     root_MODIS = os.path.abspath(os.path.join(root_MODIS,'Nieve'))
     
     flag = 1
+    yearf = yeari+1
 
     #%%    Años
     for year in range(yeari,yearf):
