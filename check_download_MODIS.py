@@ -60,14 +60,14 @@ def main(folder):
         else:
             lastday = 0
         
-        # # chequear si el año ya se bajó
-        # if calendar.isleap(year):
-        #     if int(lastday) == 366:
-        #         list_yrs.remove(year)
-        #         continue
-        # elif int(lastday) == 365:
-        #     list_yrs.remove(year)
-        #     continue
+        # chequear si el año ya se bajó
+        if calendar.isleap(year):
+            if int(lastday) == 366:
+                list_yrs.remove(year)
+                continue
+        elif int(lastday) == 365:
+            list_yrs.remove(year)
+            continue
         
         try:
             date_i = datetime.datetime(year, 1, 1) + datetime.timedelta(int(lastday))
