@@ -44,8 +44,9 @@ def main(folder):
         
     list_yrs = list(range(2021,year_f+1))
     # obtener carpetas de años de imágenes MODIS    
-    for year in list_yrs:
+    for year in list(range(2021,year_f+1)):
         # chequear si existe la carpeta de imágenes MODIS del año
+        print('debug')
         dir_out = os.path.join(folder,str(year))
         if str(year) not in sorted(list_folders(folder)):
             os.mkdir(dir_out)
@@ -64,9 +65,11 @@ def main(folder):
         if calendar.isleap(year):
             if int(lastday) == 366:
                 list_yrs.remove(year)
+                year = year + 1
                 continue
         elif int(lastday) == 365:
             list_yrs.remove(year)
+            year = year + 1
             continue
         
         try:
