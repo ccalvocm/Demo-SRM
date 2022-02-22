@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE GranuleMetaDataFile SYSTEM "http://ecsinfo.gsfc.nasa.gov/ECSInfo/ecsmetadata/dtds/DPL/ECS/ScienceGranuleMetadata.dtd">
+<GranuleMetaDataFile>
+    <DTDVersion>1.0</DTDVersion>
+    <DataCenterId>NSIDC</DataCenterId>
+    <GranuleURMetaData>
+        <GranuleUR>SC:MOD10A1.061:239696338</GranuleUR>
+        <DbID>239696338</DbID>
+        <InsertTime>2022-02-14 21:04:00.629</InsertTime>
+        <LastUpdate>2022-02-14 21:04:00.629</LastUpdate>
+        <CollectionMetaData>
+            <ShortName>MOD10A1</ShortName>
+            <VersionID>61</VersionID>
+        </CollectionMetaData>
+        <DataFiles>
+            <DataFileContainer>
+                <DistributedFileName>MOD10A1.A2022044.h12v12.061.2022046040021.hdf</DistributedFileName>
+                <FileSize>6485587</FileSize>
+                <ChecksumType>CKSUM</ChecksumType>
+                <Checksum>172109051</Checksum>
+                <ChecksumOrigin>DPLIngst</ChecksumOrigin>
+            </DataFileContainer>
+        </DataFiles>
+        <ECSDataGranule>
+            <SizeMBECSDataGranule>6.18514</SizeMBECSDataGranule>
+            <ReprocessingPlanned>further update is anticipated</ReprocessingPlanned>
+            <ReprocessingActual>reprocessed</ReprocessingActual>
+            <LocalGranuleID>MOD10A1.A2022044.h12v12.061.2022046040021.hdf</LocalGranuleID>
+            <DayNightFlag>Day</DayNightFlag>
+            <ProductionDateTime>2022-02-15 04:00:24.000</ProductionDateTime>
+            <LocalVersionID>SCF V6.0.1</LocalVersionID>
+        </ECSDataGranule>
+        <PGEVersionClass>
+            <PGEVersion>6.1.2</PGEVersion>
+        </PGEVersionClass>
+        <RangeDateTime>
+            <RangeEndingTime>23:59:59.000000</RangeEndingTime>
+            <RangeEndingDate>2022-02-13</RangeEndingDate>
+            <RangeBeginningTime>00:00:00.000000</RangeBeginningTime>
+            <RangeBeginningDate>2022-02-13</RangeBeginningDate>
+        </RangeDateTime>
+        <SpatialDomainContainer>
+            <HorizontalSpatialDomainContainer>
+                <GPolygon>
+                    <Boundary>
+                        <Point>
+                            <PointLongitude>-78.3244373487825</PointLongitude>
+                            <PointLatitude>-39.9999999964079</PointLatitude>
+                        </Point>
+                        <Point>
+                            <PointLongitude>-69.2295648918179</PointLongitude>
+                            <PointLatitude>-29.8506269556485</PointLatitude>
+                        </Point>
+                        <Point>
+                            <PointLongitude>-57.4987926415755</PointLongitude>
+                            <PointLatitude>-29.8879227550404</PointLatitude>
+                        </Point>
+                        <Point>
+                            <PointLongitude>-65.0468184138665</PointLongitude>
+                            <PointLatitude>-40.0438107454138</PointLatitude>
+                        </Point>
+                    </Boundary>
+                </GPolygon>
+            </HorizontalSpatialDomainContainer>
+        </SpatialDomainContainer>
+        <OrbitCalculatedSpatialDomain>
+            <OrbitCalculatedSpatialDomainContainer>
+                <OrbitNumber>117857</OrbitNumber>
+                <EquatorCrossingLongitude>-42.8228818127485</EquatorCrossingLongitude>
+                <EquatorCrossingDate>2022-02-13</EquatorCrossingDate>
+                <EquatorCrossingTime>13:14:02.306714</EquatorCrossingTime>
+            </OrbitCalculatedSpatialDomainContainer>
+            <OrbitCalculatedSpatialDomainContainer>
+                <OrbitNumber>117858</OrbitNumber>
+                <EquatorCrossingLongitude>-67.5436320107434</EquatorCrossingLongitude>
+                <EquatorCrossingDate>2022-02-13</EquatorCrossingDate>
+                <EquatorCrossingTime>14:52:55.216487</EquatorCrossingTime>
+            </OrbitCalculatedSpatialDomainContainer>
+        </OrbitCalculatedSpatialDomain>
+        <MeasuredParameter>
+            <MeasuredParameterContainer>
+                <ParameterName>NDSI_Snow_Cover</ParameterName>
+                <QAStats>
+                    <QAPercentMissingData>0</QAPercentMissingData>
+                    <QAPercentCloudCover>5</QAPercentCloudCover>
+                </QAStats>
+                <QAFlags>
+                    <AutomaticQualityFlag>Passed</AutomaticQualityFlag>
+                    <AutomaticQualityFlagExplanation>No automatic quality assessment done in the PGE</AutomaticQualityFlagExplanation>
+                    <OperationalQualityFlag>Passed</OperationalQualityFlag>
+                    <OperationalQualityFlagExplanation>Passed</OperationalQualityFlagExplanation>
+                    <ScienceQualityFlag>Not Investigated</ScienceQualityFlag>
+                    <ScienceQualityFlagExplanation>See http://landweb.nascom.nasa.gov/cgi-bin/QA_WWW/qaFlagPage.cgi?sat=terra for the product Science Quality status.</ScienceQualityFlagExplanation>
+                </QAFlags>
+            </MeasuredParameterContainer>
+            <MeasuredParameterContainer>
+                <ParameterName>Snow_Albedo_Daily_Tile</ParameterName>
+                <QAStats>
+                    <QAPercentMissingData>0</QAPercentMissingData>
+                    <QAPercentCloudCover>5</QAPercentCloudCover>
+                </QAStats>
+                <QAFlags>
+                    <AutomaticQualityFlag>Passed</AutomaticQualityFlag>
+                    <AutomaticQualityFlagExplanation>No automatic quality assessment done in the PGE</AutomaticQualityFlagExplanation>
+                    <ScienceQualityFlag>Not Investigated</ScienceQualityFlag>
+                    <ScienceQualityFlagExplanation>See http://landweb.nascom.nasa.gov/cgi-bin/QA_WWW/qaFlagPage.cgi?sat=terra for the product Science Quality status.</ScienceQualityFlagExplanation>
+                </QAFlags>
+            </MeasuredParameterContainer>
+        </MeasuredParameter>
+        <Platform>
+            <PlatformShortName>Terra</PlatformShortName>
+            <Instrument>
+                <InstrumentShortName>MODIS</InstrumentShortName>
+                <Sensor>
+                    <SensorShortName>MODIS</SensorShortName>
+                </Sensor>
+            </Instrument>
+        </Platform>
+        <PSAs>
+            <PSA>
+                <PSAName>QAPERCENTGOODQUALITY</PSAName>
+                <PSAValue>89</PSAValue>
+            </PSA>
+            <PSA>
+                <PSAName>QAPERCENTOTHERQUALITY</PSAName>
+                <PSAValue>11</PSAValue>
+            </PSA>
+            <PSA>
+                <PSAName>HORIZONTALTILENUMBER</PSAName>
+                <PSAValue>12</PSAValue>
+            </PSA>
+            <PSA>
+                <PSAName>VERTICALTILENUMBER</PSAName>
+                <PSAValue>12</PSAValue>
+            </PSA>
+            <PSA>
+                <PSAName>TileID</PSAName>
+                <PSAValue>51012012</PSAValue>
+            </PSA>
+            <PSA>
+                <PSAName>SNOWCOVERPERCENT</PSAName>
+                <PSAValue>0</PSAValue>
+            </PSA>
+            <PSA>
+                <PSAName>identifier_product_doi</PSAName>
+                <PSAValue>10.5067/MODIS/MOD10A1.061</PSAValue>
+            </PSA>
+            <PSA>
+                <PSAName>identifier_product_doi_authority</PSAName>
+                <PSAValue>http://dx.doi.org</PSAValue>
+            </PSA>
+        </PSAs>
+        <InputGranule>
+            <InputPointer>MOD10GA.A2022044.h12v12.061.2022046032727.hdf</InputPointer>
+        </InputGranule>
+        <BrowseProduct>
+            <BrowseGranuleId>UR:10:DsShESDTUR:UR:15:DsShSciServerUR:15:[NSIDC:DSSDSRV]:23:BR:Browse.001:239696341</BrowseGranuleId>
+        </BrowseProduct>
+    </GranuleURMetaData>
+</GranuleMetaDataFile>
+
+

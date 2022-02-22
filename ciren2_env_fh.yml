@@ -1,0 +1,48 @@
+name: ciren2
+channels:
+  - defaults
+dependencies:
+  - ncview
+  - gdal
+  - openpyxl
+  - bibtexparser
+  - earthengine-api
+  - jupyter_contrib_nbextensions=0.5.1
+  - fuzzywuzzy
+  - pylatex
+  - rasterstats
+  - plotly
+  - cdo
+  - unidecode
+  - pysal
+  - dataframe_image
+  - contextily
+  - missingno
+  - geemap
+  - adjusttext
+  - mapclassify
+  - python=3.8
+  - notebook=6.1.4
+  - xlrd
+  - termcolor
+  - matplotlib
+  - cartopy
+  - geopandas
+  - xarray
+  - pybtex
+  - seaborn
+  - nco
+  - rioxarray
+  - netcdf4
+  - descartes
+  - folium
+  - bokeh
+  - spyder
+  - pmdarima
+  - streamlit
+  - streamlit-folium
+  - autopep8
+  - simplekml
+  - pyinstaller
+  - scipy=1.7.1
+prefix: /home/faarrosp/anaconda3/envs/ciren2
