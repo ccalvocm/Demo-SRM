@@ -1,0 +1,18 @@
+# env A
+python = 3.9
+PyQt5 ---> pip install PyQt5 (hay version conda-forge)
+rasterio ---> mamba install -c conda-forge rasterio 
+fiona ---> pip install fiona (hay version conda-forge)
+matplotlib ---> pip install matplotlib (hay version conda-forge)
+pandas ---> pip install pandas (hay version conda-forge)
+xarray ---> pip install xarray (hay version conda-forge)
+scipy ---> pip install scipy (hay version conda-forge)
+rioxarray ---> pip install rioxarray (hay version conda-forge)
+geopandas ---> pip install geopandas (hay version conda-forge)
+osgeo ---> pip install gdal  XXXXX FALLA, se intenta con mamba install -c conda-forge gdal
+dask_geopandas ---> pip install dask-geopandas (hay version conda-forge)
+statsmodels ---> pip install statsmodels (hay version conda-forge)
+pmdarima ---> pip install pmdarima (hay version conda-forge)
+hydroeval ---> pip install hydroeval 
+qt_material ---> pip install qt-material 
+PyQtWebEngine ---> pip install PyQtWebEngine (hay version conda-forge)

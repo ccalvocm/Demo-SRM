@@ -1,0 +1,12 @@
+name: envA
+channels: 
+  - conda-forge
+dependencies:
+  - python=3.9
+  - rasterio
+  - ca-certificates
+  - openssl
+  - gdal
+  - certifi
+  - pip
+prefix: /root/miniconda3/envs/envA

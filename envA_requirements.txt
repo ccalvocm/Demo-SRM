@@ -1,0 +1,14 @@
+pyQt5
+fiona
+matplotlib
+pandas
+xarray
+scipy
+rioxarray
+geopandas
+dask-geopandas
+statsmodels
+pmdarima
+hydroeval
+qt-material
+PyQtWebEngine
