@@ -150,7 +150,7 @@ def vtorast(vector_in):
     input_shp = ogr.Open(vector_in)
     shp_layer = input_shp.GetLayer()
     
-    pixel_size = 30
+    pixel_size = 400
     xmin, xmax, ymin, ymax = shp_layer.GetExtent()
     
     ds = gdal.Rasterize(vector_in.replace('.shp','')+str('_raster.tif'), vector_in, xRes=pixel_size, yRes=pixel_size, 
