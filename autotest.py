@@ -105,35 +105,6 @@ if __name__ == '__main__':
     # directorio de la cuenca
     folder = os.path.abspath(os.path.join('.','01_Maipo','01_RMELA'))
     
+    run_pySRM(folder, tipo = 'P')
     
-    # bajar nieve nueva
-    yrs = check_download_MODIS.main(folder)
-    
-    for yr in yrs:
-    # reproyectar
-        nasa_new_win.Prepare_MODIS(folder,yr)
-    
-    # clipear la nieve
-    # path_cuenca = os.path.join(os.path.split(folder)[0],'shapes','cuenca.shp')
-    
-    process_MODIS.main(folder)
-    
-    # calcular la scf
-    # path_bandas = os.path.join(os.path.split(folder)[0],'shapes','bandas.shp')
-    # path_glaciares = os.path.join(os.path.split(folder)[0],'shapes','glaciares.shp')
-    snowGlacierCoveredArea.main(folder)
-    
-    # crear master predictivo
-    # path_q = os.path.join(folder.replace('Nieve','Caudales'), 'Caudales.csv')
-    # ruta_n = folder
-    # root = folder.replace('Nieve','SRM')
-    # ruta_pp =  os.path.join(folder.replace('Nieve','Precipitacion'), r'precipitacion_forecast.csv')
-    # ruta_t = os.path.join(folder.replace('Nieve','Temperatura'), r'temperatura_forecast.csv')
-    
-    create_master_SRM.SRM_master(folder)
-    
-    # SRM
-    root = folder.replace('Nieve','SRM')
-    Basin = folder.split(os.sep)[-2]
-    pyCSRM.DEVELOP_SRM(folder, type_ = 'V', alpha = 0.959, Tcrit = 1)
     
