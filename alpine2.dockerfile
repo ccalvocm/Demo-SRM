@@ -78,8 +78,12 @@ RUN git clone --depth=1 https://www.github.com/ccalvocm/Demo-SRM.git \
     && chgrp -R $USER_GID /Demo-SRM/ \
     && chmod 770 -R /Demo-SRM
 
+RUN echo "source /root/miniconda3/bin/activate" >> /home/srm/.bashrc
+
 ENTRYPOINT [ "/bin/bash", "-l" ]
 USER srm
+SHELL ["/bin/bash", "-c"]
+RUN source /root/miniconda3/bin/activate && conda activate ciren2
 
 
 
