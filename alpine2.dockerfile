@@ -15,10 +15,9 @@ COPY ciren2_light.yml ciren2_light.yml
 ENV PATH="/root/miniconda3/bin:$PATH"
 ARG PATH="/root/miniconda3/bin:$PATH"
 
-RUN apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     pcmanfm \
     featherpad \
-    lxtask \
     xterm \
     wget \
     libasound2\
@@ -27,7 +26,6 @@ RUN apt-get update && apt-get -y upgrade && apt-get install -y --no-install-reco
     tzdata \
     g++ \
     gcc \
-    vim \
     ca-certificates \
     libglib2.0-0 \
     libgl1-mesa-glx \
@@ -59,12 +57,12 @@ RUN apt-get update && apt-get -y upgrade && apt-get install -y --no-install-reco
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && rm -rf /var/lib/apt/lists/* \
+    && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && mkdir /root/.conda \
     && bash Miniconda3-latest-Linux-x86_64.sh -b \
     && rm -f Miniconda3-latest-Linux-x86_64.sh \
+    && apt-get remove -y wget \
     && chgrp -R $USER_GID /root/ \
     && chmod 770 -R /root \
     && echo "Running $(conda --version)" \
@@ -72,18 +70,20 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && . /root/.bashrc \
     && conda update conda \
     && conda env create --file ciren2_light.yml \
-    && conda activate ciren2 
+    && conda activate ciren2 \
+    && echo "source /root/miniconda3/bin/activate" >> /home/srm/.bashrc \
+    && echo "conda activate ciren2" >> /home/srm/.bashrc
 
-RUN git clone --depth=1 https://www.github.com/ccalvocm/Demo-SRM.git \
-    && chgrp -R $USER_GID /Demo-SRM/ \
-    && chmod 770 -R /Demo-SRM
+# RUN git clone --depth=1 https://www.github.com/ccalvocm/Demo-SRM.git \
+#     && chgrp -R $USER_GID /Demo-SRM/ \
+#     && chmod 770 -R /Demo-SRM
+COPY runDockerSRM.sh runDockerSRM.sh
+# ENTRYPOINT [ "/bin/bash", "-l" ]
+#SHELL ["/bin/bash", "-c"]
 
-RUN echo "source /root/miniconda3/bin/activate" >> /home/srm/.bashrc
-
-ENTRYPOINT [ "/bin/bash", "-l" ]
-USER srm
-SHELL ["/bin/bash", "-c"]
-RUN source /root/miniconda3/bin/activate && conda activate ciren2
+#USER srm
+#CMD ["bash", "runDockerSRM.sh"]
+# RUN source /root/miniconda3/bin/activate && conda activate ciren2
 
 
 
