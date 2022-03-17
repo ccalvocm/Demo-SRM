@@ -14,6 +14,8 @@ dependencies:
   - ca-certificates
   - openssl
   - gdal=3.2.1
+  - shapely=1.7.1
+  - geemap=0.8.18
   - certifi
   - pip
   - pip:

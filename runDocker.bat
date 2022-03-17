@@ -1,0 +1,1 @@
+docker run --rm -it --platform linux/x86_64 -t faarrosp/cnr-ciren:latest

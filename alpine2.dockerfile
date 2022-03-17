@@ -81,8 +81,8 @@ COPY runDockerSRM.sh runDockerSRM.sh
 # ENTRYPOINT [ "/bin/bash", "-l" ]
 #SHELL ["/bin/bash", "-c"]
 
-#USER srm
-#CMD ["bash", "runDockerSRM.sh"]
+USER srm
+CMD ["bash", "runDockerSRM.sh"]
 # RUN source /root/miniconda3/bin/activate && conda activate ciren2
 
 
