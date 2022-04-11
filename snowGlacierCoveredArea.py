@@ -236,6 +236,9 @@ def main(root_MODIS, yeari):
         elev_bands = xr.open_rasterio(ruta_eb_shp.replace('.shp','')+'_raster_clip.tif')
         elev_bands.data[elev_bands.data == 255] = 0
         bandas = int(np.nanmax(elev_bands.data))
+        
+        if '01_RTDJCC' in root_MODIS:
+            bandas = 15
     
         # listar los archivos de las imágenes MODIS
         lista_modis = os.listdir(ruta_MODIS)
