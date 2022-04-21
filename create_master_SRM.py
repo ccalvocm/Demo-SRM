@@ -285,6 +285,9 @@ def SRM_master(folder):
     df_t = df_t.loc[df_t.index.year > 2000]
     master_pred.loc[df_t.index, cols_t] = df_t.values
     
+    # eliminar datos incompletos
+    master_pred.dropna(subset = master_pred.columns[1:], inplace = True)
+    
     # guardar el archivo master predictivo
     master_pred.to_csv(os.path.join(root,'Inputs',r'Master.csv'))
 
