@@ -316,9 +316,13 @@ class Ui_MainWindow(object):
         path_completo = os.path.join(os.getcwd(),path_subcuenca)
         path_resultados = os.path.join(path_completo,'SRM','Resultados')
         sufijo = var_aux.dic_paths[current_subcuenca][1]
-        print(sufijo)
-        path_caudal_simulado = os.path.join(path_resultados,
-                                            'Qsim_'+sufijo+'.csv')
+
+        print(path_resultados)
+        files = [x for x in os.listdir(path_resultados) if (x.startswith("Qsim_")) & (x.endswith(".csv"))]
+        files_parsed = [os.path.join(path_resultados,x) for x in files]
+        path_caudal_simulado = max(files_parsed, key = os.path.getctime)
+        # path_caudal_simulado = os.path.join(path_resultados,
+        #                                     'Qsim_'+sufijo+'.csv')
         print(path_caudal_simulado)
         
         try:    

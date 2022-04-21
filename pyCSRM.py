@@ -626,8 +626,10 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     Q_out.index.name = 'Fecha'
     if not os.path.exists(os.path.join(root,'Resultados')):
         os.makedirs(os.path.join(root,'Resultados'))
-    swe_sim.to_csv(os.path.join(root,'Resultados','SWEsim_'+Basin+'.csv')) 
-    Q_out.to_csv(os.path.join(root,'Resultados','Qsim_'+Basin+'.csv'))
+    date_today = datetime.datetime.now()
+    date_today = date_today.strftime("%Y%m%d-%H%M%S")
+    swe_sim.to_csv(os.path.join(root,'Resultados','SWEsim_'+Basin+'_'+date_today+'.csv')) 
+    Q_out.to_csv(os.path.join(root,'Resultados','Qsim_'+Basin+'_'+date_today+'.csv'))
 
     return None
     
