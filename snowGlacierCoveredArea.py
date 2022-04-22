@@ -239,6 +239,8 @@ def main(root_MODIS, yeari):
         
         if '01_RTDJCC' in root_MODIS:
             bandas = 15
+        elif '03_RPEJCC' in root_MODIS:
+            bandas = 12
     
         # listar los archivos de las imágenes MODIS
         lista_modis = os.listdir(ruta_MODIS)
