@@ -17,6 +17,7 @@ from matplotlib import pyplot as plt
 import datetime
 import numpy as np
 import matplotlib.ticker as mticker
+import matplotlib.dates as mdates
 # secure socket layers
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -364,6 +365,7 @@ class Ui_MainWindow(object):
             # plot relative runoffs
             fig = plt.figure(figsize=(18 , 12))
             ax = fig.add_subplot(2,1,1)
+            ax.xaxis.set_major_formatter(mdates.DateFormatter('%d-%m-%Y'))
             ax.plot(Qfor.index, Qfor.values, color='red', linewidth = 2)
             
             
