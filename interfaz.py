@@ -355,20 +355,25 @@ class Ui_MainWindow(object):
             
             # fechas
             Days_xticks = [ x for x in pd.date_range(plot_ini,pd.to_datetime(plot_ini)+datetime.timedelta(days=len(Qfor)-1), freq = '1d').date]  
-            
             last_year = Days_xticks[-1].year 
             first_year = Days_xticks[0].year 
+            
+            # formatear fechas
+            # myFmt = mdates.DateFormatter('%d-%m-%Y')
                                 
             # plot relative runoffs
             fig = plt.figure(figsize=(18 , 12))
             ax = fig.add_subplot(2,1,1)
-            Qfor.plot(ax = ax, style='r-', linewidth = 2)
-            plt.ylim(bottom = 0)
-            plt.ylabel('Caudal $(m^3/s)$', fontsize = 12)
+            ax.xaxis.set_major_formatter(mdates.DateFormatter('%d-%m-%Y'))
+            ax.plot(Qfor.index, Qfor.values, color='red', linewidth = 2)
+            
+            
+            ax.set_ylim(bottom = 0)
+            ax.set_ylabel('Caudal $(m^3/s)$', fontsize = 12)
             title = 'Pronóstico de caudales para años: ' \
                 +str(first_year)+'-'+str(last_year)
             current_subcuenca = self.comboBox_cuencas_cabecera.currentText()
-            plt.title('\n'.join([title, current_subcuenca]))
+            ax.set_title('\n'.join([title, current_subcuenca]))
             plt.legend(['Q Simulado'])
             _ = plt.xlabel('')
             plt.grid()
