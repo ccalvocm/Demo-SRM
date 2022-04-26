@@ -364,7 +364,6 @@ class Ui_MainWindow(object):
             # plot relative runoffs
             fig = plt.figure(figsize=(18 , 12))
             ax = fig.add_subplot(2,1,1)
-            ax.xaxis.set_major_formatter(mdates.DateFormatter('%d-%m-%Y'))
             ax.plot(Qfor.index, Qfor.values, color='red', linewidth = 2)
             
             
