@@ -367,6 +367,7 @@ class Ui_MainWindow(object):
             ax = fig.add_subplot(2,1,1)
             ax.xaxis.set_major_formatter(mdates.DateFormatter('%d-%m-%Y'))
             ax.plot(Qfor.index, Qfor.values, color='red', linewidth = 2)
+            ax.autoscale(enable=True, axis='x', tight=True)
             
             
             ax.set_ylim(bottom = 0)
@@ -403,6 +404,7 @@ class Ui_MainWindow(object):
             _ = axis.set_xticklabels(['Abr', 'May', 'Jun ', 'Jul', 'Ago', 'Sep', 'Oct',
                          'Nov', 'Dic', 'Ene', 'Feb', 'Mar'], fontsize = 12)
             plt.show()
+            axis.autoscale(enable=True, axis='x', tight=True)
             path_caudal_simulado_fig = os.path.join(path_resultados,
                                             'Qsim_'+sufijo+'.jpg')
             plt.savefig(path_caudal_simulado_fig, format='jpg')
