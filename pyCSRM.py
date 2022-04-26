@@ -99,7 +99,9 @@ from hydroeval import evaluator, nse
 import datetime
 import os
 import matplotlib.pyplot as plt
-
+import loopCython
+import loopQtotalCython
+import baseflow_eckhardt
 # --------------------------------------------------------------------------
 
 #========================================================================== 
@@ -169,10 +171,6 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     Basin = folder.split(os.sep)[-1]
 
     #leer curva hipsometrica de topografia
-    import loopCython
-    import loopQtotalCython
-    import baseflow_eckhardt
-
     ruta_hipso = os.path.join(root,'Inputs',r'Hypso.csv')
     hipso = pd.read_csv(ruta_hipso, index_col = 0)
     
