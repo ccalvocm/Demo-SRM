@@ -12,11 +12,23 @@
  5. Presionar el ejecutable "Etapa 1.bat"
  6. Presionar el ejecutable "Etapa 2.bat"
  
-### Instalación (Windows 10):
+### Instalación con permisos de administrador (Windows 10):
  1. Descargar el instalador ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
  2. Descomprimir el archivo ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
  3. Presionar el ejecutable "Etapa 1.bat"
  4. Presionar el ejecutable "Etapa 2.bat"
+
+### Instalación sin permisos de administrador (Windows 10):
+1. Abrir una ventana de Windows PowerShell
+2. Copiar y pegar el siguiente código en la ventana de Windows Powershell 
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-ExecutionPolicy Bypass -Scope Process -Force; $InstallDir='C:\ProgramData\chocoportable'; $env:ChocolateyInstall="$InstallDir"; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; mshta "about:<script>alert('Git instalado existosamente, abrir una nueva ventana de Windows Powershell');close()</script>"
+```
+3. Abrir otra nueva ventana de Windows PowerShell
+4. Copiar y pegar el siguiente código en la ventana de Windows Powershell
+```
+git clone --depth=1 https://github.com/ccalvocm/Demo-SRM.git; conda create -n pySRM python=3.8 -y; conda install mamba -n base -c conda-forge -y; mamba env update -n pySRM --file .\Demo-SRM\pySRM_win.yaml; mshta "about:<script>alert('SRM instalado existosamente');close()</script>"
+```
 
 ### Ejecución:
  1. Esperar a que termine el ejecutable "Etapa 2.bat"
