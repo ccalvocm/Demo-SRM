@@ -19,10 +19,11 @@
  4. Presionar el ejecutable "Etapa 2.bat"
 
 ### Instalación sin permisos de administrador (Windows 10):
-1. Abrir una ventana de Windows PowerShell
+1. Abrir una ventana de Windows PowerShell <img src="https://raw.githubusercontent.com/ccalvocm/Hackathon_Fach/main/Imagenes/logoPS.png" height="6%" width="6%" >
 2. Copiar y pegar el siguiente código en la ventana de Windows Powershell 
+
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-ExecutionPolicy Bypass -Scope Process -Force; $InstallDir='C:\ProgramData\chocoportable'; $env:ChocolateyInstall="$InstallDir"; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; mshta "about:<script>alert('Git instalado existosamente, abrir una nueva ventana de Windows Powershell');close()</script>"
+Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-ExecutionPolicy Bypass -Scope Process -Force; $InstallDir='C:\ProgramData\chocoportable'; $env:ChocolateyInstall="$InstallDir"; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; choco install miniconda3 --params="'/AddToPath:1 /InstallationType:JustMe'" -y; mshta "about:<script>alert('miniconda instalado existosamente, abrir una nueva ventana de Windows Powershell');close()</script>"
 ```
 3. Abrir otra nueva ventana de Windows PowerShell
 4. Copiar y pegar el siguiente código en la ventana de Windows Powershell
