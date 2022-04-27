@@ -23,12 +23,12 @@
 2. Copiar y pegar el siguiente código en la ventana de Windows Powershell 
 
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-ExecutionPolicy Bypass -Scope Process -Force; $InstallDir='C:\ProgramData\chocoportable'; $env:ChocolateyInstall="$InstallDir"; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; choco install miniconda3 --params="'/AddToPath:1 /InstallationType:JustMe'" -y; mshta "about:<script>alert('miniconda instalado correctamente, abrir una nueva ventana de Windows Powershell');close()</script>"
+Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-ExecutionPolicy Bypass -Scope Process -Force; $InstallDir='C:\ProgramData\chocoportable'; $env:ChocolateyInstall="$InstallDir"; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); mshta "about:<script>alert('Choco instalado correctamente, abrir una nueva ventana de Windows Powershell');close()</script>"
 ```
 3. Abrir otra nueva ventana de Windows PowerShell
 4. Copiar y pegar el siguiente código en la ventana de Windows Powershell
 ```
-git clone --depth=1 https://github.com/ccalvocm/Demo-SRM.git; conda create -n pySRM python=3.8 -y; conda install mamba -n base -c conda-forge -y; mamba env update -n pySRM --file .\Demo-SRM\pySRM_win.yaml; mshta "about:<script>alert('SRM instalado existosamente');close()</script>"
+choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; choco install miniconda3 --params="'/AddToPath:1 /InstallationType:JustMe'" -y; git clone --depth=1 https://github.com/ccalvocm/Demo-SRM.git; conda create -n pySRM python=3.8 -y; conda install mamba -n base -c conda-forge -y; mamba env update -n pySRM --file .\Demo-SRM\pySRM_win.yaml; mshta "about:<script>alert('SRM instalado existosamente');close()</script>"
 ```
 
 ### Ejecución:
