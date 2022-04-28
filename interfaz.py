@@ -18,6 +18,8 @@ import datetime
 import numpy as np
 import matplotlib.ticker as mticker
 import matplotlib.dates as mdates
+import create_HTMLmaps
+
 # secure socket layers
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -427,6 +429,7 @@ from PyQt5 import QtWebEngineWidgets
 
 if __name__ == "__main__":
     import sys
+    create_HTMLmaps.renew_html_maps()
     app = QtWidgets.QApplication(sys.argv)
     apply_stylesheet(app, theme='dark_teal.xml')
     MainWindow = QtWidgets.QMainWindow()
