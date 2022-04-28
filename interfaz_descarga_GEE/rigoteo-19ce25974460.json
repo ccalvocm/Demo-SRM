@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "rigoteo",
+  "private_key_id": "19ce259744601c81408778707d145b3cff3567a4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDMGO2wikAyWje4\nPD+AQDOA6hRD2wwXTGRdqywQe1w7YJwv049biribwiy/cWQW9UsOy9iWHybKBZcg\n7hWAwiSmqcD5rDiWHxr1i1Msg9H8ZybGOepNeecMyrYasFzmcZTwQlvl5hmvPWef\nzGQBq98Y7BB0n/j8Yt2ylgNfytNT68SXPKmtonv5SbpXo8RPUTYUhlHvkj8mpmHN\nzZmwltwhSFV6WIokmdvgxr/k075s0bfLL/GsFA3ONLy3cQ0ENXfemBq3LBoeDo7E\nmcH5BJmxwfes4KYSU/qI+/riLuzL3mXWkj2FBsOCw5Fs2lcowkdTTbOJWptRpWQO\niIGizZzBAgMBAAECggEABF2TVlxbeF6mCtwwpSCg0v57knv9kgRoFsZrhqq5oIRP\nf7v87AG9zLvmUyEsxktW4KkkwW+tiuxI43Zt1VEE+BLXdgx9/vZvw2LIhtvTwpwk\nn/oEwSvjVxdOHKhuREUxR1y6Z694fl9IESRaqA9Lq7yY5k9QEK3ySgVonkSE9d2I\nwz8TQ/G0DIhRIGI7wWTquAp93ISISLHjT9Q3qt0674blJCKXLtWjVm2MvjqCfGE/\nvUxdSHSJHK2r9sKTiDQmeE9d9QwkLO0F4nM9+sGq9BreoeapDJ2fml9KrOhue33n\n03YD22n3ZjoV2k3xDd0EC7VABuBxpbLrNonxt+rhRQKBgQDtZ+mRJcCUUUzXykRF\nxB+jNjIhGGUJNHO7R5DMtT6Y+WXkd0rY2ZBEZSWKX6qUPw0eGKlY5rz8pjRZnsIu\nraElscfs4H7GAxoNYXNEGbEL+kgZuCoSAzYrd2aFYmGNDCNTu5jmCOtyA54FkfqL\n6yjUvqNdp4mTV7NbPd1mGX4S4wKBgQDcFSqIguJhiCUNFbnnSnWGa9v4VeGReK+i\n0GUkhBxvbmhdPyYRv+l0jbGBF960/e7NBhx/IInONFAvcexb4F8EshWQMkMvKrKK\nUouMqj9ok4gffHUsD1vcSpTK92/WLN445oRxHqLlDoa5LwcQtZHLRqsKlP4dwWAP\n7UZc1LKPCwKBgQCbtVPUB1bP8KLdxaQRvhiiC6HFYyKhbu2ZH88w9I8h9jGGL1e/\n8rJUqaJ9p1FR+ii4XKR10qCRdNFRFnd19huDhZ8DFhsP9GjZ7diUCeW9XWJ8u/Wb\n6s9UovNy+JvSzus8uAYImkESfpzeOmiB7LLTFlY/zurE4PiaF3FmzcGK0QKBgDMD\nePtxkzXWT/hLe+7/1GQXJkLW7VVB6zxLH9aqBMlThz9t/s4IdP2+RlHNDaNYZP0D\nGKHjEe5JM/j7aDUXug6llNf6vpX1SLNFVPGDGPWNlPTvbV2MJdfXNcwiNLspZU09\nKZ/q4QlFJ7dPDk0yORwsQkNOq+SLyU+HyVKFPupnAoGAO5ys3PoSKe9tgMik5Ops\n2suL2x5wJ2Wcc/aFyilidNrcuftuL9KlWSYW/ut0hgr+kBGzNgF/ONVybU1n2Omk\nuukHZeyA3WVS95VQvJ59NNGfinK9ZZjMvmnGVXihmWst5ei2mu+tI9HyITY5CHYQ\nPUAlTtJLgKoEHvUPhk9TqKE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "rigoteo@rigoteo.iam.gserviceaccount.com",
+  "client_id": "104593170747154668260",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rigoteo%40rigoteo.iam.gserviceaccount.com"
+}
