@@ -25,9 +25,12 @@ from shapely.geometry.base import (BaseGeometry,
 import numpy as np
 import shapely as sh
 import datetime
+import ee
+service_account = 'srmearthenginelogin@srmlogin.iam.gserviceaccount.com'
+credentials = ee.ServiceAccountCredentials(service_account, '.\\interfaz_descarga_GEE\\srmlogin-96853123f9d3.json')
 
 def get_dataset_dates(dataset_str):
-    ee.Initialize()
+    ee.Initialize(credentials)
     collection = ee.ImageCollection(dataset_str)
     date_range = collection.reduceColumns(ee.Reducer.minMax(),
                                           ['system:time_start'])
@@ -129,7 +132,7 @@ def _(geometry: Polygon):
 import ee
 import pandas as pd
 import time
-ee.Initialize()
+ee.Initialize(credentials)
 import multigeometry
 import json
     
@@ -352,7 +355,7 @@ scales = {'GPM': 0.1 * 110 * 1000,
           'CFSV2_T2m': 0.2 * 110 * 1000}
 
 def point_sample(lon,lat,dataset_str,date1,date2,buffer=500):
-    ee.Initialize()
+    ee.Initialize(credentials)
     point = ee.Geometry.Point([lon,lat]).buffer(2500)
     collection = ee.ImageCollection(gee_names[dataset_str]).filterBounds(point)
     collectionF = collection.select(layers[dataset_str]).filterDate(date1,date2)
@@ -422,7 +425,7 @@ def point_sample(lon,lat,dataset_str,date1,date2,buffer=500):
 
 
 def polygon_sample(geometry,dataset_str,date1,date2):
-    ee.Initialize()
+    ee.Initialize(credentials)
     x = multigeometry.getPolyCoords(geometry, 'x')
     y = multigeometry.getPolyCoords(geometry, 'y')
     coords = np.dstack((x,y)).tolist()

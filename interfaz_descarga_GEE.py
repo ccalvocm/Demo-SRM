@@ -14,6 +14,9 @@ from matplotlib import pyplot as plt
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
 import ee
+service_account = 'srmearthenginelogin@srmlogin.iam.gserviceaccount.com'
+credentials = ee.ServiceAccountCredentials(service_account, '.\\interfaz_descarga_GEE\\srmlogin-96853123f9d3.json')
+ee.Initialize(credentials)
 
 class Ui_widget_test(object):
     def setupUi(self, widget_test):
@@ -224,7 +227,7 @@ class Ui_widget_test(object):
             aux_str_fecha1,
             aux_str_fecha2,
             simplify=0.3)
-        ee.Initialize()
+        ee.Initialize(credentials)
         gdf.to_csv(self.lineEdit_ruta_CSV.text())
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
