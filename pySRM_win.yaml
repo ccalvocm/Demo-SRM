@@ -25,6 +25,7 @@ dependencies:
  - descartes = 1.1.0
  - pygeos = 0.9
  - python-dateutil = 2.8.1
+ - pip
  - pip:
    - hydroeval==0.1.0
    - pyqt5-sip==4.19.18
