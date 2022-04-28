@@ -23,15 +23,10 @@
 2. Copiar y pegar el siguiente código en la ventana de Windows Powershell 
 
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-ExecutionPolicy Bypass -Scope Process -Force; $InstallDir='C:\ProgramData\chocoportable'; $env:ChocolateyInstall="$InstallDir"; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); mshta "about:<script>alert('Choco instalado correctamente, abrir una nueva ventana de Windows Powershell');close()</script>"
-```
-3. Abrir otra nueva ventana de Windows PowerShell <img src="https://raw.githubusercontent.com/ccalvocm/Hackathon_Fach/main/Imagenes/logoPS.png" height="6%" width="6%" >
-4. Copiar y pegar el siguiente código en la ventana de Windows Powershell
-```
-choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; choco install miniconda3 --params="'/AddToPath:1 /RegisterPython=1 /InstallationType:JustMe'" -y;  mshta "about:<script>alert('git instalado existosamente. Cierre esta ventana por favor.');close()</script>"
+Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-ExecutionPolicy Bypass -Scope Process -Force; $InstallDir='C:\ProgramData\chocoportable'; $env:ChocolateyInstall="$InstallDir"; Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User"); choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; choco install miniconda3 --params="'/AddToPath:1 /RegisterPython=1 /InstallationType:JustMe'" -y; mshta "about:<script>alert('git instalado correctamente, abrir una nueva ventana de Windows Powershell');close()</script>"
 ```
 
-5. Abrir otra ventana nueva de Windows Powershell y copiar el siguiente codigo.
+4. Abrir otra ventana nueva de Windows Powershell <img src="https://raw.githubusercontent.com/ccalvocm/Hackathon_Fach/main/Imagenes/logoPS.png" height="6%" width="6%" > y copiar el siguiente codigo.
 
 ```
 git clone --depth=1 https://github.com/ccalvocm/Demo-SRM.git; conda create -n pySRM python=3.8 -y; conda env update -n pySRM --file .\Demo-SRM\pySRM_win.yaml; mshta "about:<script>alert('Modelo SRM instalado exitosamente.');close()</script>"
