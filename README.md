@@ -29,9 +29,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
 
 
 ### Ejecución:
- 1. Esperar a que termine el ejecutable "Etapa 2.bat"
- 2. Navegar a la carpeta Demo-SRM
- 3. Presionar "interfaz_SRM.bat"
+ 1. Navegar a la carpeta Demo-SRM
+ 2. Presionar "interfaz_SRM.bat"
 
 ### Actualización:
  1. Para actualizar los archivos de SRM a la última versión entrar a la carpeta Demo-SRM
