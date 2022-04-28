@@ -26,8 +26,8 @@ import numpy as np
 import shapely as sh
 import datetime
 import ee
-service_account = 'rigoteo@rigoteo.iam.gserviceaccount.com'
-credentials = ee.ServiceAccountCredentials(service_account, '.\\interfaz_descarga_GEE\\rigoteo-19ce25974460.json')
+service_account = 'srmearthenginelogin@srmlogin.iam.gserviceaccount.com'
+credentials = ee.ServiceAccountCredentials(service_account, '.\\interfaz_descarga_GEE\\srmlogin-ec74c9d43705.json')
 ee.Initialize(credentials)
 
 def get_dataset_dates(dataset_str):

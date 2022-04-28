@@ -14,8 +14,8 @@ from matplotlib import pyplot as plt
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
 import ee
-service_account = 'rigoteo@rigoteo.iam.gserviceaccount.com'
-credentials = ee.ServiceAccountCredentials(service_account, '.\\interfaz_descarga_GEE\\rigoteo-19ce25974460.json')
+service_account = 'srmearthenginelogin@srmlogin.iam.gserviceaccount.com'
+credentials = ee.ServiceAccountCredentials(service_account, '.\\interfaz_descarga_GEE\\srmlogin-ec74c9d43705.json')
 ee.Initialize(credentials)
 
 class Ui_widget_test(object):
