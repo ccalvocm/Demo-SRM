@@ -28,8 +28,17 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
 3. Abrir otra nueva ventana de Windows PowerShell <img src="https://raw.githubusercontent.com/ccalvocm/Hackathon_Fach/main/Imagenes/logoPS.png" height="6%" width="6%" >
 4. Copiar y pegar el siguiente código en la ventana de Windows Powershell
 ```
-choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; choco install miniconda3 --params="'/AddToPath:1 /RegisterPython=1 /InstallationType:JustMe'" -y; git clone --depth=1 https://github.com/ccalvocm/Demo-SRM.git; conda create -n pySRM python=3.8 -y; conda env update -n pySRM --file .\Demo-SRM\pySRM_win.yaml; mshta "about:<script>alert('SRM instalado existosamente');close()</script>"
+choco install git.commandline -yfd; $sh = New-Object -ComObject "Wscript.Shell"; choco install miniconda3 --params="'/AddToPath:1 /RegisterPython=1 /InstallationType:JustMe'" -y;  mshta "about:<script>alert('git instalado existosamente. Cierre esta ventana por favor.');close()</script>"
 ```
+
+5. Abrir otra ventana nueva de Windows Powershell y copiar el siguiente codigo.
+
+```
+git clone --depth=1 https://github.com/ccalvocm/Demo-SRM.git; conda create -n pySRM python=3.8 -y; conda env update -n pySRM --file .\Demo-SRM\pySRM_win.yaml; mshta "about:<script>alert('Modelo SRM instalado exitosamente.');close()</script>"
+```
+
+6. Abrir el explorador de windows (tecla Windows + E), ubicar su carpeta de usuario (usualmente C:\Usuarios\SuNombredeUsuario), abrir la carpeta "Demo-SRM" y hacer doble en el archivo CNR-SRM.exe
+
 
 ### Ejecución:
  1. Esperar a que termine el ejecutable "Etapa 2.bat"
