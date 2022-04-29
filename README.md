@@ -12,12 +12,6 @@
  5. Presionar el ejecutable "Etapa 1.bat"
  6. Presionar el ejecutable "Etapa 2.bat"
  
-### Instalación con permisos de administrador (Windows 10):
- 1. Descargar el instalador ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
- 2. Descomprimir el archivo ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
- 3. Presionar el ejecutable "Etapa 1.bat"
- 4. Presionar el ejecutable "Etapa 2.bat"
-
 ### Instalación sin permisos de administrador (Windows 10):
 1. Abrir una ventana de Windows PowerShell <img src="https://raw.githubusercontent.com/ccalvocm/Hackathon_Fach/main/Imagenes/logoPS.png" height="6%" width="6%" >
 2. Copiar y pegar el siguiente código en la ventana de Windows Powershell:
@@ -27,21 +21,27 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
 ```
 3. Abrir el explorador de windows (tecla Windows + E), ubicar su carpeta de usuario (usualmente C:\Usuarios\SuNombredeUsuario), abrir la carpeta "Demo-SRM" y hacer doble click en el archivo CNR-SRM.exe
 
-### Ejecución:
+### Instalación con permisos de administrador (Windows 10):
+ 1. Descargar el instalador ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
+ 2. Descomprimir el archivo ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
+ 3. Presionar el ejecutable "Etapa 1.bat"
+ 4. Presionar el ejecutable "Etapa 2.bat"
+
+### Ejecución Interfaz del modelo SRM:
  1. Navegar a la carpeta Demo-SRM
  2. Presionar "CNR-SRM.exe"
 
+### Ejecución de la herramienta de descarga de clima
+ 1. Navegar a la carpeta Demo-SRM
+ 2. Presionar "interfaz_clima_GEE.exe"
+
 ### Actualización:
- 1. Para actualizar los archivos de SRM a la última versión entrar a la carpeta Demo-SRM
+ 1. Navegar a la carpeta Demo-SRM (o desde el escritorio)
  2. Presionar "Actualizar_SRM.exe"
 
 ### Desinstalación:
- 1. Entrar a la carpeta Demo-SRM
+ 1. Entrar a la carpeta Demo-SRM (o desde el escritorio)
  2. Presionar "Desinstalar_SRM.exe"
-
-### Contacto:
- - Felipe Arróspide: farrospide@ciren.cl
- - Carlos Calvo: ccalvo@ciren.cl
 
 ### Video tutorial de instalación:
 [![Watch the video](https://raw.githubusercontent.com/ccalvocm/Demo-SRM/main/thumbnails/Portada_video_instalacion.png)](https://cirencl-my.sharepoint.com/:v:/g/personal/ccalvo_ciren_cl/EV97xbfFNuFMgSetIpBZmRsBxy8K3y6UArHAYxkQ4N5ILA?e=lbw9hM)
@@ -51,4 +51,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
 
 ### Guía y manual de usuario:
 https://github.com/ccalvocm/Demo-SRM/blob/main/Manual_SRM/SRM_Manual_Usuario.pdf
+
+### Contacto:
+ - Felipe Arróspide: farrospide@ciren.cl
+ - Carlos Calvo: ccalvo@ciren.cl
 
