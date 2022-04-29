@@ -36,11 +36,11 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
  2. Presionar "interfaz_clima_GEE.exe"
 
 ### Actualización:
- 1. Navegar a la carpeta Demo-SRM (o desde el escritorio)
+ 1. Navegar a la carpeta Demo-SRM
  2. Presionar "Actualizar_SRM.exe"
 
 ### Desinstalación:
- 1. Entrar a la carpeta Demo-SRM (o desde el escritorio)
+ 1. Entrar a la carpeta Demo-SRM
  2. Presionar "Desinstalar_SRM.exe"
 
 ### Video tutorial de instalación:
