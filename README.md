@@ -27,18 +27,17 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
 ```
 3. Abrir el explorador de windows (tecla Windows + E), ubicar su carpeta de usuario (usualmente C:\Usuarios\SuNombredeUsuario), abrir la carpeta "Demo-SRM" y hacer doble click en el archivo CNR-SRM.exe
 
-
 ### Ejecución:
  1. Navegar a la carpeta Demo-SRM
- 2. Presionar "interfaz_SRM.bat"
+ 2. Presionar "CNR-SRM.exe"
 
 ### Actualización:
  1. Para actualizar los archivos de SRM a la última versión entrar a la carpeta Demo-SRM
- 2. Presionar "Actualizar SRM.bat"
+ 2. Presionar "Actualizar_SRM.exe"
 
 ### Desinstalación:
  1. Entrar a la carpeta Demo-SRM
- 2. Presionar "Desinstalar_SRM.bat"
+ 2. Presionar "Desinstalar_SRM.exe"
 
 ### Contacto:
  - Felipe Arróspide: farrospide@ciren.cl
