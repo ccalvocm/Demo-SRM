@@ -16,7 +16,7 @@
  6. Presionar el ejecutable "Etapa 2.bat"
  
 ### Instalación sin permisos de administrador (Windows 10):
-1. Abrir una ventana de Windows PowerShell (CTRL+X y persionar Windows Powershell) <img src="https://raw.githubusercontent.com/ccalvocm/Hackathon_Fach/main/Imagenes/logoPS.png" height="5%" width="5%" >
+1. Abrir una ventana de Windows PowerShell (Ctrl+x y persionar Windows Powershell) <img src="https://raw.githubusercontent.com/ccalvocm/Hackathon_Fach/main/Imagenes/logoPS.png" height="5%" width="5%" >
 2. Copiar y pegar el siguiente código en la ventana de Windows Powershell:
 
 ```
