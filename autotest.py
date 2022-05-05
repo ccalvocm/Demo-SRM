@@ -76,6 +76,8 @@ def run_pySRM(path, tipo = 'P'):
             print('Imágenes reproyectadas')
         
         process_MODIS.main(folder, yr)
+        parent_dir = os.path.abspath(os.path.join(path, '..', '..'))
+        os.chdir(parent_dir)
         # Termina proceso Prepare_Modis
         # progressbar.setValue(2)
         # progress = [progress, 'Intersectando MODIS con la subcuenca']
