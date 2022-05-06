@@ -212,21 +212,6 @@ def snow_forecast(root):
             # guardar el pronóstico
             master.loc[idx2,col+'.1'] = pronostico_glaciares.iloc[:len(idx2)].values
     
-    # # completar los parametros que faltan del predictivo
-    # par = [x for x in master.columns if ('Zone' not in x) & ('Pp_' not in x) & ('T_' not in x) & ('Measured Discharge' not in x)]
-    # last_par = master['Recess_X']
-    # last_par.dropna(inplace = True)
-    
-    # # completar los parametros del predictivo junto a los dias de años bisiestos
-    # idx_missing = pd.date_range(last_par.index[-1]+datetime.timedelta(days = 1), master.index[-1], freq = '1d' )
-    # feb_bisiesto = [f for f in idx_missing if (f.month == 2) & (f.day == 29)]
-    # for date in idx_missing:
-    #     master.loc[date, par] = master.loc[pd.to_datetime(str(date.year-1)+'-'+str(date.month)+'-'+str(date.day)), par].values
-    # for feb in feb_bisiesto:
-    #     master.loc[feb, par] = master.loc[feb-datetime.timedelta(days = 1), par]
-    
-    # master = master.reset_index(drop = True)
-    # master.index = master.index+1
     master[cols_SCA] = master[cols_SCA].fillna(0)
     master[cols_GCA] = master[cols_GCA].fillna(0)
    

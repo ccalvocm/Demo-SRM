@@ -320,13 +320,9 @@ class Ui_MainWindow(object):
         path_resultados = os.path.join(path_completo,'SRM','Resultados')
         sufijo = var_aux.dic_paths[current_subcuenca][1]
 
-        print(path_resultados)
         files = [x for x in os.listdir(path_resultados) if (x.startswith("Qsim_")) & (x.endswith(".csv"))]
         files_parsed = [os.path.join(path_resultados,x) for x in files]
         path_caudal_simulado = max(files_parsed, key = os.path.getctime)
-        # path_caudal_simulado = os.path.join(path_resultados,
-        #                                     'Qsim_'+sufijo+'.csv')
-        print(path_caudal_simulado)
         
         try:    
             
@@ -338,8 +334,7 @@ class Ui_MainWindow(object):
             plot_ini = '2000-01-01'
         
             # cargar el master y su información
-            master = pd.read_csv(os.path.join(path_completo,'SRM','Inputs',r'Master.csv'), index_col = 0, parse_dates = True)
-                    
+            master = pd.read_csv(os.path.join(path_completo,'SRM','Inputs',r'Master.csv'), index_col = 0, parse_dates = True)                  
  
             #######################################
             #         graficar predictivo         #
@@ -348,7 +343,8 @@ class Ui_MainWindow(object):
             years = [x.year for x in master.index]
             years = list(dict.fromkeys(years))
             years = [x for x in years if str(x) != 'nan']
-            plot_ini = pd.to_datetime(str(years[-2])+'-04-01')
+            yr_last = max(years[-2],datetime.date.today().year)
+            plot_ini = pd.to_datetime(str(yr_last)+'-04-01')
     
             # Qforecast
             Qfor = pd.read_csv(path_caudal_simulado,
@@ -361,9 +357,6 @@ class Ui_MainWindow(object):
             last_year = Days_xticks[-1].year 
             first_year = Days_xticks[0].year 
             
-            # formatear fechas
-            # myFmt = mdates.DateFormatter('%d-%m-%Y')
-                                
             # plot relative runoffs
             fig = plt.figure(figsize=(18 , 12))
             ax = fig.add_subplot(2,1,1)
