@@ -106,6 +106,8 @@ def run_pySRM(path, tipo = 'P'):
 if __name__ == '__main__':
     # directorio de la cuenca
     folder = os.path.abspath(os.path.join('.','01_Maipo','01_RMELA'))
+    folder = os.path.abspath(os.path.join('.','04_Maule','01_RMEA'))
+
     
     run_pySRM(folder, tipo = 'P')
     

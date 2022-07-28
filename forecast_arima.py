@@ -140,7 +140,9 @@ if __name__ == '__main__':
             'Demo-SRM','04_Maule','01_RMEA',
             'Temperatura', 'temperatura_actual.csv']
     
-    path_dataset = os.path.join(*path)
+    path_dataset = r'G:\Demo-SRM\04_Maule\01_RMEA\Temperatura\temperatura_actual.csv'
+    
+    # path_dataset = os.path.join(*path)
     
     forecast_dataframe_file(path_dataset)
     

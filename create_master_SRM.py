@@ -229,8 +229,9 @@ def SRM_master(folder):
     if os.path.isfile(os.path.join(root, 'Inputs', r'Master.csv')):
 
         # último archivo predictivo
-        master_val = pd.read_csv(os.path.join(
-            root, 'Inputs', r'Master.csv'), index_col=0, parse_dates=True)
+        master_val = pd.read_csv(os.path.join(root, 
+'Inputs', r'Master.csv'), index_col=0, parse_dates=True)
+        master_val=master_val.loc[master_val.index<=pd.to_datetime(datetime.date.today())]
 
     else:
         # si es la primera simulacion predictiva, comenzar desde los datos del modelo validado
