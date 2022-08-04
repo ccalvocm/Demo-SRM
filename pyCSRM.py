@@ -326,7 +326,10 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     # this code considers Snowmelt and precipitation to have separate timelags        
     tol = 1
     i = 1
-    while (tol >= .2) & (i < 2e0):
+    itera=2e0
+    if '02_RMEEM' in folder:
+        itera=2e1
+    while (tol >= .2) & (i < itera):
         
         # calcular el caudal total simulado
         loopQtotalCython.loopQtotal(0, Days, nZones, apPluv, k, X, Qtot, Y, baseflow_, tls, tlr, Qsnow, Qnewsnow, Qglacial, Qrain)
