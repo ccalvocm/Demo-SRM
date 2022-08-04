@@ -136,11 +136,12 @@ def forecast_dataframe_file(path):
     
 if __name__ == '__main__':
     
-    path = ['/Users', 'felipearrospide','Documents','GitHub',
-            'Demo-SRM','04_Maule','01_RMEA',
-            'Temperatura', 'temperatura_actual.csv']
+    # path = ['/Users', 'felipearrospide','Documents','GitHub',
+    #         'Demo-SRM','04_Maule','01_RMEA',
+    #         'Temperatura', 'temperatura_actual.csv']
     
-    path_dataset = r'G:\Demo-SRM\04_Maule\01_RMEA\Temperatura\temperatura_actual.csv'
+    # path_dataset = r'G:\Demo-SRM\04_Maule\01_RMEA\Temperatura\temperatura_actual.csv'
+    path_dataset=r'G:\Demo-SRM\01_Maipo\02_RMEEM\Temperatura\temperatura_actual.csv'
     
     # path_dataset = os.path.join(*path)
     
