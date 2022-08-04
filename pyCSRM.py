@@ -328,7 +328,7 @@ def DEVELOP_SRM(folder, type_, alpha = 0.959, Tcrit = 1):
     i = 1
     itera=2e0
     if '02_RMEEM' in folder:
-        itera=2e1
+        itera=3e0
     while (tol >= .2) & (i < itera):
         
         # calcular el caudal total simulado

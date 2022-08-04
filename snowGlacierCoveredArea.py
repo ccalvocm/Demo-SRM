@@ -400,7 +400,7 @@ def main(root_MODIS, yeari):
             
             # loop recursivo para reconstruir varios días nublados considerando los datos desde 2000 y hasta 2021
             # Buscar hasta 1 semana de acuerd con con CNR (2015)
-            if (year > 2000) & ((year < 2021) & (m < len(lista_modis)-7)):
+            if (year > 2000) & ((year < datetime.date.today().year) & (m < len(lista_modis)-7)):
                 k = 1
                 while ((len(newarr) <= size_modis) & (k < 6)):
                       # MODIS del día siguiente, parto por siguiente porque cuando se pierde la data es durante 
@@ -513,36 +513,12 @@ def main(root_MODIS, yeari):
         indice = pd.date_range(str(year)+'-01-01',str(year)+'-12-31',freq = '1d')
         snow_cover.index = indice
         glacial_cover.index = indice
-    
-        #% plots    
-        # plt.close("all")
-        # fig , ax = plt.subplots(5,5)
-        # ax = ax.reshape(-1)
-        
-        # for i,axis in enumerate(snow_cover.columns):
-        #     snow_cover.iloc[:,i].plot(ax = ax[i])
-        #     ax[i].set_ylim(bottom = 0, top = 1)    
-        #     ax[i].set_ylabel('Cob. nival') 
-        #     for tick in ax[i].xaxis.get_major_ticks():
-        #         tick.label.set_fontsize(8)
-        # for i in range(19,25):
-        #     fig.delaxes(ax[i])
-            
-        # # plot glacier
-        # fig , ax = plt.subplots(5,5)
-        # ax = ax.reshape(-1)
-        
-        # for i,axis in enumerate(snow_cover.columns):
-        #     glacial_cover.iloc[:,i].plot(ax = ax[i])
-        #     ax[i].set_ylim(bottom = 0, top = 1)    
-        #     ax[i].set_ylabel('Cob. nival') 
-        #     for tick in ax[i].xaxis.get_major_ticks():
-        #         tick.label.set_fontsize(8)
-        # for i in range(19,25):
-        #     fig.delaxes(ax[i])
         
         snow_cover.iloc[dia:,:] = np.nan
         glacial_cover.iloc[dia:,:] = np.nan
+        
+        snow_cover[snow_cover>1]=1.0
+        glacial_cover[glacial_cover>1]=1.0
     
         #%% guardar el df de coberturas nivales y glaciares
        
