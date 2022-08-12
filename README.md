@@ -24,14 +24,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
 ```
 3. Abrir el explorador de windows (tecla Windows + E), ubicar su carpeta de usuario (usualmente C:\Usuarios\SuNombredeUsuario), abrir la carpeta "Demo-SRM" y hacer doble click en el archivo CNR-SRM_safe.exe
 
-
-
-### Instalación con permisos de administrador (Windows 10):
- 1. Descargar el instalador ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
- 2. Descomprimir el archivo ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
- 3. Presionar el ejecutable "Etapa 1.bat"
- 4. Presionar el ejecutable "Etapa 2.bat"
-
 ### Ejecución Interfaz del modelo SRM:
  1. Navegar a la carpeta Demo-SRM
  2. Presionar "CNR-SRM_safe.exe"
