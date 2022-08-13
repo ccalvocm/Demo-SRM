@@ -17,7 +17,6 @@ def list_folders(directory):
     return folders
 
 def list_hdf(directory):
-    # files = [f for f in listdir(directory) if (isfile(join(directory, f))) & (f.endswith('.hdf') | f.endswith('.tif'))]
     files = [f for f in listdir(directory) if (isfile(join(directory, f))) & (f.endswith('.tif'))]
     return files
 

@@ -63,20 +63,19 @@ def run_pySRM(path, tipo = 'P'):
     # msg.setText(progress)
     
     # msg.exec_()
-    # yrs = check_download_MODIS.main(folder)
-    yrs=[int(datetime.date.today().year)]
+    yrs = check_download_MODIS.main(folder)
     # Termina proceso check download MODIS
     # progressbar.setValue(1)
     for yr in yrs:
         # reproyectar
-        # print('Reproyectando nuevas imágenes MODIS')
-        # try:
-        #     nasa_new_win.Prepare_MODIS(folder,yr)
+        print('Reproyectando nuevas imágenes MODIS')
+        try:
+            nasa_new_win.Prepare_MODIS(folder,yr)
     
-        # except:
-        #     print('Imágenes reproyectadas')
+        except:
+            print('Imágenes reproyectadas')
         
-        # process_MODIS.main(folder, yr)
+        process_MODIS.main(folder, yr)
         parent_dir = os.path.abspath(os.path.join(path, '..', '..'))
         os.chdir(parent_dir)
         # Termina proceso Prepare_Modis

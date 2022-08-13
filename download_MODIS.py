@@ -136,15 +136,13 @@ def get_username():
         do_input = input
 
     while not username:
-        # username = do_input('Earthdata username: ')
-        username = 'ccalvocm'
+        username = 'srmdown'
     return username
 
 
 def get_password():
     password = ''
     while not password:
-        # password = getpass('password: ')
         password = 'Ciren2021'
     return password
 
