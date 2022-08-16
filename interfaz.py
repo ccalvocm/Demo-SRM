@@ -422,7 +422,7 @@ from PyQt5 import QtWebEngineWidgets
 
 if __name__ == "__main__":
     import sys
-    #create_HTMLmaps.renew_html_maps()
+    create_HTMLmaps.renew_html_maps()
     app = QtWidgets.QApplication(sys.argv)
     apply_stylesheet(app, theme='dark_teal.xml')
     MainWindow = QtWidgets.QMainWindow()
