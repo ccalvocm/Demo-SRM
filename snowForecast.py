@@ -13,7 +13,6 @@ from statsmodels.tsa.arima.model import ARIMA
 from dateutil.relativedelta import relativedelta
 import os
 import numpy as np
-import pmdarima as pm
 import hydroeval
 import warnings
 warnings.filterwarnings('ignore')
