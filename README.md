@@ -4,15 +4,7 @@
 ### Requisitos:
  Puerto 443 abierto  
  OS Windows   
- 
-### Instalación (Windows 7):
- 1. Instalar Powershell 3 desde el siguiente enlace: [Powershell 3](https://download.microsoft.com/download/E/7/6/E76850B8-DA6E-4FF5-8CCE-A24FC513FD16/Windows6.1-KB2506143-x64.msu) 
- 2. Instalar .NET Framework 4+ desde el siguiente enlace: [Net Framework](https://go.microsoft.com/fwlink/?linkid=2088632)
- 3. Descargar el instalador ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
- 4. Descomprimir el archivo ["instalarSRM.zip"](https://github.com/ccalvocm/Demo-SRM/raw/main/instalarSRM.zip)
- 5. Presionar el ejecutable "Etapa 1.bat"
- 6. Presionar el ejecutable "Etapa 2.bat"
- 
+  
 ### Instalación sin permisos de administrador (Windows 10):
 1. Abrir una ventana de Windows PowerShell (Ctrl+x y persionar Windows Powershell) <img src="https://raw.githubusercontent.com/ccalvocm/Hackathon_Fach/main/Imagenes/logoPS.png" height="5%" width="5%" >
 2. Copiar y pegar el siguiente código en la ventana de Windows Powershell:
