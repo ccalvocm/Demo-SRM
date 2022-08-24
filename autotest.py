@@ -63,7 +63,10 @@ def run_pySRM(path, tipo = 'P'):
     # msg.setText(progress)
     
     # msg.exec_()
-    yrs = check_download_MODIS.main(folder)
+    try:
+        yrs = check_download_MODIS.main(folder)
+    except:
+        yrs=[datetime.date.today().year]
     # Termina proceso check download MODIS
     # progressbar.setValue(1)
     for yr in yrs:
