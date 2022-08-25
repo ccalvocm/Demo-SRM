@@ -14,6 +14,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
 ```
 3. Abrir el explorador de windows (tecla Windows + E), ubicar su carpeta de usuario (usualmente C:\Usuarios\SuNombredeUsuario), abrir la carpeta "Demo-SRM" y hacer doble click en el archivo CNR-SRM_safe.exe
 
+### Actualización:
+ 1. Navegar a la carpeta Demo-SRM
+ 2. Presionar "Actualizar_SRM_safe.exe"
+ 
 ### Ejecución Interfaz del modelo SRM:
  1. Navegar a la carpeta Demo-SRM
  2. Presionar "CNR-SRM_safe.exe"
@@ -21,10 +25,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::Sec
 ### Ejecución de la herramienta de descarga de clima
  1. Navegar a la carpeta Demo-SRM
  2. Presionar "interfaz_clima_GEE_safe.exe"
-
-### Actualización:
- 1. Navegar a la carpeta Demo-SRM
- 2. Presionar "Actualizar_SRM_safe.exe"
 
 ### Desinstalación:
  1. Entrar a la carpeta Demo-SRM
