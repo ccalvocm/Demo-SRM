@@ -40,8 +40,7 @@ def get_dataset_dates(dataset_str):
     jsondate1 = ee.Date(date_range.get('min'))
     jsondate2 = ee.Date(date_range.get('max'))
     
-    pydate1 = datetime.datetime.\
-        utcfromtimestamp(jsondate1.getInfo()['value']/1000.0)
+    pydate1 = datetime.datetime(1979,1,1)
     pydate2 = datetime.datetime.\
         utcfromtimestamp(jsondate2.getInfo()['value']/1000.0)
     
@@ -163,8 +162,12 @@ dic_shp_cuenca = {'Maipo': {'MLAL': 'MLAL_EB_250_Dissolved.shp',
 
 gee_names = {'GPM': "NASA/GPM_L3/IMERG_V06",
                  'PERSIANN': "NOAA/PERSIANN-CDR",
-                 'ERA5dayP': "ECMWF/ERA5/DAILY",
-                 'ERA5dayT': "ECMWF/ERA5/DAILY",
+                 'ERA5dayP': "ECMWF/ERA5_LAND/DAILY_RAW",
+                 'ERA5dayT': "ECMWF/ERA5_LAND/DAILY_RAW",
+                 'ERA5daySnowCover' : 'ECMWF/ERA5_LAND/DAILY_RAW"',
+                 'ERA5daySWE': 'ECMWF/ERA5_LAND/DAILY_RAW"',
+                 'ERA5daySnowAlbedo':'ECMWF/ERA5_LAND/DAILY_RAW"',
+                 'snow_cover': "ECMWF/ERA5_LAND/DAILY_RAW",
                  'ERA5hourT2m': 'ECMWF/ERA5_LAND/HOURLY',
                  'ERA5hourly_snow_density': 'ECMWF/ERA5_LAND/HOURLY',
                  'ERA5hourly_SWE': 'ECMWF/ERA5_LAND/HOURLY',
@@ -202,14 +205,17 @@ dic_productos = {'GPM': {'name': 'Global Precipitation Measurement (GPM) v6',
                                   'NOAA_PERSIANN-CDR_sample.png'},
                  'ERA5_daily': {'name': 'ERA5 Daily Aggregates - Latest Climate Reanalysis Produced by ECMWF / Copernicus Climate Change Service',
                                 'sigla': 'ERA5',
-                                'snippet': 'ECMWF/ERA5/DAILY',
+                                'snippet': 'ECMWF/ERA5_LAND/DAILY_RAW',
                                 # 'dates': ['1979-01-02', '2020-07-09'],
-                                'dates': get_dataset_dates('ECMWF/ERA5/DAILY'),
-                                'scale': 0.25 * 110 * 1000,
+                                'dates': get_dataset_dates('ECMWF/ERA5_LAND/DAILY_RAW'),
+                                'scale': 0.1 * 110 * 1000,
                                 'tres': 'daily',
-                                'variables': {'pr': 'total_precipitation',
-                                              't2m': 'mean_2m_air_temperature',
-                                              'pres': 'surface_pressure'},
+                                'variables': {'pr': 'total_precipitation_sum',
+                                              't2m': 'temperature_2m',
+                                              'pres': 'surface_pressure',
+                                              'SnowCover' : 'snow_cover',
+                                              'SWE': 'snow_depth_water_equivalent',
+                                              'SnowAlbedo':'snow_albedo'},
                                 'img_preview': img_path + \
                                     'ECMWF_ERA5_DAILY_sample.png'},
                  'ERA5_hourly': {'name': 'ERA5-Land Hourly - ECMWF Climate Reanalysis',
@@ -320,8 +326,11 @@ dates = {'GPM': ['2000-06-01','2021-07-30'],
 
 layers = {'GPM': 'precipitationCal',
           'PERSIANN': 'precipitation',
-          'ERA5dayP': 'total_precipitation',
-          'ERA5dayT': 'mean_2m_air_temperature',
+          'ERA5dayP': 'total_precipitation_sum',
+          'ERA5dayT': 'temperature_2m',
+          'ERA5daySnowCover' : 'snow_cover',
+          'ERA5daySWE': 'snow_depth_water_equivalent',
+          'ERA5daySnowAlbedo':'snow_albedo',
           'ERA5hourT2m': 'temperature_2m',
           'ERA5hourly_snow_density': 'snow_density',
           'ERA5hourly_SWE': 'snow_depth_water_equivalent',
@@ -340,8 +349,8 @@ layers = {'GPM': 'precipitationCal',
 
 scales = {'GPM': 0.1 * 110 * 1000,
           'PERSIANN': 0.25 * 110 * 1000,
-          'ERA5dayP': 0.25 * 110 * 1000,
-          'ERA5dayT': 0.25 * 110 * 1000,
+          'ERA5dayP': 0.1 * 110 * 1000,
+          'ERA5dayT': 0.1 * 110 * 1000,
           'ERA5hourT2m': 0.1 * 110 * 1000,
           'ERA5hourly_snow_density': 0.1 * 110 * 1000,
           'ERA5hourly_SWE': 0.1 * 110 * 1000,
