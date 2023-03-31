@@ -36,7 +36,7 @@ import snowGlacierCoveredArea
 import datetime
 import create_master_SRM
 import pyCSRM
-from PyQt5.QtCore import QThread, pyqtSignal
+from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from PyQt5.QtCore import Qt
 import ssl

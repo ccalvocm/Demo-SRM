@@ -243,7 +243,7 @@ def SRM_master(folder):
 
     # extender el archivo master de validacion
     idx = pd.date_range(
-        master_val.index[-1]+datetime.timedelta(days=1), df_n.index[-1], freq='1d')
+    master_val.index[-1]+datetime.timedelta(days=1),df_n.index[-1],freq='1d')
     complemento = pd.DataFrame([], index=idx, columns=master_val.columns)
     master_val = master_val.append(complemento)
 

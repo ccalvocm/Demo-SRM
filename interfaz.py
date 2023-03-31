@@ -343,7 +343,7 @@ class Ui_MainWindow(object):
             years = [x.year for x in master.index]
             years = list(dict.fromkeys(years))
             years = [x for x in years if str(x) != 'nan']
-            yr_last = max(years[-2],datetime.date.today().year)
+            yr_last = max(years[-2],datetime.date.today().year-1)
             plot_ini = pd.to_datetime(str(yr_last)+'-04-01')
     
             # Qforecast
@@ -422,7 +422,7 @@ from PyQt5 import QtWebEngineWidgets
 
 if __name__ == "__main__":
     import sys
-    #create_HTMLmaps.renew_html_maps()
+#    create_HTMLmaps.renew_html_maps()
     app = QtWidgets.QApplication(sys.argv)
     apply_stylesheet(app, theme='dark_teal.xml')
     MainWindow = QtWidgets.QMainWindow()
