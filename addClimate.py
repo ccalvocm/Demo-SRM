@@ -1,3 +1,5 @@
+import forecast_arima
+
 class dataset(object):
     import pandas as pd
     def __init__(self,path):
@@ -39,8 +41,10 @@ class dataset(object):
         df.loc[dfActual.index,:]=dfActual.values
         df.loc[df2023.index,:]=df2023.values
         df=self.autocompleteCol(df)
-        df.to_csv('.',self.path,'Precipitacion',
-                                    'precipitacion_actual.csv'))
+        path_dataset=os.path.join('.',self.path,'Precipitacion',
+                                    'precipitacion_actual.csv')
+        df.to_csv(path_dataset)
+        forecast_arima.forecast_dataframe_file(path_dataset)
         return None
     
     def resampleT(self,df):
@@ -63,7 +67,17 @@ class dataset(object):
         df.loc[dfActual.index,:]=dfActual.values
         df.loc[df2023.index,:]=df2023.values
         df=self.autocompleteCol(df)
-        df.to_csv('.',self.path,'Temperatura',
-                                    'temperatura_actual.csv'))
+        path_dataset=os.path.join('.',self.path,'Temperatura',
+                                    'temperatura_actual.csv')
+        df.to_csv(path_dataset)
+        forecast_arima.forecast_dataframe_file(path_dataset)
         return None
+
+def main():
+    dataSet=dataset(r'01_Maipo\02_RMEEM')
+    dataSet.fillPp()
+    dataSet.fillTemp
     
+
+if __name__=='__main__':
+    main()
